@@ -121,7 +121,7 @@
   };
 </script>
 
-  <title>Archiv | Hexo</title>
+  <title>Archive | Hexo</title>
   
 
 
@@ -189,7 +189,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Navigationsleiste an/ausschalten">
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -357,7 +357,7 @@
         
           
         
-        Öhm..! Insgesamt 2 Artikel. Bleib dran.
+        Um..! 2 posts in total. Keep on posting.
       </span>
       
 
@@ -486,7 +486,7 @@
                   <a href="/archives">
                 
                     <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -569,7 +569,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -577,7 +577,7 @@
 
 
 
-  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
 
 
 
@@ -808,7 +808,7 @@
   $('.highlight').each(function(i, e) {
     var $wrap = $('<div>').addClass('highlight-wrap');
     $(e).after($wrap);
-    $wrap.append($('<button>').addClass('copy-btn').append('Kopieren').on('click', function(e) {
+    $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
       var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
         return $(e).text();
       }).toArray().join('\n');
@@ -825,15 +825,15 @@
       ta.readOnly = false;
       var result = document.execCommand('copy');
       
-        if (result) $(this).text('Kopiert');
-        else $(this).text('Kopieren fehlgeschlagen');
+        if (result) $(this).text('Copied');
+        else $(this).text('Copy failed');
       
       ta.blur(); // For iOS
       $(this).blur();
     })).on('mouseleave', function(e) {
       var $b = $(this).find('.copy-btn');
       setTimeout(function() {
-        $b.text('Kopieren');
+        $b.text('Copy');
       }, 300);
     }).append(e);
   })
