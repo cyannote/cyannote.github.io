@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>多表查询 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="多表查询1 修改MySQL密码​    a: 关闭mySQL服务​    b: 打开cmd窗口, 输入mysqld  –skip-grant-tables (不要关闭此页面)​    c: 再打开一个cmd窗口,正常登陆,要输入密码时,回车跳过​    d: 进入mysql ,use mysql数据库,update user set password = password(‘新密码’) where">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多表查询">
+<meta property="og:url" content="http://cyannote.github.io.git/多表查询/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="多表查询1 修改MySQL密码​    a: 关闭mySQL服务​    b: 打开cmd窗口, 输入mysqld  –skip-grant-tables (不要关闭此页面)​    c: 再打开一个cmd窗口,正常登陆,要输入密码时,回车跳过​    d: 进入mysql ,use mysql数据库,update user set password = password(‘新密码’) where">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1558490610522.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1558490661152.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558491166063.png">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558492004088.png">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558492510616.png">
+<meta property="og:updated_time" content="2019-07-21T07:39:00.184Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多表查询">
+<meta name="twitter:description" content="多表查询1 修改MySQL密码​    a: 关闭mySQL服务​    b: 打开cmd窗口, 输入mysqld  –skip-grant-tables (不要关闭此页面)​    c: 再打开一个cmd窗口,正常登陆,要输入密码时,回车跳过​    d: 进入mysql ,use mysql数据库,update user set password = password(‘新密码’) where">
+<meta name="twitter:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>33</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-多表查询" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/多表查询/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:08:51.468Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      多表查询
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h1><h2 id="1-修改MySQL密码"><a href="#1-修改MySQL密码" class="headerlink" title="1 修改MySQL密码"></a>1 修改MySQL密码</h2><p>​    a: 关闭mySQL服务<br>​    b: 打开cmd窗口, 输入mysqld  –skip-grant-tables (不要关闭此页面)<br>​    c: 再打开一个cmd窗口,正常登陆,要输入密码时,回车跳过<br>​    d: 进入mysql ,use mysql数据库,update user set password = password(‘新密码’) where user = ‘root’<br>​    f:在任务管理器中结束掉mysqld的进程,再启动mysql服务</p>
+<h2 id="2-备份和还原数据库"><a href="#2-备份和还原数据库" class="headerlink" title="2 备份和还原数据库"></a>2 备份和还原数据库</h2><p>​    备份数据库:<br>​        mysqldump -u root -p  数据库名  &gt;  存储路径(绝对路径)<br>​    还原数据库<br>​        外部: mysql -u root -p 存储路径&lt; 数据库</p>
+<p>​        内部: use 数据库; source 本地存储路径</p>
+<h2 id="3-多表关系"><a href="#3-多表关系" class="headerlink" title="3 多表关系"></a>3 多表关系</h2><p>​    外键    foreign key</p>
+<pre><code>添加外键语法:    alter table 表名1 add foreign key(外键名称) references 表名2(主键名称)</code></pre><h2 id="4-三种表关系"><a href="#4-三种表关系" class="headerlink" title="4 三种表关系"></a>4 三种表关系</h2><h3 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h3><p>​        在多的一方建立外键 指向一方的主键        </p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002.jpg" alt="clip_image002"></p>
+<h3 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h3><p>​        建立中间表 存储外键分别指向其他表的主键</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1558490610522.jpg" alt="clip_image002-1558490610522"></p>
+<h3 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h3><p>​    唯一外键对应</p>
+<p>​        假设是一对多，在多的一方创建外键指向一的一方的主键，将外键设置为unique。<br>​    主键对应<br>​        将两个表的主键建立对应关系即可。</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1558490661152.jpg" alt="clip_image002-1558490661152"></p>
+<h2 id="5-多表查询语法"><a href="#5-多表查询语法" class="headerlink" title="5 多表查询语法"></a>5 多表查询语法</h2><pre><code>交叉连接查询: 查询出来的是两张表的每一条记录进行匹配的结果 会出现笛卡尔积
+    select * from tb1 cross join tb2;
+    select * from tb1 , tb2;
+
+内连接:
+    select * from tb1 inner join tb2 on 条件; 显示内连接
+    select * from tb1 , tb2 where 条件; 隐式内连接
+
+外连接:
+    左外连接 select * from tb1 left outer join tb2 on 条件;    查询左表所有和两张表的共有部分
+    右外连接 select * from tb1 right outer join tb2 on 条件;    查询右表所有和两张表的共有部分</code></pre><h2 id="6-子查询"><a href="#6-子查询" class="headerlink" title="6 子查询"></a>6 子查询</h2><p>子查询:一条select语句的执行依赖于另一条select语句</p>
+<pre><code>select * from 表名 in/exists/all/any (select *...)
+
+in(...)            在(...)范围内
+exists(...)        若(...)存在查询结果,就执行select语句
+all(...)        所有
+any(...)        任一</code></pre><h2 id="7-练习题"><a href="#7-练习题" class="headerlink" title="7 练习题"></a>7 练习题</h2><p> 计算企业每年营业额的增长率</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558491166063.png" alt="1558491166063"></p>
+<p>思路:</p>
+<p>年营业额增长率 = (本年营业额 - 上年营业额) / 上年营业额 * 100%</p>
+<p>关键在于如何同时获取本年营业额和上年营业额</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 将该表获取两次,筛选出本年营业额和上年营业额处于一行的数据</span><br><span class="line">--	使用左外连接 是由于第一年的营业额没有对应的上年营业额,它的增长率应为0%,为了保证数据的完整性,采用此方法.</span><br><span class="line">SELECT * FROM income i1 LEFT JOIN income i2 ON i1.year = i2.year + 1</span><br></pre></td></tr></table></figure>
+
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558492004088.png" alt="1558492004088"></p>
+<p>round()对数据进行取整</p>
+<p>concat()拼接数据</p>
+<p>ifnull() 对数据为null时,进行处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT i1.*,IFNULL(CONCAT(ROUND((i1.zz -i2.zz)/i2.zz*100),&apos;%&apos;),&apos;0%&apos;) AS 增长率 FROM income i1 LEFT JOIN income i2 ON i1.year = i2.year + 1</span><br></pre></td></tr></table></figure>
+
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558492510616.png" alt="1558492510616"></p>
+<h2 id="8-事务"><a href="#8-事务" class="headerlink" title="8 事务"></a>8 事务</h2><p>事务: 指的是逻辑上的一组操作，组成这组操作的各个逻辑单元，要么全都成功，要么全都失败。</p>
+<pre><code>事务特性:
+    原子性/一致性/隔离性/持久性
+    原子性: 组成事务的各个逻辑单元不可分割。
+    一致性:事务执行的前后,数据完整性保持一致
+    隔离性:事务执行过程中,应不受其他事务的干扰
+    持久性:事务一旦结束，数据就持久化到数据库中。
+
+如果不考虑事务的隔离级别 在进行操作时有可能出现问题:
+    脏读/不可重复读/虚读
+
+事务隔离级别的设置: 
+set session isolation transaction level 事务隔离级别
+查询事务级别:
+    select @@tx_isolation;
+
+事务可以设置的隔离级别:
+    read uncommitted    读未提交
+    read committed        读已提交
+    repeatable read        可重复读
+    serializable        串行化</code></pre><p>​    行列转置</p>
+<p>利用聚合函数group by</p>
+<p>max(case sname when’英语’ then score else 0 end)as “英语”</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/多表查询/" data-id="cjycojogf0002wo7kylvebwal" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/代理模式和注解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          代理模式和注解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/反射学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">反射学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Hexo</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>33</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/cyannote" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 inverse<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

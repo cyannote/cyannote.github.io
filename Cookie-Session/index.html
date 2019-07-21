@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Cookie&amp;Session | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Cookie&amp;amp;Session1. 什么是会话?会话简单理解为：用户打开一个浏览器，点击多个超链接访问服务器的web资源，然后关闭浏览器，整个过程称为是一次会话。 2. 会话技术分类2.1 Cookie技术Cookie是客户端技术，程序把每个用户的数据以cookie的形式保存到各自浏览器中。当用户使用浏览器再次访问服务器中的web资源的时候，就会带着各自的数据过去。这样，web资源处理的就是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie&amp;Session">
+<meta property="og:url" content="http://cyannote.github.io.git/Cookie-Session/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Cookie&amp;amp;Session1. 什么是会话?会话简单理解为：用户打开一个浏览器，点击多个超链接访问服务器的web资源，然后关闭浏览器，整个过程称为是一次会话。 2. 会话技术分类2.1 Cookie技术Cookie是客户端技术，程序把每个用户的数据以cookie的形式保存到各自浏览器中。当用户使用浏览器再次访问服务器中的web资源的时候，就会带着各自的数据过去。这样，web资源处理的就是">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149522200.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149545039.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149673769.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149746738.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149775651.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149874924.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149902110.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149924935.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149940776.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149956263.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560150052894.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560150066842.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560150083304.jpg">
+<meta property="og:updated_time" content="2019-07-21T07:42:07.749Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cookie&amp;Session">
+<meta name="twitter:description" content="Cookie&amp;amp;Session1. 什么是会话?会话简单理解为：用户打开一个浏览器，点击多个超链接访问服务器的web资源，然后关闭浏览器，整个过程称为是一次会话。 2. 会话技术分类2.1 Cookie技术Cookie是客户端技术，程序把每个用户的数据以cookie的形式保存到各自浏览器中。当用户使用浏览器再次访问服务器中的web资源的时候，就会带着各自的数据过去。这样，web资源处理的就是">
+<meta name="twitter:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149522200.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>33</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-Cookie-Session" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Cookie-Session/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:08:51.389Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Cookie&amp;Session
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Cookie-amp-Session"><a href="#Cookie-amp-Session" class="headerlink" title="Cookie&amp;Session"></a>Cookie&amp;Session</h1><h2 id="1-什么是会话"><a href="#1-什么是会话" class="headerlink" title="1. 什么是会话?"></a>1. 什么是会话?</h2><p>会话简单理解为：用户打开一个浏览器，点击多个超链接访问服务器的web资源，然后关闭浏览器，整个过程称为是一次会话。</p>
+<h2 id="2-会话技术分类"><a href="#2-会话技术分类" class="headerlink" title="2. 会话技术分类"></a>2. 会话技术分类</h2><h3 id="2-1-Cookie技术"><a href="#2-1-Cookie技术" class="headerlink" title="2.1 Cookie技术"></a>2.1 Cookie技术</h3><p>Cookie是客户端技术，程序把每个用户的数据以cookie的形式保存到各自浏览器中。当用户使用浏览器再次访问服务器中的web资源的时候，就会带着各自的数据过去。这样，web资源处理的就是用户各自的数据了。</p>
+<h3 id="2-2-Session技术"><a href="#2-2-Session技术" class="headerlink" title="2.2 Session技术"></a>2.2 Session技术</h3><p>Session是服务器端技术，利用这个技术，服务器在运行时为每一个用户的浏览器创建一个<strong>独享的session对象。</strong>由于session为用户浏览器独享，所有用户在访问服务器的时候，可以把各自的数据放在各自的session中，当用户再次访问服务器中的web资源的时候，其他web资源再从用户各自的session中取出数据为用户服务。</p>
+<h2 id="3-会话技术的实现原理"><a href="#3-会话技术的实现原理" class="headerlink" title="3. 会话技术的实现原理"></a>3. 会话技术的实现原理</h2><h3 id="3-1-Cookie的实现原理"><a href="#3-1-Cookie的实现原理" class="headerlink" title="3.1 Cookie的实现原理"></a>3.1 Cookie的实现原理</h3><p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149522200.jpg" alt="img"></p>
+<h3 id="3-2-Session的实现原理"><a href="#3-2-Session的实现原理" class="headerlink" title="3.2 Session的实现原理"></a>3.2 Session的实现原理</h3><p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149545039.jpg" alt="img"></p>
+<h2 id="4-Cookie"><a href="#4-Cookie" class="headerlink" title="4. Cookie"></a>4. Cookie</h2><h4 id="4-1-Cookie-的简单使用"><a href="#4-1-Cookie-的简单使用" class="headerlink" title="4.1 Cookie 的简单使用"></a>4.1 Cookie 的简单使用</h4><ul>
+<li><p>获得从浏览器带过来的Cookie：</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149673769.jpg" alt="img"></p>
+</li>
+<li><p>向浏览器回写Cookie:</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149746738.jpg" alt="img"></p>
+</li>
+<li><p>Cookie的构造</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149775651.jpg" alt="img"></p>
+</li>
+</ul>
+<h4 id="4-2-Cookie的API的概述"><a href="#4-2-Cookie的API的概述" class="headerlink" title="4.2 Cookie的API的概述"></a>4.2 Cookie的API的概述</h4><ul>
+<li><p>​    获得Cookie的名称的方法</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149874924.jpg" alt="img"></p>
+</li>
+<li><p>获得Cookie的值的方法</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149902110.jpg" alt="img"></p>
+</li>
+<li><p>设置Cookie的有效域名</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149924935.jpg" alt="img"></p>
+</li>
+<li><p>设置Cookie的有效路径</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149940776.jpg" alt="img"></p>
+</li>
+<li><p>设置Cookie的有效时长</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560149956263.jpg" alt="img"></p>
+</li>
+</ul>
+<h2 id="5-Session"><a href="#5-Session" class="headerlink" title="5. Session"></a>5. Session</h2><h3 id="5-1-Session的API的使用"><a href="#5-1-Session的API的使用" class="headerlink" title="5.1 Session的API的使用"></a>5.1 Session的API的使用</h3><ul>
+<li><p>向session中存入数据</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560150052894.jpg" alt="img"></p>
+</li>
+<li><p>从session域中获取数据</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560150066842.jpg" alt="img"></p>
+</li>
+<li><p>从session域中移除数据</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560150083304.jpg" alt="img"></p>
+</li>
+</ul>
+<h3 id="5-2-为什么有Cookie还要有Session"><a href="#5-2-为什么有Cookie还要有Session" class="headerlink" title="5.2 为什么有Cookie还要有Session"></a>5.2 为什么有Cookie还要有Session</h3><ul>
+<li>Cookie局限性：<pre><code>Cookie保存的数据是有个数和大小的限制的。
+  数据是保存客户端浏览器上（相对不是很安全）。</code></pre></li>
+<li>Session<pre><code>Session没有个数和大小限制。
+数据是保存在服务器上（相对比较安全）。</code></pre></li>
+</ul>
+<h2 id="6-Servlet的数据访问范围的总结"><a href="#6-Servlet的数据访问范围的总结" class="headerlink" title="6. Servlet的数据访问范围的总结"></a>6. Servlet的数据访问范围的总结</h2><h3 id="6-1-请求范围（ServletRequest）"><a href="#6-1-请求范围（ServletRequest）" class="headerlink" title="6.1 请求范围（ServletRequest）"></a>6.1 请求范围（ServletRequest）</h3><ul>
+<li><p>何时创建和销毁的</p>
+<pre><code>创建：当用户向服务器发送一次请求，服务器创建一个request对象。
+  销毁：当服务器对这次请求作出了响应，服务器就会销毁这个request对象。</code></pre></li>
+<li><p>如何存取数据<br>存数据：</p>
+<p>​        void setAttribute(String name,Object value);</p>
+<p>取数据</p>
+<pre><code>Object getAttribute(String name);</code></pre><p>作用范围</p>
+<pre><code>作用范围：一次请求。（转发就是一次请求）。</code></pre></li>
+</ul>
+<h3 id="6-2-会话范围（HttpSession）"><a href="#6-2-会话范围（HttpSession）" class="headerlink" title="6.2 会话范围（HttpSession）"></a>6.2 会话范围（HttpSession）</h3><ul>
+<li>何时创建和销毁的<pre><code>创建：服务器端第一次调用getSession()方法的时候。
+  销毁：三种情况。
+          Session过期，默认的过期时间30分钟(web.xml中配置)。
+          非正常关闭服务器。（正常关闭服务器—session会被序列化）。
+          手动调用session.invalidate();</code></pre></li>
+<li>如何存取数据<pre><code>存数据：
+         void setAttribute(String name,Object value);
+ 取数据
+         Object getAttribute(String name);
+ 作用范围
+         作用范围：一次会话（多次请求）</code></pre></li>
+</ul>
+<h3 id="6-3-应用范围（ServletContext）"><a href="#6-3-应用范围（ServletContext）" class="headerlink" title="6.3 应用范围（ServletContext）"></a>6.3 应用范围（ServletContext）</h3><ul>
+<li>何时创建和销毁的<pre><code>创建：服务器启动的时候创建，为每个web项目创建一个单独ServletContext对象。 
+  销毁：服务器关闭的时候，或者项目从服务器中移除的时候。</code></pre></li>
+<li>如何存取数据<pre><code>存数据：
+          void setAttribute(String name,Object value);
+  取数据
+          Object getAttribute(String name);
+  作用范围
+          作用范围：整个应用</code></pre></li>
+</ul>
+<h2 id="7-用户登录代码"><a href="#7-用户登录代码" class="headerlink" title="7.用户登录代码"></a>7.用户登录代码</h2><h3 id="7-1-Controller"><a href="#7-1-Controller" class="headerlink" title="7.1 Controller"></a>7.1 Controller</h3><p><strong>loginServlet</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.HttpCookie;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.Cookie;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> model.loginModel;</span><br><span class="line"><span class="keyword">import</span> domain.User;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * loginServlet</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">loginController</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">			HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">// 获取数据</span></span><br><span class="line">			<span class="comment">// 解决获取请求数据中文乱码</span></span><br><span class="line">			<span class="comment">// 校验验证码</span></span><br><span class="line">			String checkcode1 = request.getParameter(<span class="string">"checkcode"</span>);</span><br><span class="line">			String checkcode2 = (String) request.getSession().getAttribute(</span><br><span class="line">					<span class="string">"checkcode"</span>);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (!checkcode1.equalsIgnoreCase(checkcode2)) &#123;</span><br><span class="line">				request.setAttribute(<span class="string">"msg"</span>, <span class="string">"验证码错误"</span>);</span><br><span class="line">				request.getRequestDispatcher(<span class="string">"/login.jsp"</span>).forward(request,</span><br><span class="line">						response);</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">			String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">			String password = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 封装数据</span></span><br><span class="line">			User user = <span class="keyword">new</span> User();</span><br><span class="line">			user.setUsername(username);</span><br><span class="line">			user.setPassword(password);</span><br><span class="line">			<span class="comment">// 处理数据</span></span><br><span class="line">			loginModel loginModel = <span class="keyword">new</span> loginModel();</span><br><span class="line">			User existuser = loginModel.login(user);</span><br><span class="line">			<span class="comment">// 根据处理结果跳转页面</span></span><br><span class="line">			<span class="keyword">if</span> (existuser == <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="comment">// 登陆失败</span></span><br><span class="line">				request.setAttribute(<span class="string">"msg"</span>, <span class="string">"用户名或密码错误!"</span>);</span><br><span class="line">				request.getRequestDispatcher(<span class="string">"/login.jsp"</span>).forward(request,</span><br><span class="line">						response);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="comment">// 登陆成功</span></span><br><span class="line">				<span class="comment">// 判斷是否记住用户名</span></span><br><span class="line">				String remember = request.getParameter(<span class="string">"remember"</span>);</span><br><span class="line">				<span class="keyword">if</span> (remember != <span class="keyword">null</span>) &#123;</span><br><span class="line">					<span class="keyword">if</span> (remember.equals(<span class="string">"true"</span>)) &#123;</span><br><span class="line">						Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"username"</span>,</span><br><span class="line">								existuser.getUsername());</span><br><span class="line">						<span class="comment">// 设置路径</span></span><br><span class="line">						cookie.setPath(<span class="string">"/web03_login"</span>);</span><br><span class="line">						<span class="comment">// 设置时间</span></span><br><span class="line">						cookie.setMaxAge(<span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>);</span><br><span class="line">						<span class="comment">// 写回浏览器</span></span><br><span class="line">						response.addCookie(cookie);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				HttpSession session = request.getSession();</span><br><span class="line">				session.setAttribute(<span class="string">"user"</span>, existuser);</span><br><span class="line">				response.sendRedirect(<span class="string">"/web03_login/success.jsp"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">			HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>CheckImgServlet</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.Color;</span><br><span class="line"><span class="keyword">import</span> java.awt.Font;</span><br><span class="line"><span class="keyword">import</span> java.awt.Graphics;</span><br><span class="line"><span class="keyword">import</span> java.awt.Graphics2D;</span><br><span class="line"><span class="keyword">import</span> java.awt.image.BufferedImage;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.imageio.ImageIO;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 生成验证码图片</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheckImgServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// 禁止缓存</span></span><br><span class="line">		<span class="comment">// response.setHeader("Cache-Control", "no-cache");</span></span><br><span class="line">		<span class="comment">// response.setHeader("Pragma", "no-cache");</span></span><br><span class="line">		<span class="comment">// response.setDateHeader("Expires", -1);</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> width = <span class="number">120</span>;</span><br><span class="line">		<span class="keyword">int</span> height = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 步骤一 绘制一张内存中图片</span></span><br><span class="line">		BufferedImage bufferedImage = <span class="keyword">new</span> BufferedImage(width, height,</span><br><span class="line">				BufferedImage.TYPE_INT_RGB);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 步骤二 图片绘制背景颜色 ---通过绘图对象</span></span><br><span class="line">		Graphics graphics = bufferedImage.getGraphics();<span class="comment">// 得到画图对象 --- 画笔</span></span><br><span class="line">		<span class="comment">// 绘制任何图形之前 都必须指定一个颜色</span></span><br><span class="line">		graphics.setColor(getRandColor(<span class="number">200</span>, <span class="number">250</span>));</span><br><span class="line">		graphics.fillRect(<span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 步骤三 绘制边框</span></span><br><span class="line">		graphics.setColor(Color.WHITE);</span><br><span class="line">		graphics.drawRect(<span class="number">0</span>, <span class="number">0</span>, width - <span class="number">1</span>, height - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 步骤四 四个随机数字</span></span><br><span class="line">		Graphics2D graphics2d = (Graphics2D) graphics;</span><br><span class="line">		<span class="comment">// 设置输出字体</span></span><br><span class="line">		graphics2d.setFont(<span class="keyword">new</span> Font(<span class="string">"宋体"</span>, Font.BOLD, <span class="number">18</span>));</span><br><span class="line"></span><br><span class="line">		String words = <span class="string">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"</span>;</span><br><span class="line">		Random random = <span class="keyword">new</span> Random();<span class="comment">// 生成随机数</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">// 定义x坐标</span></span><br><span class="line">		<span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">		<span class="comment">// 创建StringBuffer对象</span></span><br><span class="line">		StringBuffer b = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">			<span class="comment">// 随机颜色</span></span><br><span class="line">			graphics2d.setColor(<span class="keyword">new</span> Color(<span class="number">20</span> + random.nextInt(<span class="number">110</span>), <span class="number">20</span> + random</span><br><span class="line">					.nextInt(<span class="number">110</span>), <span class="number">20</span> + random.nextInt(<span class="number">110</span>)));</span><br><span class="line">			<span class="comment">// 旋转 -30 --- 30度</span></span><br><span class="line">			<span class="keyword">int</span> jiaodu = random.nextInt(<span class="number">60</span>) - <span class="number">30</span>;</span><br><span class="line">			<span class="comment">// 换算弧度</span></span><br><span class="line">			<span class="keyword">double</span> theta = jiaodu * Math.PI / <span class="number">180</span>;</span><br><span class="line"></span><br><span class="line">			<span class="comment">// 生成一个随机数字</span></span><br><span class="line">			<span class="keyword">int</span> index = random.nextInt(words.length()); <span class="comment">// 生成随机数 0 到 length - 1</span></span><br><span class="line">			<span class="comment">// 获得字母数字</span></span><br><span class="line">			<span class="keyword">char</span> c = words.charAt(index);</span><br><span class="line">			<span class="comment">// 拼接字符</span></span><br><span class="line">			b.append(c);</span><br><span class="line">			<span class="comment">// 将c 输出到图片</span></span><br><span class="line">			graphics2d.rotate(theta, x, <span class="number">20</span>);</span><br><span class="line">			graphics2d.drawString(String.valueOf(c), x, <span class="number">20</span>);</span><br><span class="line">			graphics2d.rotate(-theta, x, <span class="number">20</span>);</span><br><span class="line">			x += <span class="number">30</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 将拼接的StringBuffer转换成字符串</span></span><br><span class="line">		String checkcode = b.toString();</span><br><span class="line">		<span class="comment">// 将字符串存入session中</span></span><br><span class="line">		request.getSession().setAttribute(<span class="string">"checkcode"</span>, checkcode);</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 步骤五 绘制干扰线</span></span><br><span class="line">		graphics.setColor(getRandColor(<span class="number">160</span>, <span class="number">200</span>));</span><br><span class="line">		<span class="keyword">int</span> x1;</span><br><span class="line">		<span class="keyword">int</span> x2;</span><br><span class="line">		<span class="keyword">int</span> y1;</span><br><span class="line">		<span class="keyword">int</span> y2;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">30</span>; i++) &#123;</span><br><span class="line">			x1 = random.nextInt(width);</span><br><span class="line">			x2 = random.nextInt(<span class="number">12</span>);</span><br><span class="line">			y1 = random.nextInt(height);</span><br><span class="line">			y2 = random.nextInt(<span class="number">12</span>);</span><br><span class="line">			graphics.drawLine(x1, y1, x1 + x2, x2 + y2);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 将上面图片输出到浏览器 ImageIO</span></span><br><span class="line">		graphics.dispose();<span class="comment">// 释放资源</span></span><br><span class="line">		ImageIO.write(bufferedImage, <span class="string">"jpg"</span>, response.getOutputStream());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 取其某一范围的color</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> fc</span></span><br><span class="line"><span class="comment">	 *            int 范围参数1</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> bc</span></span><br><span class="line"><span class="comment">	 *            int 范围参数2</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> Color</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> Color <span class="title">getRandColor</span><span class="params">(<span class="keyword">int</span> fc, <span class="keyword">int</span> bc)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 取其随机颜色</span></span><br><span class="line">		Random random = <span class="keyword">new</span> Random();</span><br><span class="line">		<span class="keyword">if</span> (fc &gt; <span class="number">255</span>) &#123;</span><br><span class="line">			fc = <span class="number">255</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (bc &gt; <span class="number">255</span>) &#123;</span><br><span class="line">			bc = <span class="number">255</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> r = fc + random.nextInt(bc - fc);</span><br><span class="line">		<span class="keyword">int</span> g = fc + random.nextInt(bc - fc);</span><br><span class="line">		<span class="keyword">int</span> b = fc + random.nextInt(bc - fc);</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Color(r, g, b);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>logOutServlet</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Servlet implementation class logoutServlet</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">logoutServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">			HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// 清除session</span></span><br><span class="line">		request.getSession().invalidate();</span><br><span class="line">		<span class="comment">// 跳转</span></span><br><span class="line">		response.sendRedirect(<span class="string">"/web03_login/success.jsp"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">			HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-2-Model"><a href="#7-2-Model" class="headerlink" title="7.2 Model"></a>7.2 Model</h3><p><strong>loginModel</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.commons.dbutils.QueryRunner;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.dbutils.handlers.BeanHandler;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> utils.JDBCUtils;</span><br><span class="line"><span class="keyword">import</span> domain.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">loginModel</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> User <span class="title">login</span><span class="params">(User user)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">		QueryRunner q = <span class="keyword">new</span> QueryRunner(JDBCUtils.getDataSource());</span><br><span class="line">		User existuser = q.query(</span><br><span class="line">				<span class="string">"select * from user where username = ? and password = ?"</span>,</span><br><span class="line">				<span class="keyword">new</span> BeanHandler&lt;User&gt;(User.class), user.getUsername(),</span><br><span class="line">				user.getPassword());</span><br><span class="line">		<span class="keyword">return</span> existuser;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-3-Domain"><a href="#7-3-Domain" class="headerlink" title="7.3 Domain"></a>7.3 Domain</h3><p><strong>User</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> uid;</span><br><span class="line">	<span class="keyword">private</span> String username;</span><br><span class="line">	<span class="keyword">private</span> String password;</span><br><span class="line">	<span class="keyword">private</span> String nickname;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getUid</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> uid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUid</span><span class="params">(<span class="keyword">int</span> uid)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.uid = uid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> username;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.username = username;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> password;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.password = password;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getNickname</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> nickname;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNickname</span><span class="params">(String nickname)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.nickname = nickname;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-4-Utils"><a href="#7-4-Utils" class="headerlink" title="7.4 Utils"></a>7.4 Utils</h3><p><strong>JDBCUtils</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.tomcat.jdbc.pool.DataSource;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.mchange.v2.c3p0.ComboPooledDataSource;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCUtils</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ComboPooledDataSource d = <span class="keyword">new</span> ComboPooledDataSource();</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> d.getConnection();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ComboPooledDataSource <span class="title">getDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> d;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-5-配置文件"><a href="#7-5-配置文件" class="headerlink" title="7.5 配置文件"></a>7.5 配置文件</h3><p><strong>c3p0-config.xml</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">c3p0-config</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">default-config</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span>&gt;</span>jdbc:mysql:///web02<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span>abc<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"initialPoolSize"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"minPoolSize"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"maxPoolSize"</span>&gt;</span>20<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">default-config</span>&gt;</span> </span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">c3p0-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-6-JSP页面"><a href="#7-6-JSP页面" class="headerlink" title="7.6 JSP页面"></a>7.6 JSP页面</h3><p><strong>login.jsp</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">	pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;登陆&lt;/title&gt;</span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="function">function <span class="title">changeIMG</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		document.getElementById(<span class="string">"i1"</span>).src = <span class="string">"/web03_login/CheckImgServlet?time="</span></span><br><span class="line">				+ <span class="keyword">new</span> Date().getTime();</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;%</span><br><span class="line">		String msg = <span class="string">""</span>;</span><br><span class="line">		<span class="keyword">if</span> (request.getAttribute(<span class="string">"msg"</span>) != <span class="keyword">null</span>) &#123;</span><br><span class="line">			msg = (String) request.getAttribute(<span class="string">"msg"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	%&gt;</span><br><span class="line">	&lt;h1&gt;登陆页面&lt;/h1&gt;</span><br><span class="line">	&lt;h3&gt;</span><br><span class="line">		&lt;font color="red"&gt; &lt;%=msg%&gt;&lt;/font&gt;</span><br><span class="line">	&lt;/h3&gt;</span><br><span class="line">	&lt;form action=<span class="string">"/web03_login/loginController"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">		&lt;table border=<span class="string">"2"</span> width=<span class="string">"400"</span>&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;用户名:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type=<span class="string">"text"</span> name=<span class="string">"username"</span></span><br><span class="line">					value="$&#123;cookie.username.value &#125;"&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;密码:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type="password" name="password"&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;验证码:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type=<span class="string">"text"</span> name=<span class="string">"checkcode"</span> size=<span class="string">"6"</span>&gt; &lt;img</span><br><span class="line">					id=<span class="string">"i1"</span> src=<span class="string">"/web03_login/CheckImgServlet"</span>&gt;&lt;a href=<span class="string">"#"</span></span><br><span class="line">					onclick="changeIMG()"&gt;看不清,换一张&lt;/a&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type="checkbox" name="remember" value="true"&gt;&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;记住用户名&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td colspan="2"&gt;&lt;input type="submit" value="登陆"&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">		&lt;/table&gt;</span><br><span class="line">		&lt;/from&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>success.jsp</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"domain.User"</span>%&gt;</span><br><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">	pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;%</span><br><span class="line">		<span class="keyword">if</span> (request.getSession().getAttribute(<span class="string">"user"</span>) == <span class="keyword">null</span>) &#123;</span><br><span class="line">	%&gt;</span><br><span class="line">	&lt;h1&gt;</span><br><span class="line">		你还没有登陆!请去&lt;a href="/web03_login/login.jsp"&gt;登陆&lt;/a&gt;</span><br><span class="line">	&lt;/h1&gt;</span><br><span class="line">	&lt;%</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			User user = (User) request.getSession().getAttribute(<span class="string">"user"</span>);</span><br><span class="line">	%&gt;</span><br><span class="line">	&lt;h1&gt;登陆成功!&lt;/h1&gt;</span><br><span class="line">	&lt;h3&gt;</span><br><span class="line">		你好!&lt;%=user.getNickname()%&gt;&lt;/h3&gt;</span><br><span class="line">	&lt;a href="/web03_login/logoutServlet"&gt;退出&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">	&lt;%</span><br><span class="line">		&#125;</span><br><span class="line">	%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/Cookie-Session/" data-id="cjycojoh6000awo7kenupy27n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/CSS学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CSS学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/HTML学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HTML学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Hexo</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>33</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/cyannote" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 inverse<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

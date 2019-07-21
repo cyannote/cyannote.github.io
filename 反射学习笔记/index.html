@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>反射学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="反射学习笔记 内容反射机制的概述和字节码对象的获取方式 反射操作构造方法、成员方法、成员属性 JavaBean的概述&amp;amp;BeanUtils的使用  1    反射机制概述和 常用方法1.1    反射机制的概述和字节码对象的获取方式1.1.1    反射介绍 JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="反射学习笔记">
+<meta property="og:url" content="http://cyannote.github.io.git/反射学习笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="反射学习笔记 内容反射机制的概述和字节码对象的获取方式 反射操作构造方法、成员方法、成员属性 JavaBean的概述&amp;amp;BeanUtils的使用  1    反射机制概述和 常用方法1.1    反射机制的概述和字节码对象的获取方式1.1.1    反射介绍 JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-07-21T07:39:15.149Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="反射学习笔记">
+<meta name="twitter:description" content="反射学习笔记 内容反射机制的概述和字节码对象的获取方式 反射操作构造方法、成员方法、成员属性 JavaBean的概述&amp;amp;BeanUtils的使用  1    反射机制概述和 常用方法1.1    反射机制的概述和字节码对象的获取方式1.1.1    反射介绍 JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>33</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-反射学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/反射学习笔记/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:08:51.457Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      反射学习笔记
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="反射学习笔记"><a href="#反射学习笔记" class="headerlink" title="反射学习笔记"></a>反射学习笔记</h1><hr>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>反射机制的概述和字节码对象的获取方式</p>
+<p>反射操作构造方法、成员方法、成员属性</p>
+<p>JavaBean的概述&amp;BeanUtils的使用</p>
+<hr>
+<h2 id="1-反射机制概述和-常用方法"><a href="#1-反射机制概述和-常用方法" class="headerlink" title="1    反射机制概述和 常用方法"></a>1    反射机制概述和 常用方法</h2><h3 id="1-1-反射机制的概述和字节码对象的获取方式"><a href="#1-1-反射机制的概述和字节码对象的获取方式" class="headerlink" title="1.1    反射机制的概述和字节码对象的获取方式"></a>1.1    反射机制的概述和字节码对象的获取方式</h3><p>1.1.1    反射介绍</p>
+<p>JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。</p>
+<h4 id="1-1-2-字节码文件获取的三种方式"><a href="#1-1-2-字节码文件获取的三种方式" class="headerlink" title="1.1.2    字节码文件获取的三种方式"></a>1.1.2    字节码文件获取的三种方式</h4><p>对象名.getCalss();         // 次方法来自于Object  对象已经存在的情况下, 可以使用这种方式</p>
+<p>类名.class            // 类名.class这是一个静态的属性, 只要知道类名, 就可以获取 </p>
+<p>Class.forName(“com.itheima_01.Student”);            // 通过Class类中的静态方法, 指定字符串, 该字符串是类的全类名(包名+类名)<br>// 此处将会抛出异常都系 ClassNotFoundException 防止传入错误的类名</p>
+<h3 id="1-2-反射操作构造方法"><a href="#1-2-反射操作构造方法" class="headerlink" title="1.2    反射操作构造方法"></a>1.2    反射操作构造方法</h3><h4 id="1-2-1-通过获取的构造创建对象"><a href="#1-2-1-通过获取的构造创建对象" class="headerlink" title="1.2.1    通过获取的构造创建对象"></a>1.2.1    通过获取的构造创建对象</h4><p>步骤:<br>1.获得Class对象<br>2获得构造<br>3.通过构造对象获得实例化对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Class的成员方法:</span><br><span class="line">		getConstructor(Class...objs)	-&gt; Constructor</span><br><span class="line">		getConstructors()	-&gt; Constructor[]</span><br><span class="line">		</span><br><span class="line">		getDeclaredConstructor(Class...objs)	-&gt; Constructor</span><br><span class="line">		getDeclaredConstructors()	-&gt; Constructor[] </span><br><span class="line">		newInstance()	-&gt;	Object</span><br><span class="line">		</span><br><span class="line">	Constructor成员方法</span><br><span class="line">		newInstance(Object...objs)	-&gt;	Object</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-2-问题-直接通过Class类中的newInstance-和获取getConstructor-有什么区别"><a href="#1-2-2-问题-直接通过Class类中的newInstance-和获取getConstructor-有什么区别" class="headerlink" title="1.2.2    问题: 直接通过Class类中的newInstance()和获取getConstructor()有什么区别?"></a>1.2.2    问题: 直接通过Class类中的newInstance()和获取getConstructor()有什么区别?</h4><p>newInstance()方法, 只能通过空参的构造方法创建对象<br>getConstructor(Class<t>… parameterTypes)方法, 方法接受一个可变参数, 可以根据传入的类型来匹配对应的构造方法</t></p>
+<h3 id="1-3-反射操作公共成员变量"><a href="#1-3-反射操作公共成员变量" class="headerlink" title="1.3    反射操作公共成员变量"></a>1.3    反射操作公共成员变量</h3><h4 id="1-3-1-反射public成员变量-字段"><a href="#1-3-1-反射public成员变量-字段" class="headerlink" title="1.3.1    反射public成员变量(字段)"></a>1.3.1    反射public成员变量(字段)</h4><p>通过反射运行public变量流程</p>
+<p>通过反射获取该类的字节码对象<br>Class clazz = Class.forName(“com.heima.Person”);</p>
+<p>创建该类对象<br>Object p = clazz.newInstance();</p>
+<p>获取该类中需要操作的字段(成员变量)<br>getField(String name) –&gt; 方法传入字段的名称.<br>注意: 此方法只能获取公共的字段<br>Field f = clazz.getField(“age”);</p>
+<p>通过字段对象中的方法修改属性值<br>void set(Object obj, Object value)  –&gt; 参数1): 要修改那个对象中的字段, 参数2): 将字段修改为什么值.<br>f.set(p, 23);</p>
+<h4 id="1-3-2-方法总结"><a href="#1-3-2-方法总结" class="headerlink" title="1.3.2    方法总结"></a>1.3.2    方法总结</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> 通过反射获取成员变量并使用  </span><br><span class="line"> Field[] getFields()    --&gt; 返回该类所有(公共)的字段</span><br><span class="line"> <span class="function">Field <span class="title">getField</span><span class="params">(String name)</span>   --&gt; 返回指定名称字段</span></span><br><span class="line"><span class="function">            </span></span><br><span class="line"><span class="function">Field[] <span class="title">getDeclaredFields</span><span class="params">()</span> --&gt; 暴力反射获取所有字段<span class="params">(包括私有)</span> </span></span><br><span class="line"><span class="function">Field <span class="title">getDeclaredField</span><span class="params">(String name)</span> --&gt; 暴力反射获取指定名称字段</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-反射操作私有成员变量"><a href="#1-4-反射操作私有成员变量" class="headerlink" title="1.4    反射操作私有成员变量"></a>1.4    反射操作私有成员变量</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Field[] getDeclaredFields()     --&gt; 暴力反射获取所有字段(包括私有) </span><br><span class="line"><span class="function">Field <span class="title">getDeclaredField</span><span class="params">(String name)</span> --&gt; 暴力反射获取指定名称字段</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAccessible</span><span class="params">(<span class="keyword">boolean</span> flag)</span> --&gt; 让jvm不检查权限</span></span><br></pre></td></tr></table></figure>
+
+<p>1.5    通过反射获取成员方法并使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Class的成员方法:</span><br><span class="line">		getMethod()	-&gt; Method</span><br><span class="line">		getMethods() -&gt;	Method[]	获取自己的以及从父类或父接口中继承/实现过来的<span class="keyword">public</span>修饰的成员方法对象</span><br><span class="line">		</span><br><span class="line">		getDeclaredMethod()	-&gt; Method </span><br><span class="line">		getDeclaredMethods() -&gt; Method[]	获取的自己的任意修饰符修饰的成员方法对象</span><br><span class="line">		</span><br><span class="line">	Method的成员方法:</span><br><span class="line">		invoke(Object obj,Object...params) -&gt;	Object</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-JavaBean的概述、BeanUtils的使用"><a href="#2-JavaBean的概述、BeanUtils的使用" class="headerlink" title="2    JavaBean的概述、BeanUtils的使用"></a>2    JavaBean的概述、BeanUtils的使用</h2><h3 id="2-1-JavaBean的概述和规范"><a href="#2-1-JavaBean的概述和规范" class="headerlink" title="2.1    JavaBean的概述和规范"></a>2.1    JavaBean的概述和规范</h3><p>JavaBean的概述:<br>    将需要操作的多个属性封装成JavaBean, 简单来说就是用于封装数据的<br>规范：<br>类使用公共进行修饰<br>提供私有修饰的成员变量<br>为成员变量提供公共getter和setter方法<br>提供公共无参的构造</p>
+<h3 id="2-2-BeanUtils"><a href="#2-2-BeanUtils" class="headerlink" title="2.2    BeanUtils"></a>2.2    BeanUtils</h3><h4 id="2-2-1-准备工作"><a href="#2-2-1-准备工作" class="headerlink" title="2.2.1    准备工作"></a>2.2.1    准备工作</h4><ol>
+<li>导入两个jar包<br>commons-beanutils.jar<br>commons-logging.jar</li>
+<li>将jar包Build path 配置到当前的classpath环境变量中</li>
+</ol>
+<h3 id="2-3-BeanUtils的常用方法"><a href="#2-3-BeanUtils的常用方法" class="headerlink" title="2.3    BeanUtils的常用方法"></a>2.3    BeanUtils的常用方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span>    <span class="title">setProperty</span><span class="params">(Object bean, String name, Object value)</span> </span></span><br><span class="line"><span class="function"><span class="keyword">static</span> String <span class="title">getProperty</span><span class="params">(Object bean, String name)</span> </span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span>    <span class="title">populate</span><span class="params">(Object bean, Map properties)</span> </span></span><br><span class="line"><span class="function">setProperty  用来给对象中的属性赋值<span class="params">(了解)</span></span></span><br><span class="line"><span class="function">	参数1: 需要设置属性的对象</span></span><br><span class="line"><span class="function">	参数2: 需要修改的属性名称</span></span><br><span class="line"><span class="function">	参数3: 需要修改的具体元素	</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">getProperty 用来获取对象中的属性<span class="params">(了解)</span></span></span><br><span class="line"><span class="function">	参数1: 要获取的javaBean对象</span></span><br><span class="line"><span class="function">	参数2: 对象中的哪个属性</span></span><br><span class="line"><span class="function">	</span></span><br><span class="line"><span class="function">Populate 用来给对象中的属性赋值<span class="params">(掌握)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">	参数1: 要设置属性的对象</span></span><br><span class="line"><span class="function">	参数2: 将属性以Map集合的形式传入</span></span><br><span class="line"><span class="function">				Key : 属性的名称</span></span><br><span class="line"><span class="function">				Value:  属性具体的值</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">获取字节码文件对象</span><br><span class="line">	<span class="number">1</span>:对象名.getClass()</span><br><span class="line">	<span class="number">2</span>:类名.class属性</span><br><span class="line">	<span class="number">3</span>:Class.forName(<span class="string">"包名.类名"</span>)</span><br><span class="line">获取构造方法</span><br><span class="line">	Class的成员方法:</span><br><span class="line">		getConstructor(Class...objs)	-&gt; Constructor</span><br><span class="line">		getConstructors()	-&gt; Constructor[]</span><br><span class="line">		</span><br><span class="line">		getDeclaredConstructor(Class...objs)	-&gt; Constructor</span><br><span class="line">		getDeclaredConstructors()	-&gt; Constructor[] </span><br><span class="line">		newInstance()	-&gt;	Object</span><br><span class="line">		</span><br><span class="line">	Constructor成员方法</span><br><span class="line">		newInstance(Object...objs)	-&gt;	Object</span><br><span class="line">获取成员变量</span><br><span class="line">	Class的成员方法:</span><br><span class="line">		getField()	-&gt;	Field</span><br><span class="line">		getFields()	-&gt;	Field[]</span><br><span class="line">		</span><br><span class="line">		getDeclaredField(<span class="string">"age"</span>)	-&gt;	Field</span><br><span class="line">		getDeclaredFields()	-&gt;	Field[]</span><br><span class="line">	</span><br><span class="line">	Field的成员方法</span><br><span class="line">		set(Object obj,Object value)</span><br><span class="line">		get(Object obj)		-&gt;	Object</span><br><span class="line">		</span><br><span class="line">获取成员方法</span><br><span class="line">	Class的成员方法:</span><br><span class="line">		getMethod()	-&gt; Method</span><br><span class="line">		getMethods() -&gt;	Method[]	获取自己的以及从父类或父接口中继承/实现过来的<span class="keyword">public</span>修饰的成员方法对象</span><br><span class="line">		</span><br><span class="line">		getDeclaredMethod()	-&gt; Method </span><br><span class="line">		getDeclaredMethods() -&gt; Method[]	获取的自己的任意修饰符修饰的成员方法对象</span><br><span class="line">		</span><br><span class="line">	Method的成员方法:</span><br><span class="line">		invoke(Object obj,Object...params) -&gt;	Object </span><br><span class="line">		</span><br><span class="line">定义Javabean规范</span><br><span class="line">BeanUtils工具类的使用</span><br><span class="line">	setProperty(Object bean,String name,Object value)</span><br><span class="line">	getProperty(Object bean,String name)</span><br><span class="line">	populate(Object bean,Map m)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/反射学习笔记/" data-id="cjycojogg0003wo7ksbry0uti" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/多表查询/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          多表查询
+        
+      </div>
+    </a>
+  
+  
+    <a href="/分页案例/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">分页案例</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Hexo</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>33</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/cyannote" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 inverse<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

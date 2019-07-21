@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>金瓶梅中的代理模式 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="金瓶梅中的代理模式1.什么是代理模式代理模式的概念: 即Proxy Pattern，23种常用的面向对象软件的设计模式之一 代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。 代理模式的组成: 抽象角色：通过接口或抽象类声明真实角色实现的业务方法。 代理角色：实现抽象角色，是真实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="金瓶梅中的代理模式">
+<meta property="og:url" content="http://cyannote.github.io.git/金瓶梅中的代理模式/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="金瓶梅中的代理模式1.什么是代理模式代理模式的概念: 即Proxy Pattern，23种常用的面向对象软件的设计模式之一 代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。 代理模式的组成: 抽象角色：通过接口或抽象类声明真实角色实现的业务方法。 代理角色：实现抽象角色，是真实">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-07-21T07:39:53.014Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="金瓶梅中的代理模式">
+<meta name="twitter:description" content="金瓶梅中的代理模式1.什么是代理模式代理模式的概念: 即Proxy Pattern，23种常用的面向对象软件的设计模式之一 代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。 代理模式的组成: 抽象角色：通过接口或抽象类声明真实角色实现的业务方法。 代理角色：实现抽象角色，是真实">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>33</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-金瓶梅中的代理模式" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/金瓶梅中的代理模式/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:08:51.442Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      金瓶梅中的代理模式
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="金瓶梅中的代理模式"><a href="#金瓶梅中的代理模式" class="headerlink" title="金瓶梅中的代理模式"></a>金瓶梅中的代理模式</h1><h2 id="1-什么是代理模式"><a href="#1-什么是代理模式" class="headerlink" title="1.什么是代理模式"></a>1.什么是代理模式</h2><p><strong>代理模式的概念:</strong></p>
+<p>即Proxy Pattern，23种常用的面向对象软件的设计模式之一</p>
+<p>代理模式的定义：为其他对象提供一种<a href="http://baike.baidu.com/view/24001.htm" target="_blank" rel="noopener">代理</a>以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。</p>
+<p><strong>代理模式的组成:</strong></p>
+<p>抽象角色：通过接口或抽象类声明真实角色实现的业务方法。</p>
+<p>代理角色：实现抽象角色，是真实角色的代理，通过真实角色的业务逻辑方法来实现抽象方法，并可以附加自己的操作。</p>
+<p>真实角色：实现抽象角色，定义真实角色所要实现的业务逻辑，供代理角色调用。</p>
+<hr>
+<h2 id="2-金瓶梅中的代理模式"><a href="#2-金瓶梅中的代理模式" class="headerlink" title="2.金瓶梅中的代理模式"></a>2.金瓶梅中的代理模式</h2><p> 一日，<a href="https://www.baidu.com/s?wd=潘金莲&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">潘金莲</a>在门前收拾帘子时，手上叉竿一滑，不小心打到从门前经过的<a href="https://www.baidu.com/s?wd=西门庆&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">西门庆</a>，<a href="https://www.baidu.com/s?wd=西门庆&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">西门庆</a>定神一看惊为天人。<a href="https://www.baidu.com/s?wd=西门庆&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">西门庆</a>发现<a href="https://www.baidu.com/s?wd=武大郎&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">武大郎</a>家隔壁刚好就是他认识的王婆家，后来便时常借故到王婆家兜转。西门庆请托王婆帮他物色女人，王婆知道他看上<a href="https://www.baidu.com/s?wd=潘金莲&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">潘金莲</a>，因为贪爱西门庆的钱财，所以答应帮忙撮合。</p>
+<p>某日，王婆请潘金莲到他家中帮忙缝纫，打扮得光鲜亮丽的西门庆此时依计又来串门。西门庆不时以花言巧语讨潘金莲欢心，王婆见潘金莲已经上勾，故意出门买酒，制造他们二人独处的机会。西门庆此时更加大胆，在一次肌肤挑逗后，郎有情妹有意的二人便在王婆房里云雨。  </p>
+<p><strong>在这故事中,真实对象就是潘金莲了,西门庆属于客户端,代理对象王婆在客户端和真实对象之间起着中介的作用.</strong></p>
+<hr>
+<h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3.代码实现"></a>3.代码实现</h2><p>抽象角色:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Itarget</span> </span>&#123;</span><br><span class="line">	<span class="comment">//抽象方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span> <span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>真实对象:为真正的方法执行者(金莲)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JinLian</span> <span class="keyword">implements</span> <span class="title">ITarget</span> </span>&#123;</span><br><span class="line">    <span class="comment">//重写抽象对象中的方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"JinLin is playing..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代理对象:在客户端和目标对象之间起到中介的作用(王婆)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WangPo</span> <span class="keyword">implements</span> <span class="title">ITarget</span></span>&#123;</span><br><span class="line">    ITarget target;</span><br><span class="line">    <span class="comment">//构造方法中传入真实对象</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WangPo</span><span class="params">(ITarget target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//实际执行的是真实对象的方法</span></span><br><span class="line">        target.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>客户端访问:(西门庆)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//创建真实对象(通过多态的方式,可传入其他实现抽象方法的对象)</span></span><br><span class="line">        ITarget target = <span class="keyword">new</span> JinLian();</span><br><span class="line">        <span class="comment">//将真实对象传入代理对象构造方法</span></span><br><span class="line">        WangPo proxy = <span class="keyword">new</span> WangPo(target);</span><br><span class="line">        <span class="comment">//调用代理对象的实现方法,实际执行的是真实对象的方法</span></span><br><span class="line">        proxy.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/金瓶梅中的代理模式/" data-id="cjycojogp0005wo7kz3g5okwu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/分页案例/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          分页案例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/课堂笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">linux安装</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Hexo</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>33</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/cyannote" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 inverse<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

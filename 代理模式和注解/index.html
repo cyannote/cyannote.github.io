@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>代理模式和注解 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="代理模式和注解1.代理模式代理模式的概念: 即Proxy Pattern，23种常用的面向对象软件的设计模式之一 代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。 代理模式的组成: 抽象角色：通过接口或抽象类声明真实角色实现的业务方法。 代理角色：实现抽象角色，是真实角色的代理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代理模式和注解">
+<meta property="og:url" content="http://cyannote.github.io.git/代理模式和注解/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="代理模式和注解1.代理模式代理模式的概念: 即Proxy Pattern，23种常用的面向对象软件的设计模式之一 代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。 代理模式的组成: 抽象角色：通过接口或抽象类声明真实角色实现的业务方法。 代理角色：实现抽象角色，是真实角色的代理">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560859644091.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560859681530.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560859710306.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560859731738.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560859750789.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560860691292.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560860740162.jpg">
+<meta property="og:updated_time" content="2019-07-21T07:38:41.313Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="代理模式和注解">
+<meta name="twitter:description" content="代理模式和注解1.代理模式代理模式的概念: 即Proxy Pattern，23种常用的面向对象软件的设计模式之一 代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。 代理模式的组成: 抽象角色：通过接口或抽象类声明真实角色实现的业务方法。 代理角色：实现抽象角色，是真实角色的代理">
+<meta name="twitter:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560859644091.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>33</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-代理模式和注解" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/代理模式和注解/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:08:51.488Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      代理模式和注解
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="代理模式和注解"><a href="#代理模式和注解" class="headerlink" title="代理模式和注解"></a>代理模式和注解</h1><h2 id="1-代理模式"><a href="#1-代理模式" class="headerlink" title="1.代理模式"></a>1.代理模式</h2><p><strong>代理模式的概念:</strong></p>
+<p>即Proxy Pattern，23种常用的面向对象软件的设计模式之一</p>
+<p>代理模式的定义：为其他对象提供一种<a href="http://baike.baidu.com/view/24001.htm" target="_blank" rel="noopener">代理</a>以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。</p>
+<p><strong>代理模式的组成:</strong></p>
+<p>抽象角色：通过接口或抽象类声明真实角色实现的业务方法。</p>
+<p>代理角色：实现抽象角色，是真实角色的代理，通过真实角色的业务逻辑方法来实现抽象方法，并可以附加自己的操作。</p>
+<p>真实角色：实现抽象角色，定义真实角色所要实现的业务逻辑，供代理角色调用。</p>
+<h3 id="1-1-静态代理"><a href="#1-1-静态代理" class="headerlink" title="1.1 静态代理"></a>1.1 静态代理</h3><p>是由程序员创建或工具生成代理类的源码，再编译代理类。所谓静态也就是在程序运行前就已经存在代理类的字节码文件，代理类和委托类的关系在运行前就确定了。</p>
+<p>抽象角色:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Itarget</span> </span>&#123;</span><br><span class="line">	<span class="comment">//抽象方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span> <span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>真实对象:为真正的方法执行者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Target</span> <span class="keyword">implements</span> <span class="title">Itarget</span> </span>&#123;</span><br><span class="line">	<span class="comment">//重写抽象对象中的方法</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"show..."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代理对象:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Proxy</span> <span class="keyword">implements</span> <span class="title">Itarget</span></span>&#123;</span><br><span class="line">	Itarget target;</span><br><span class="line">	<span class="comment">//构造方法中传入真实对象</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Proxy</span><span class="params">(Itarget target)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.target = target;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//实际执行的是真实对象的方法,</span></span><br><span class="line">		target.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>客户端通过代理对象执行真实对象的方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">proxyTest</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">//创建真实对象</span></span><br><span class="line">		Target target = <span class="keyword">new</span> Target();</span><br><span class="line">		<span class="comment">//将真实对象传入代理对象构造方法</span></span><br><span class="line">		Proxy proxy = <span class="keyword">new</span> Proxy(target);</span><br><span class="line">		<span class="comment">//调用代理对象的实现方法,实际执行的是真实对象的方法</span></span><br><span class="line">		proxy.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2动态代理"><a href="#1-2动态代理" class="headerlink" title="1.2动态代理"></a>1.2动态代理</h3><p>是在实现阶段不用关心代理类，而在运行阶段才指定哪一个对象。</p>
+<p>动态代理可以不用创建代理对象类,通过proxy.</p>
+<p>抽象对象,真实对象同静态代理</p>
+<p>客户端通过代理对象执行真实对象的方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">targetTest</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span> <span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="comment">//创建真实对象</span></span><br><span class="line">		myProxy target = <span class="keyword">new</span> target();</span><br><span class="line">		<span class="comment">//创建代理对象</span></span><br><span class="line">		myProxy proxy = (myProxy) Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), <span class="keyword">new</span> InvocationHandler() &#123;</span><br><span class="line">			<span class="comment">//通过匿名内部类的方法</span></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span></span></span><br><span class="line"><span class="function">					<span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> method.invoke(target, args);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		proxy.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-优点"><a href="#1-3-优点" class="headerlink" title="1.3  优点"></a>1.3  优点</h3><p>(1).职责清晰</p>
+<p>真实的角色就是实现实际的<a href="http://baike.baidu.com/view/1642754.htm" target="_blank" rel="noopener">业务逻辑</a>，不用关心其他非本职责的事务，通过后期的代理完成一件完成事务，附带的结果就是编程简洁清晰。</p>
+<p>(2).代理对象可以在客户端和目标对象之间起到中介的作用，这样起到了中介的作用和保护了目标对象的作用。</p>
+<p>(3).高扩展性</p>
+<h3 id="1-4-Java中动态代理"><a href="#1-4-Java中动态代理" class="headerlink" title="1.4 Java中动态代理"></a>1.4 Java中动态代理</h3><p>在jdk的api中提供了java.lang.reflect.Proxy它可以帮助我们完成动态代理创建</p>
+<p>注意：在java中使用Proxy来完成动态代理对象的创建，只能为目标实现了接口的类创建代理对象。</p>
+<p>动态代理是在内存中直接生成代理对象。</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560859644091.jpg" alt="img"></p>
+<p>通过这个方法可以直接创建一个代理对象。</p>
+<p>前两个参数帮助我们生产一个代理对象;</p>
+<p>第三个参数控制目标行为访问的问题</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560859681530.jpg" alt="img"></p>
+<p>InvocationHandler详解</p>
+<p>它是一个接口，接口中声明了一个方法</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560859710306.jpg" alt="img"></p>
+<p>Invoke方法，它是在代理对象调用行为时，会执行的方法，而invoke方法上有三个参数</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560859731738.jpg" alt="img"></p>
+<p>这个方法的主要作用是，当我们通过代理对象调用行为时，来控制目标行为是否可以被调用。</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560859750789.jpg" alt="img"></p>
+<p>在开发中，我们使用动态代理可以完成性能监控，权限控制，日志记录等操作</p>
+<hr>
+<h2 id="2-注解Annotation"><a href="#2-注解Annotation" class="headerlink" title="2.注解Annotation"></a>2.注解Annotation</h2><p><strong>注解概述</strong></p>
+<p>注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以用于创建文档，跟踪代码中的依赖性，甚至执行基本编译时检查。注解是以‘@注解名’在代码中存在的</p>
+<p>它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。</p>
+<p>你可以在编译时选择代码里的注解是否只存在于源代码级，或者它也能在class文件、或者运行时中出现（SOURCE/CLASS/RUNTIME）。</p>
+<p><strong>注解作用</strong></p>
+<p>如果要对于元数据的作用进行分类，还没有明确的定义，不过我们可以根据它所起的作用，大致可分为三类：</p>
+<p>编写文档：通过代码里标识的元数据生成文档。</p>
+<p>代码分析：通过代码里标识的元数据对代码进行分析。</p>
+<p>编译检查：通过代码里标识的元数据让<a href="http://baike.baidu.com/view/487018.htm" target="_blank" rel="noopener">编译器</a>能实现基本的编译检查 </p>
+<p>在现在开发中使用注解，一般是用于将注解替换配置文件。（Xml配置文件）</p>
+<h3 id="2-1-Java中基本内置注解"><a href="#2-1-Java中基本内置注解" class="headerlink" title="2.1 Java中基本内置注解"></a>2.1 Java中基本内置注解</h3><ul>
+<li><strong>@override</strong></li>
+</ul>
+<p>它的作用是对覆盖超类中方法的方法进行标记，如果被标记的方法并没有实际覆盖超类中的方法，则编译器会发出错误警告。</p>
+<p>注意事项:</p>
+<p>​       对于接口中的方法重写，<a href="mailto:在jdk1.5时@Override" target="_blank" rel="noopener">在jdk1.5时@Override</a>它是会报错.</p>
+<p>​       在jdk1.6后的版本就可以描述接口与类之间的重写</p>
+<ul>
+<li><strong>@Deprecated</strong></li>
+</ul>
+<p>它的作用是对不应该再使用的方法添加注解，当编程人员使用这些方法时，将会在编译时显示提示信息</p>
+<p>问题:什么时候方法是过时的?</p>
+<p>当前版本中方法它存在隐患，在后续版本中对其进行了补充，这时前一个版本中的方法就会标注成过时的。</p>
+<ul>
+<li><strong>@SuppressWarnings</strong></li>
+</ul>
+<p>它的作用是去掉程序中的警告.</p>
+<p>其参数有：</p>
+<p>deprecation，使用了过时的类或方法时的警告</p>
+<p>unchecked，执行了未检查的转换时的警告</p>
+<p>fallthrough，当 switch 程序块直接通往下一种情况而没有 break 时的警告</p>
+<p>path，在类路径、源文件路径等中有不存在的路径时的警告</p>
+<p>serial，当在可序列化的类上缺少serialVersionUID 定义时的警告</p>
+<p>finally ，任何 finally 子句不能正常完成时的警告</p>
+<p>all，关于以上所有情况的警告</p>
+<h3 id="2-2-自定义注解"><a href="#2-2-自定义注解" class="headerlink" title="2.2 自定义注解"></a>2.2 自定义注解</h3><ul>
+<li><strong>注解声明:</strong></li>
+</ul>
+<p>要声明一个注解通过  @interface</p>
+<p>声明一个注解格式  @interface 注解名{}</p>
+<ul>
+<li><strong>注解本质分析</strong></li>
+</ul>
+<p>分析一下注解的本质:将其.class文件找到，反编译.  可以使用javap命令或反编译工具。</p>
+<p>@interface MyAnnoation{}</p>
+<p>反编译后的结果</p>
+<p>interface MyAnnotation      extends Annotation</p>
+<p>{</p>
+<p>}</p>
+<p>结论:注解本质上就是一个接口。它扩展了java.lang.annotation.Annotation接口;</p>
+<p>在java中所有注解都是Annotation接口的子接口。</p>
+<ul>
+<li><strong>注解成员</strong></li>
+</ul>
+<p>注解本质上就是一个接口，那么它也可以有属性和方法。</p>
+<p>但是接口中的属性是 public static final的，在注解中注解没有什么意义。</p>
+<p>在开发中注解中经常存在的是方法。而在注解中叫做注解的属性.</p>
+<ul>
+<li><p><strong>注解属性类型</strong></p>
+<p>1.基本类型  byte short int long float double char boolean</p>
+<p>2.String</p>
+<p>3.枚举类型</p>
+<p>4.注解类型</p>
+<p>5.Class类型</p>
+<p>6.以上类型的一维数组类型</p>
+</li>
+<li><p><strong>注解属性的使用</strong></p>
+<p>如果一个注解有属性，那么在使用注解时，要对属性进行赋值操作.</p>
+<p>也可以给属性赋默认值  double d() default 1.23;</p>
+<p>如果属性是数组类型</p>
+<p>​       1.可以直接使用   属性名={值1,值2,。。。}方式,例如</p>
+<p>​              @MyAnnotation(st = “aaa”,i=10,sts={“a”,”b”})</p>
+<p>​       2.如果数组的值只有一个也可以写成下面方式</p>
+<p>​              @MyAnnotation(st = “aaa”,i=10,sts=”a”)</p>
+<p>​              注意sts属性它是数组类型，也就是说，只有一个值时，可以省略”{}”</p>
+<p>对于属性名称 value的操作.</p>
+<p>​       1.如果属性名称叫value,那么在使用时，可以省略属性名称</p>
+<p>​              @MyAnnotation(“hello”)</p>
+<p>​       2.如果有多个属性，都需要赋值，其中一个叫value,这时，必须写属性名称</p>
+<p>​              @MyAnnotation(value=”hello”,i=10)</p>
+</li>
+<li><p><strong>自定义注解-元注解</strong></p>
+<p>什么是元注解及其作用？</p>
+<p>用于修饰注解的注解，可以描述注解在什么范围及在什么阶段使用等</p>
+</li>
+<li><p><strong>四个元注解介绍</strong></p>
+<ul>
+<li><p><strong>@Retention</strong></p>
+<p>指定注解信息在哪个阶段存在 Source Class  Runtime</p>
+</li>
+</ul>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560860691292.jpg" alt="img"></p>
+<p>SOURCE它对应着编译阶段，可以帮助我们进行检查。</p>
+<p>CLASS 它对应解析执行阶段</p>
+<p>RUNTIME </p>
+<p>它对应着在JVM中</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>@Target</strong></p>
+<p>指定注解修饰目标对象类型  TYPE 类、接口  FIELD 成员变量 METHOD 方法</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1560860740162.jpg" alt="img"></p>
+</li>
+<li><p><strong>Documented</strong></p>
+<p>使用该元注解修饰，该注解的信息可以生成到javadoc 文档中</p>
+</li>
+<li><p><strong>Inherited</strong></p>
+<p>如果一个注解使用该元注解修饰，应用注解目标类的子类会自动继承该注解 </p>
+</li>
+</ul>
+<pre><code>@Retention @Target 是自定义注解必须使用两个元注解，并且，@Retention它的值应该是RUNTIME,因为我们会结合反射技术来使用。 @Target我们一般使用TYPE或METHOD</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/代理模式和注解/" data-id="cjycojogv0009wo7kfvdxzf0t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/面向网络-学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          面向网络编程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/多表查询/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">多表查询</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Hexo</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>33</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/cyannote" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 inverse<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

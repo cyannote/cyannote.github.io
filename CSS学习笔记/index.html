@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>CSS学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CSS内容: ​    1.CSS简述 ​    2.CSS选择器 ​    3.CSS样式 ​    4.CSS盒子模型 ​    5.CSS和HTML的结合方式  1.CSS简述1.1 CSS是什么?​    CSS (Cascading Style Sheets) ：层叠样式表 ​    层叠：一层一层叠加 ​    样式表：存储样式的地方，多个样式 1.2 CSS与HTML的区别​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS学习笔记">
+<meta property="og:url" content="http://cyannote.github.io.git/CSS学习笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CSS内容: ​    1.CSS简述 ​    2.CSS选择器 ​    3.CSS样式 ​    4.CSS盒子模型 ​    5.CSS和HTML的结合方式  1.CSS简述1.1 CSS是什么?​    CSS (Cascading Style Sheets) ：层叠样式表 ​    层叠：一层一层叠加 ​    样式表：存储样式的地方，多个样式 1.2 CSS与HTML的区别​">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558934192653.png">
+<meta property="og:updated_time" content="2019-07-21T07:42:40.222Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS学习笔记">
+<meta name="twitter:description" content="CSS内容: ​    1.CSS简述 ​    2.CSS选择器 ​    3.CSS样式 ​    4.CSS盒子模型 ​    5.CSS和HTML的结合方式  1.CSS简述1.1 CSS是什么?​    CSS (Cascading Style Sheets) ：层叠样式表 ​    层叠：一层一层叠加 ​    样式表：存储样式的地方，多个样式 1.2 CSS与HTML的区别​">
+<meta name="twitter:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558934192653.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>33</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-CSS学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/CSS学习笔记/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:08:51.389Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS学习笔记
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p>内容:</p>
+<p>​    1.CSS简述</p>
+<p>​    2.CSS选择器</p>
+<p>​    3.CSS样式</p>
+<p>​    4.CSS盒子模型</p>
+<p>​    5.CSS和HTML的结合方式</p>
+<hr>
+<h2 id="1-CSS简述"><a href="#1-CSS简述" class="headerlink" title="1.CSS简述"></a>1.CSS简述</h2><h3 id="1-1-CSS是什么"><a href="#1-1-CSS是什么" class="headerlink" title="1.1 CSS是什么?"></a>1.1 CSS是什么?</h3><p>​    CSS (Cascading Style Sheets) ：层叠样式表</p>
+<p>​    层叠：一层一层叠加</p>
+<p>​    样式表：存储样式的地方，多个样式</p>
+<h3 id="1-2-CSS与HTML的区别"><a href="#1-2-CSS与HTML的区别" class="headerlink" title="1.2 CSS与HTML的区别"></a>1.2 CSS与HTML的区别</h3><p>​    HTML   –&gt;   页面的结构   –&gt;   人的面部（素颜） </p>
+<p>​    CSS   –&gt;   美化页面   –&gt;   给人化妆</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558934192653.png" alt="1558934192653"></p>
+<p>为什么使用CSS替代HTML属性设置样式？</p>
+<p>因为HTML属性在单独使用时有一定的局限性，所以要配合CSS样式代码才可以展示更为丰富的效果。</p>
+<h3 id="1-3-CSS-的作用"><a href="#1-3-CSS-的作用" class="headerlink" title="1.3 CSS 的作用"></a>1.3 CSS 的作用</h3><p>​    CSS作用：修饰HTML页面，更丰富多彩地展示超文本信息</p>
+<h3 id="1-4-css的代码规范"><a href="#1-4-css的代码规范" class="headerlink" title="1.4 css的代码规范"></a>1.4 css的代码规范</h3><p>放置规范：</p>
+<p>​                  在<style>标签内容体中书写css样式代码。</p>
+<pre><code>&lt;style&gt;标签放置在&lt;head&gt;标签之中。</code></pre><p>​         格式规范：</p>
+<p>​               选择器名称 { 属性名1：属性值1；属性名2：属性值2；…….}</p>
+<p>​               选择器：即指定CSS样式作用在哪些HTML标签上</p>
+<p>​       代码规范：</p>
+<p>​        l  属性名和属性值之间是键值对关系；</p>
+<p>​        l  属性名和属性值之间 用 “:” 连接，最后“;”结尾；</p>
+<p>​              例如：font-size:120px;</p>
+<p>​        l  如果一个属性名有多个值，多个值之间用 空格 隔开。</p>
+<pre><code>例如： *border*:5px solid red;</code></pre><p>​        l  CSS注释：/* 注释内容*/       等同于java的多行注释</p>
+<hr>
+<h2 id="2-CSS选择器"><a href="#2-CSS选择器" class="headerlink" title="2. CSS选择器"></a>2. CSS选择器</h2><h3 id="2-1-基本选择器"><a href="#2-1-基本选择器" class="headerlink" title="2.1 基本选择器"></a>2.1 基本选择器</h3><ul>
+<li><p><strong>元素选择器</strong></p>
+<p>HTML标签又名HTML元素。</p>
+<p>元素选择器：即以<strong>HTML标签名作为选择器名称</strong>。</p>
+<p>作用：选择CSS样式代码 作用于 对应标签名的标签上。 </p>
+<p>l  格式：</p>
+<p>​         标签名{</p>
+<p>​         /<em>CSS样式代码</em>/</p>
+<p>}</p>
+<p>适用范围：适用于将相同样式   作用在多个同名标签上</p>
+</li>
+<li><p><strong>类选择器</strong></p>
+<p>每个HTML标签都有一个class属性，class属性值即为类名</p>
+<p>类选择器：即以HTML的类名（class属性值）作为选择器名称。</p>
+<p>作用：选择CSS样式代码 作用于 对应类名的HTML标签上</p>
+<p>l  格式：</p>
+<p>​         .类名{</p>
+<p>​         /<em>CSS样式代码</em>/</p>
+<p>}</p>
+<p>适用范围：适用于将样式  一次作用在相同类名的标签上。（即使标签名不同）</p>
+</li>
+<li><p><strong>id选择器</strong></p>
+<p>每个HTML标签都有一个id属性，id的属性值必须在本页面是唯一的。 </p>
+<p>id选择器：即以HTML的id（id属性值）作为选择器名称。</p>
+<p>作用：选择CSS样式代码 作用于 某个规定id值的html标签上 </p>
+<p>l  格式：</p>
+<p>​         #id值{</p>
+<p>​         /<em>CSS样式代码</em>/</p>
+<p>}</p>
+<p>适用范围：适用于将样式  作用某个标签上。（更有<strong>针对性</strong>）</p>
+<p>注意：</p>
+<p>​         必须手动保证ID值在本页面唯一。</p>
+</li>
+</ul>
+<h3 id="2-2-基本选择器的组合方式"><a href="#2-2-基本选择器的组合方式" class="headerlink" title="2.2 基本选择器的组合方式"></a>2.2 基本选择器的组合方式</h3><p><strong>层级关系</strong></p>
+<p>标签和标签之间有层级关系，例如：<html>标签的子标签为<body>标签。</p>
+<p>我们可以对基本选择器进行组合，表现出层级关系，从而更加针对性地把样式作用于某些标签上。</p>
+<p>格式：</p>
+<p>​         选择器1 选择器2 …..{</p>
+<p>​                  /<em>css样式代码</em>/</p>
+<p>}</p>
+<p>选择器1 下的  选择器2 </p>
+<h2 id="3-CSS样式"><a href="#3-CSS样式" class="headerlink" title="3. CSS样式"></a>3. CSS样式</h2><h3 id="3-1-边框属性"><a href="#3-1-边框属性" class="headerlink" title="3.1 边框属性"></a>3.1 边框属性</h3><p>所有的HTML标签都有边框，默认边框不可见</p>
+<ul>
+<li><h4 id="border"><a href="#border" class="headerlink" title="border"></a>border</h4><p>设置边框的样式</p>
+<p>格式：宽度 样式 颜色</p>
+<p>例如：border:1px solid red  ，1像素粗的 实线 红色边框。</p>
+<p>线条样式：solid 实线，none 无边，double 双线</p>
+</li>
+<li><h4 id="width"><a href="#width" class="headerlink" title="width"></a>width</h4><p>用于设置标签的宽度</p>
+</li>
+<li><h4 id="height"><a href="#height" class="headerlink" title="height"></a>height</h4><p>用于设置标签的高度</p>
+</li>
+<li><h4 id="background-color"><a href="#background-color" class="headerlink" title="background-color"></a>background-color</h4><p>​         用于设置标签的背景颜色</p>
+<p>​         背景颜色设置的两种主流方式：</p>
+<p>​                  ①英文单词                例如：red,blue,yellow</p>
+<p>​                  ②颜色代码                格式：#红绿蓝， 每一个颜色用两个16进制位数表示</p>
+<p>例如：#ff1100  红色ff，绿色11，蓝色00，红色颜色最重，绿色其次，没有蓝色</p>
+</li>
+</ul>
+<h3 id="3-2-布局"><a href="#3-2-布局" class="headerlink" title="3.2 布局"></a>3.2 布局</h3><ul>
+<li><h4 id="float"><a href="#float" class="headerlink" title="float"></a>float</h4><p>通常默认的排版方式，将页面中的元素从上到下一一罗列，而实际开发中，需要左右方式进行排版，就需要使用浮动属性 </p>
+<p>格式：</p>
+<p>选择器{float:属性值;}</p>
+<p>常用属性值：</p>
+<p>​                  none：元素不浮动（默认值）</p>
+<p>​                  left：元素向左浮动</p>
+<p>​                  right：元素向右浮动        </p>
+<p>​         注意：因为元素设置浮动属性后，会脱离原有文档流（会脱离原有的板式），从而会影响其他元素的样式，所以设置浮动以后，页面样式需要重新调整</p>
+<p>示例：</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558935073299.png" alt="1558935073299"></p>
+<p>效果:</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558935104346.png" alt="1558935104346"></p>
+</li>
+</ul>
+<h3 id="3-3-转换"><a href="#3-3-转换" class="headerlink" title="3.3 转换"></a>3.3 转换</h3><p><strong>display</strong></p>
+<p>HTML提供丰富的标签，这些标签被定义成了不同的类型，一般分为：块级元素和行内元素。</p>
+<p>块元素：以区域块方式出现。每个块标签独自占据一整行或多整行。块结束会自动换行</p>
+<p>常见的块元素：<h1>、<p>、<div>、<ul>等</p>
+<p>行内元素：根据内容多少来占用行内空间，不会自动换行</p>
+<p>常见的行内元素：<span>、<a> 等</p>
+<p> display属性可以使得元素 在行内元素和块元素之间相互转换。</p>
+<p> 格式：</p>
+<p>选择器{display:属性值}</p>
+<p> 常用的属性值：</p>
+<p>block：此元素将显为块元素（块元素默认的display属性值）</p>
+<p>inline：此元素将显示为行内元素（行内元素默认的display属性值）</p>
+<p>none：此元素将被隐藏，不显示，也不占用页面空间。</p>
+<h3 id="3-4-字体"><a href="#3-4-字体" class="headerlink" title="3.4 字体"></a>3.4 字体</h3><ul>
+<li><h4 id="font-size"><a href="#font-size" class="headerlink" title="font-size"></a>font-size</h4><p> 用于设置字体的大小。</p>
+</li>
+<li><h4 id="color"><a href="#color" class="headerlink" title="color"></a>color</h4><p> 用于设置字体的颜色。</p>
+</li>
+</ul>
+<h2 id="4-盒子模型"><a href="#4-盒子模型" class="headerlink" title="4. 盒子模型"></a>4. 盒子模型</h2><h3 id="4-1-什么是盒子模型"><a href="#4-1-什么是盒子模型" class="headerlink" title="4.1 什么是盒子模型?"></a>4.1 什么是盒子模型?</h3><p>所有的HTML元素，我们都可以看成一个四边形，即一个盒子。</p>
+<p>用CSS来设置元素盒子的 内边距(padding)、边框(border) 和 外边距(margin) 的样式的方式，</p>
+<p>相当于设置盒子的样式，所以我们将其称之为 盒子模型</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558935385362.png" alt="1558935385362"></p>
+<h3 id="4-2-边框-border"><a href="#4-2-边框-border" class="headerlink" title="4.2 边框 border"></a>4.2 边框 border</h3><p>边框：HTML元素盒子的框体</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558935430994.png" alt="1558935430994"></p>
+<p>边框有四个属性可以设置：</p>
+<p>border-top:上边框</p>
+<p>border -right:右边框</p>
+<p>border -bottom:下边框</p>
+<p>border -left:左边框</p>
+<p> 通用性设置：</p>
+<p>一次性设置上下左右边框样式 为1像素的 实体 红色线</p>
+<p>border:1px solid red;</p>
+<h3 id="4-3-内边距padding"><a href="#4-3-内边距padding" class="headerlink" title="4.3 内边距padding"></a>4.3 内边距padding</h3><p>内边距：HTML元素里的内容体 到  HTML元素边框 的距离</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558935511137.png" alt="1558935511137"></p>
+<p>内边距有四个属性可以设置：</p>
+<p>padding-top:上边距</p>
+<p>padding-right:右边距</p>
+<p>padding-bottom:下边距</p>
+<p>padding-left:左边距</p>
+<p>通用性设置：</p>
+<p>一次性设置上下左右内边距距离为10PX</p>
+<p>padding:10px;</p>
+<h3 id="4-4-外边距margin"><a href="#4-4-外边距margin" class="headerlink" title="4.4 外边距margin"></a>4.4 外边距margin</h3><p>外边距：HTML元素边框 到 其他HTML元素边框的距离</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1558935573459.png" alt="1558935573459"></p>
+<p>外边距有四个属性可以设置：</p>
+<p>margin-top:上边距</p>
+<p>margin -right:右边距</p>
+<p>margin -bottom:下边距</p>
+<p>margin -left:左边距</p>
+<p>通用性设置：</p>
+<p>一次性设置上下左右外边距距离为10PX</p>
+<p>margin:10px;</p>
+<hr>
+<h2 id="5-CSS和HTML的结合方式"><a href="#5-CSS和HTML的结合方式" class="headerlink" title="5. CSS和HTML的结合方式"></a>5. CSS和HTML的结合方式</h2><h3 id="5-1-内部样式"><a href="#5-1-内部样式" class="headerlink" title="5.1 内部样式"></a>5.1 内部样式</h3><ul>
+<li><p><strong>行内样式</strong></p>
+<p>行内样式，是通过标签的style属性来设置元素的样式。</p>
+<p>格式：</p>
+<p>​         &lt;html标签 style=”css样式代码” /&gt;</p>
+</li>
+<li><style></style>标签方式
+
+
+
+</p><p>当某些样式在页面中被多个标签重复使用，为了编码更加灵活，避免书写重复代码，</p>
+<p>我们将样式代码从标签style属性中抽取出来，统一写入到style标签中。</p>
+<p>格式：</p>
+<pre><code>&lt;style&gt;
+       css样式代码
+&lt;/style&gt;</code></pre><p>应用环境：<strong>适合页面中进行样式复用</strong></p>
+<h3 id="5-2-外部样式"><a href="#5-2-外部样式" class="headerlink" title="5.2 外部样式"></a>5.2 外部样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;link/&gt;标签方式</span><br><span class="line">&lt;link/&gt;又称为链入式，是将所有的样式放在一个或多个以.css为扩展名的外部样式表文件中，通过&lt;link&gt;标签将样式连接到HTML文档中。</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css文件路径&quot;/&gt;</span><br><span class="line"></span><br><span class="line">	rel=&quot;stylesheet&quot; ,固定值，表示样式表</span><br><span class="line">	type=&quot;text/css&quot;，固定值，表示css类型</span><br><span class="line">	href ，表示css文件位置</span><br></pre></td></tr></table></figure>
+
+<p>适合：<strong>不同页面进行样式复用。</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/CSS学习笔记/" data-id="cjycojogt0007wo7k16yrso5z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/在Linux-上安装JDK/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          在linux安装JDk
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Cookie-Session/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Cookie&amp;Session</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Hexo</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>33</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/cyannote" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 inverse<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
