@@ -3,16 +3,19 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>categories | Hexo</title>
+  <title>Redis | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://cyannote.github.io.git/categories/index.html">
+  <meta name="description" content="Redis增加数据String :  set key value    设定该Key持有指定的字符串Value List : lpush key value [value …] 添加键和对应的多个值 hash : hset key  field value 为指定的Key设定Field/Value对 Set:  sadd key member [member …] 添加键和对应的值 sortedS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="http://cyannote.github.io.git/Redis/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Redis增加数据String :  set key value    设定该Key持有指定的字符串Value List : lpush key value [value …] 添加键和对应的多个值 hash : hset key  field value 为指定的Key设定Field/Value对 Set:  sadd key member [member …] 添加键和对应的值 sortedS">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-06-13T06:37:47.841Z">
+<meta property="og:updated_time" content="2019-07-21T07:48:14.795Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="Redis">
+<meta name="twitter:description" content="Redis增加数据String :  set key value    设定该Key持有指定的字符串Value List : lpush key value [value …] 添加键和对应的多个值 hash : hset key  field value 为指定的Key设定Field/Value对 Set:  sadd key member [member …] 添加键和对应的值 sortedS">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -65,14 +68,95 @@
   </div>
 </div>
 
-        <section id="main"><article class="animated rubberBand article article-type-">
-  <div class="article-inner">
-    <div class="categories-box">
-      <h1>分类</h1>
-       
-    </div>
+        <section id="main"><article id="post-Redis" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Redis/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:05:10.740Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
   </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Redis
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="增加数据"><a href="#增加数据" class="headerlink" title="增加数据"></a>增加数据</h2><p><strong>String :  set key value</strong>   </p>
+<p>设定该Key持有指定的字符串Value</p>
+<p><strong>List : lpush key value [value …]</strong></p>
+<p>添加键和对应的多个值</p>
+<p><strong>hash : hset key  field value</strong></p>
+<p>为指定的Key设定Field/Value对</p>
+<p><strong>Set:  sadd key member [member …]</strong></p>
+<p>添加键和对应的值</p>
+<p><strong>sortedSet: zadd key score member [score] [member]</strong></p>
+<p>添加成员</p>
+<h2 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h2><p><strong>String:    GET key   获取指定Key的Value</strong></p>
+<p><strong>List : lrange key start stop      查询该键对应的值</strong></p>
+<p><strong>Hash</strong>:  HMGET key field [field …]        获取和参数中指定Fields关联的一组Values。</p>
+<p>    HGETALL key     获取该键包含的所有Field/Value<br>    HKEYS key     获取指定Key的所有Fields名<br>    HVALS key      返回指定Key的所有Values名。</p>
+<p><strong>Set:  SMEMBERS key     获取与该Key关联的Set中所有的成员</strong></p>
+<p><strong>SortedSe</strong>t:      ZRANGE key start stop [WITHSCORES]     根据索引获取成员<br>    ZRANGEBYSCORE key min max  根据分数获取成员</p>
+<h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><p><strong>String:  del key  删除key</strong></p>
+<p><strong>List:  lrem key count value 删除指定键中前count个值等于value的元素</strong></p>
+<p><strong>Hash</strong>: hdel key field [field …]       从指定Key的Hashes Value中删除参数中指定的多个字段，如果不存在的字段将被忽略。</p>
+<p><strong>Set</strong>:  SREM key member [member …]     从与Key关联的Set中删除参数中指定的成员</p>
+<p><strong>SortedSet:   ZREM key member [member …]     删除成员</strong></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他:"></a>其他:</h2><p>    SDIFF key [key …] 获取第一个key和后面所有key中不同的部分<br>    SINTER key [key …]  获取所有Keys关联的Sets中成员的交集<br>    SUNION key [key …]      获取所有Keys关联的Sets中成员的并集</p>
+<p>    KEYS pattern     获取所有匹配pattern参数的Keys<br>    DEL key [key …]     删除指定的keys<br>    EXPIRE key seconds      为参数中指定的Key设定超时的秒数，在超过该时间后，Key被自动的删除<br>    PERSIST key 取消key的过期时间<br>    TTL key      获取该键所剩的超时描述</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/Redis/" data-id="cjycoezoe0000l47ko4jvm287" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/MySQL-单表查询笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MySql单表查询
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Search/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Searcher搜索引擎</div>
+    </a>
+  
+</nav>
+
+  
 </article>
+
+
 
 </section>
         

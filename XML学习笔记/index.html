@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>xml笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="XML内容: ​    1:了解XML语法 以及能够读懂常规定义的xml文件 ​    2:要学习如何对XML文档进行解析  ##  1.XML概述1.1 XML简介 XML:        eXtensible Markup Language：可扩展标记型语言    标记型语言：html是标记型语言, 也是使用标签来操作    可扩展：html里面的标签是固定，每个标签都有特定的含义  而XML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xml笔记">
+<meta property="og:url" content="http://cyannote.github.io.git/XML学习笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="XML内容: ​    1:了解XML语法 以及能够读懂常规定义的xml文件 ​    2:要学习如何对XML文档进行解析  ##  1.XML概述1.1 XML简介 XML:        eXtensible Markup Language：可扩展标记型语言    标记型语言：html是标记型语言, 也是使用标签来操作    可扩展：html里面的标签是固定，每个标签都有特定的含义  而XML">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559027717338.png">
+<meta property="og:updated_time" content="2019-07-21T07:49:39.515Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xml笔记">
+<meta name="twitter:description" content="XML内容: ​    1:了解XML语法 以及能够读懂常规定义的xml文件 ​    2:要学习如何对XML文档进行解析  ##  1.XML概述1.1 XML简介 XML:        eXtensible Markup Language：可扩展标记型语言    标记型语言：html是标记型语言, 也是使用标签来操作    可扩展：html里面的标签是固定，每个标签都有特定的含义  而XML">
+<meta name="twitter:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559027717338.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-XML学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/XML学习笔记/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:05:06.452Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      xml笔记
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><p>内容:</p>
+<p>​    1:了解XML语法 以及能够读懂常规定义的xml文件</p>
+<p>​    2:要学习如何对XML文档进行解析</p>
+<hr>
+<p>## </p>
+<h2 id="1-XML概述"><a href="#1-XML概述" class="headerlink" title="1.XML概述"></a>1.XML概述</h2><h3 id="1-1-XML简介"><a href="#1-1-XML简介" class="headerlink" title="1.1 XML简介"></a>1.1 XML简介</h3><p> <strong>XML</strong>:        eXtensible Markup Language：可扩展标记型语言<br>    标记型语言：html是标记型语言, 也是使用标签来操作<br>    可扩展：html里面的标签是固定，每个标签都有特定的含义 </p>
+<p>而XML标签可以自己定义,可以写中文的标签 <person>&lt;/person、&lt;猫&gt;&lt;/猫&gt;</person></p>
+<ul>
+<li><p>xml用途</p>
+<p>  html是用于显示数据，xml也可以显示数据（不是主要功能）<br>  xml主要功能，为了存储数据</p>
+</li>
+<li><p>xml是w3c组织发布的技术</p>
+</li>
+</ul>
+<ul>
+<li><p>xml的应用</p>
+<p>1)不同的系统之间传输数据</p>
+</li>
+</ul>
+<p>​       2)  用来表示生活中有关系的数据</p>
+<p>​        3 )经常用在文件配置</p>
+<p>​            比如现在连接数据库 肯定知道数据库的用户名和密码，数据名称 </p>
+<p>​            如果修改数据库的信息，不需要修改源代码，只要修改配置文件就可以了</p>
+<h3 id="1-2-XML的语法"><a href="#1-2-XML的语法" class="headerlink" title="1.2 XML的语法"></a>1.2 XML的语法</h3><ul>
+<li><p><strong>Xml文件的组成部分</strong></p>
+<ol>
+<li><p><strong>文档声明</strong></p>
+<?xml version=*'1.0'* encoding=*'UTF-8'*?>
+
+<p>​    xml表示标签的名字</p>
+<p>​    version表示当前文件的版本号</p>
+<p>​    encoding表示当前编码, 需要跟文件的编码产生对应关系</p>
+</li>
+</ol>
+</li>
+</ul>
+<pre><code>​    ps: standalone表示标记此文档是否独立</code></pre><ol start="2">
+<li><p><strong>元素</strong></p>
+<p>  xml中的元素其实就是一个个的标签<br>   标签分为两种 </p>
+<pre><code>  a: 包含标签体
+    理解: 尖括号全部成对儿出现, 所有的数据都用一对儿尖括号存储
+b: 不包含标签体
+    理解: 只有最外层的一个尖括号,括号用/标识结束, 内部的数据都用属性来编写</code></pre><p><strong>注意事项</strong>:</p>
+<p>严格区分大小写；</p><p></p><p><br> 不能以字母或下划线开头；abc _abc</p>
+<p>不能以xml(或XML、Xml等)开头—-W3C保留日后使用；</p>
+<p>名称字符之间不能有空格或制表符；</p>
+<p>名称字符之间不能使用冒号 : (有特殊用途)</p>
+</li>
+<li><p><strong>元素的属性</strong></p>
+<p>一个元素可以有多个属性，每个属性都有它自己的名称和取值。<br> 属性值一定要用引号(单引号或双引号)引起来。<br> 属性名称的命名规范与元素的命名规范相同<br>元素中的属性是不允许重复的</p>
+</li>
+<li><p><strong>注释</strong></p>
+<p>格式:</p>
+<p>​         &lt;!—被注释的内容 – &gt;</p>
+<p><strong>注意:</strong> <strong>注释不能嵌套定义</strong></p>
+</li>
+<li><p><strong>CDATA区</strong></p>
+<p>为什么要使用CDATA区域?</p>
+<p>​         如果我们在标签中写入的内容, 想要带有标签的标记符号的话, 就需要对这段内容进行转义</p>
+</li>
+</ol>
+<ol start="6">
+<li><p><strong>特殊字符</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559027717338.png" alt="1559027717338"></p>
+<p>注意:</p>
+<p>​         这种转移可以达到效果, 但是如果操作的数据过多, 编写起来会非常痛苦, 所以, 可以使用CDATA区来解决此问题</p>
+</li>
+<li><p><strong>处理指令</strong>(PI:Processing Instruction)：了解</p>
+</li>
+</ol>
+<h2 id="2-XML约束"><a href="#2-XML约束" class="headerlink" title="2.XML约束"></a>2.XML约束</h2><p>为什么要有约束?</p>
+<p>XML都是用户自定义的标签，若出现小小的错误，软件程序将不能正确地获取文件中的内容而报错。(如：Tomcat)<br>XML技术中，可以编写一个文档来约束一个XML的书写规范，这个文档称之为约束</p>
+<h3 id="2-1-DTD约束"><a href="#2-1-DTD约束" class="headerlink" title="2.1 DTD约束"></a>2.1 DTD约束</h3><ul>
+<li><p><strong>如何使用DTD约束文件?</strong></p>
+<p>1)    编写DTD文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!ELEMENT 书架(书+)&gt;</span><br><span class="line"></span><br><span class="line">​    &lt;!ELEMENT 书 (书名,作者,售价)&gt;</span><br><span class="line"></span><br><span class="line">​    &lt;!ELEMENT 书名 (#PCDATA)&gt;</span><br><span class="line"></span><br><span class="line">​    &lt;!ELEMENT 作者 (#PCDATA)&gt;</span><br><span class="line"></span><br><span class="line">​    &lt;!ELEMENT 售价 (#PCDATA)&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2)     在xml文件中引入DTD文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE 书架 SYSTEM &quot;book.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 引入了写好的DTD文件后, 格式就必须跟DTD文件保持一致</p>
+</li>
+<li><p><strong>DTD的细节</strong></p>
+<p>1)<strong>语法细节</strong></p>
+<p>在DTD文档中使用ELEMENT关键字来声明一个XML元素。</p>
+<p>•        语法：<!ELEMENT 元素名称 使用规则></p>
+<p>使用规则：</p>
+<p>•        (#PCDATA):指示元素的主体内容只能是普通的文本.(Parsed Character Data)</p>
+<p>•        EMPTY：用于指示元素的主体为空。比如<br></p>
+<p>•        ANY:用于指示元素的主体内容为任意类型。</p>
+<p>•        (子元素)：指示元素中包含的子元素</p>
+<p>•        定义子元素及描述它们的关系:</p>
+<p>–       如果子元素用逗号分开，说明必须按照声明顺序去编写XML文档。</p>
+<p>•        如: &lt;!ELEMENT FILE (TITLE,AUTHOR,EMAIL)</p>
+<p>–       如果子元素用”|”分开，说明任选其一。</p>
+<p>•        如:&lt;!ELEMENT FILE (TITLE|AUTHOR|EMAIL)</p>
+<p>–       用+、*、？来表示元素出现的次数</p>
+<p>•        如果元素后面没有+*?:表示必须且只能出现一次</p>
+<p>•        +:表示至少出现一次，一次或多次</p>
+<p>•        *：表示可有可无，零次、一次或多次</p>
+<p>•        ?:表示可以有也可以无，有的话只能有一次。零次或一次</p>
+</li>
+</ul>
+<p>2)<strong>定义属性</strong></p>
+<p>•        在DTD文档中使用ATTLIST关键字来为一个元素声明属性。</p>
+<p>•        语法：</p>
+<p>​                  &lt;!ATTLIST 元素名</p>
+<p>​                          属性名1 属性值类型 设置说明</p>
+<p>​                          属性名2 属性值类型 设置说明</p>
+<p>​                          …</p>
+<p>​                  &gt;</p>
+<p>•        属性值类型：</p>
+<p>–       CDATA：表示属性的取值为普通的文本字符串</p>
+<p>–       ENUMERATED (DTD没有此关键字)：表示枚举，只能从枚举列表中任选其一，如(鸡肉|牛肉|猪肉|鱼肉)</p>
+<p>–       ID:表示属性的取值不能重复</p>
+<p>•        设置说明</p>
+<p>–       #REQUIRED：表示该属性必须出现</p>
+<p>–       #IMPLIED：表示该属性可有可无</p>
+<p>–       #FIXED:表示属性的取值为一个固定值。语法：#FIXED “固定值”</p>
+<p>直接值：表示属性的取值为该默认值</p>
+<h3 id="2-2-Schema约束"><a href="#2-2-Schema约束" class="headerlink" title="2.2 Schema约束"></a>2.2 Schema约束</h3><p><strong>Schema约束自身就是一个XML文件，但它的扩展名通常为.xsd</strong></p>
+<p>一个XML Schema文档通常称之为<strong>模式文档</strong>(约束文档)，遵循这个文档书写的xml文件称之为<strong>实例文档</strong>。\</p>
+<p>XML Schema对<strong>名称空间</strong>支持得非常好</p>
+<p>理解:</p>
+<p>​         名称空间: 相当于package                    </p>
+<p>​        约束文档: 编写好的Person类            </p>
+<p>​         实例文档: 通过Person类创建对象</p>
+<p><strong>使用Schema约束文件</strong></p>
+<p>​         &lt;约束文件根标签名    xmlns=”绑定名称空间地址”</p>
+<p>​                  xmlns:xsi=”<a href="http://www.w3.org/2001/XMLSchema-instance&quot;//名称空间实例" target="_blank" rel="noopener">http://www.w3.org/2001/XMLSchema-instance&quot;//名称空间实例</a></p>
+<p>​                  xsi:schemaLocation=”绑定名称空间地址 约束文件路径”&gt;</p>
+<hr>
+<h2 id="3-XML解析"><a href="#3-XML解析" class="headerlink" title="3. XML解析"></a>3. XML解析</h2><h3 id="3-1-XML解析的两种方式"><a href="#3-1-XML解析的两种方式" class="headerlink" title="3.1 XML解析的两种方式"></a>3.1 XML解析的两种方式</h3><p><strong>DOM</strong>: 将整棵树一口气全部加载到内存当中, 我们可以非常方便的操作任意的标签和属性.<br>但是, 如果整棵树特别大的时候, 会出现内存溢出的问题</p>
+<p>节点: 标签、属性、文本、甚至是换行都称之为节点</p>
+<p><strong>SAX</strong>: 一个节点一个节点的进行解析</p>
+<h3 id="3-2-DOM4J的方法概述"><a href="#3-2-DOM4J的方法概述" class="headerlink" title="3.2 DOM4J的方法概述"></a>3.2 DOM4J的方法概述</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取Document对象</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Document <span class="title">getDocument</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">//创建SAX解析对象</span></span><br><span class="line">    SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">    <span class="comment">//解析XML文件,获得Document对象</span></span><br><span class="line">    Document document = reader.read(<span class="keyword">new</span> FileReader(<span class="string">"src/com/itheima/city.xml"</span>));<span class="comment">//传入xml文件路径</span></span><br><span class="line">    <span class="keyword">return</span> document;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Dom4J的常用方法：</span><br><span class="line">Document</span><br><span class="line"> <span class="function">Element <span class="title">getRootElement</span><span class="params">()</span> :获取根元素对象（根标签）</span></span><br><span class="line"><span class="function">Element</span></span><br><span class="line"><span class="function">	List <span class="title">elements</span><span class="params">()</span> ：获取所有的子元素</span></span><br><span class="line"><span class="function">List <span class="title">elements</span><span class="params">(String name)</span>：根据指定的元素名称来获取相应的所有的子元素</span></span><br><span class="line"><span class="function">Element <span class="title">element</span><span class="params">(String name)</span>：根据指定的元素名称来获取子元素对象,如果元素名称重复，则获取第一个元素 </span></span><br><span class="line"><span class="function">String	<span class="title">elementText</span><span class="params">(String name)</span> ：根据指定的子元素名称，来获取子元素中的文本</span></span><br><span class="line"><span class="function">String	<span class="title">getText</span><span class="params">()</span> ：获取当前元素对象的文本</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setText</span><span class="params">(String text)</span>：设置当前元素对象的文本</span></span><br><span class="line"><span class="function">String	<span class="title">attributeValue</span><span class="params">(String name)</span>：根据指定的属性名称获取其对应的值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Element <span class="title">addAttribute</span><span class="params">(String name,String value)</span>：根据指定的属性名称和值进行添加或者修改BeanUtils的常用方法</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将修改后的数据戏写入xml文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">write2XML</span><span class="params">(Document document)</span> <span class="keyword">throws</span> Exception,FileNotFoundException </span>&#123;</span><br><span class="line">    OutputFormat format = OutputFormat.createPrettyPrint();</span><br><span class="line">    XMLWriter writer = <span class="keyword">new</span> XMLWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">"src/com/itheima/city.xml"</span>), format);</span><br><span class="line">    writer.write(document);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/XML学习笔记/" data-id="cjycoezov0001l47k34yupy18" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Search/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Searcher搜索引擎
+        
+      </div>
+    </a>
+  
+  
+    <a href="/SpringMVC以及SSM整合/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SpringMVC&amp;SSM整合</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Hexo</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/cyannote" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 inverse<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

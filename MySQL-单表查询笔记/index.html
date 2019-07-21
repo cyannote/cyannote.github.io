@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>MySql单表查询 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MySQL单表查询学习目标  理解数据库和关系型数据库的概念  独立完成数据库的安装  理解关系型数据库的存储结构  独立完成对数据库的添加，修改，删除，查询操作  独立完成对数据库表的添加，修改，删除，查询操作  独立完成对数据库表记录的添加，修改，删除，查询操作   1 MySQL的概述1.1 数据库的概述什么是数据库数据库就是一个文件系统，通过标准的SQL语句获取数据 1.2 MySQL的概">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql单表查询">
+<meta property="og:url" content="http://cyannote.github.io.git/MySQL-单表查询笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MySQL单表查询学习目标  理解数据库和关系型数据库的概念  独立完成数据库的安装  理解关系型数据库的存储结构  独立完成对数据库的添加，修改，删除，查询操作  独立完成对数据库表的添加，修改，删除，查询操作  独立完成对数据库表记录的添加，修改，删除，查询操作   1 MySQL的概述1.1 数据库的概述什么是数据库数据库就是一个文件系统，通过标准的SQL语句获取数据 1.2 MySQL的概">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="d:%5Ctypora%E5%9B%BE%E7%89%87%5C1558492939657-1558493290446.png">
+<meta property="og:image" content="d:%5Ctypora%E5%9B%BE%E7%89%87%5C1558493010920.png">
+<meta property="og:image" content="d:%5Ctypora%E5%9B%BE%E7%89%87%5C1558493046345.png">
+<meta property="og:image" content="d:%5Ctypora%E5%9B%BE%E7%89%87%5C1558493065295-1558493411567.png">
+<meta property="og:image" content="http://cyannote.github.io.git/MySQL-单表查询笔记/media/image14.png">
+<meta property="og:updated_time" content="2019-07-21T07:48:02.735Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySql单表查询">
+<meta name="twitter:description" content="MySQL单表查询学习目标  理解数据库和关系型数据库的概念  独立完成数据库的安装  理解关系型数据库的存储结构  独立完成对数据库的添加，修改，删除，查询操作  独立完成对数据库表的添加，修改，删除，查询操作  独立完成对数据库表记录的添加，修改，删除，查询操作   1 MySQL的概述1.1 数据库的概述什么是数据库数据库就是一个文件系统，通过标准的SQL语句获取数据 1.2 MySQL的概">
+<meta name="twitter:image" content="d:%5Ctypora%E5%9B%BE%E7%89%87%5C1558492939657-1558493290446.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-MySQL-单表查询笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/MySQL-单表查询笔记/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:05:12.051Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySql单表查询
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL单表查询"><a href="#MySQL单表查询" class="headerlink" title="MySQL单表查询"></a>MySQL单表查询</h1><p><strong>学习目标</strong></p>
+<ul>
+<li><p>理解数据库和关系型数据库的概念</p>
+</li>
+<li><p>独立完成数据库的安装</p>
+</li>
+<li><p>理解关系型数据库的存储结构</p>
+</li>
+<li><p>独立完成对数据库的添加，修改，删除，查询操作</p>
+</li>
+<li><p>独立完成对数据库表的添加，修改，删除，查询操作</p>
+</li>
+<li><p>独立完成对数据库表记录的添加，修改，删除，查询操作</p>
+</li>
+</ul>
+<h2 id="1-MySQL的概述"><a href="#1-MySQL的概述" class="headerlink" title="1 MySQL的概述"></a>1 MySQL的概述</h2><h3 id="1-1-数据库的概述"><a href="#1-1-数据库的概述" class="headerlink" title="1.1 数据库的概述"></a>1.1 数据库的概述</h3><h4 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h4><p>数据库就是一个文件系统，通过标准的SQL语句获取数据</p>
+<h3 id="1-2-MySQL的概述"><a href="#1-2-MySQL的概述" class="headerlink" title="1.2 MySQL的概述"></a>1.2 MySQL的概述</h3><h4 id="什么是MySQL数据库"><a href="#什么是MySQL数据库" class="headerlink" title="什么是MySQL数据库"></a>什么是MySQL数据库</h4><p><img src="D:%5Ctypora%E5%9B%BE%E7%89%87%5C1558492939657-1558493290446.png" alt="1558492939657"></p>
+<h3 id="1-3关系型数据库概述"><a href="#1-3关系型数据库概述" class="headerlink" title="1.3关系型数据库概述"></a>1.3关系型数据库概述</h3><h4 id="什么是关系型数据库"><a href="#什么是关系型数据库" class="headerlink" title="什么是关系型数据库"></a>什么是关系型数据库</h4><p>关系型数据库存放的是实体之间的关系</p>
+<p><img src="D:%5Ctypora%E5%9B%BE%E7%89%87%5C1558493010920.png" alt="1558493010920"></p>
+<h4 id="常见的关系型数据库"><a href="#常见的关系型数据库" class="headerlink" title="常见的关系型数据库"></a>常见的关系型数据库</h4><ul>
+<li><p>MySQL</p>
+</li>
+<li><p>Oracle</p>
+</li>
+<li><p>SQLServer</p>
+</li>
+<li><p>DB2</p>
+</li>
+<li><p>SyBase</p>
+</li>
+</ul>
+<h2 id="2-MySQL的数据存储方式的概述"><a href="#2-MySQL的数据存储方式的概述" class="headerlink" title="2 MySQL的数据存储方式的概述"></a>2 MySQL的数据存储方式的概述</h2><h3 id="2-1-服务器的概念"><a href="#2-1-服务器的概念" class="headerlink" title="2.1 服务器的概念"></a>2.1 服务器的概念</h3><h4 id="什么是服务器"><a href="#什么是服务器" class="headerlink" title="什么是服务器"></a>什么是服务器</h4><p>服务器要从硬件和软件两个方面来说：</p>
+<ul>
+<li><p>硬件：指的就是一台计算机。</p>
+</li>
+<li><p>软件：需要在这台电脑上安装数据库服务器。</p>
+</li>
+</ul>
+<h3 id="2-2-MySQL数据库存储的方式"><a href="#2-2-MySQL数据库存储的方式" class="headerlink" title="2.2 MySQL数据库存储的方式"></a>2.2 MySQL数据库存储的方式</h3><h4 id="存储方式的描述"><a href="#存储方式的描述" class="headerlink" title="存储方式的描述"></a>存储方式的描述</h4><p><img src="D:%5Ctypora%E5%9B%BE%E7%89%87%5C1558493046345.png" alt="1558493046345"></p>
+<p>一台数据库服务器中会创建很多数据库（一个项目，会创建一个数据库）。在数据库中会创建很多张表（一个实体会创建一个表）。在表中会有很多记录（一个对象的实例会添加一条新的记录）。</p>
+<h2 id="3-SQL的概述"><a href="#3-SQL的概述" class="headerlink" title="3 SQL的概述"></a>3 SQL的概述</h2><h3 id="3-1-SQL的概念"><a href="#3-1-SQL的概念" class="headerlink" title="3.1 SQL的概念"></a>3.1 SQL的概念</h3><h4 id="什么是SQL"><a href="#什么是SQL" class="headerlink" title="什么是SQL"></a>什么是SQL</h4><p><img src="D:%5Ctypora%E5%9B%BE%E7%89%87%5C1558493065295-1558493411567.png" alt="1558493065295"></p>
+<h3 id="3-2-SQL的分类"><a href="#3-2-SQL的分类" class="headerlink" title="3.2 SQL的分类"></a>3.2 SQL的分类</h3><h4 id="DDL：数据定义语言"><a href="#DDL：数据定义语言" class="headerlink" title="DDL：数据定义语言"></a>DDL：数据定义语言</h4><p>create，drop，alter..</p>
+<h4 id="DCL：数据控制语言"><a href="#DCL：数据控制语言" class="headerlink" title="DCL：数据控制语言"></a>DCL：数据控制语言</h4><p>grant，if…</p>
+<h4 id="DML：数据操纵语言"><a href="#DML：数据操纵语言" class="headerlink" title="DML：数据操纵语言"></a>DML：数据操纵语言</h4><p>insert，update，delete…</p>
+<h4 id="DQL：数据查询语言"><a href="#DQL：数据查询语言" class="headerlink" title="DQL：数据查询语言"></a>DQL：数据查询语言</h4><p>select</p>
+<h2 id="4-使用SQL"><a href="#4-使用SQL" class="headerlink" title="4 使用SQL"></a>4 使用SQL</h2><h3 id="4-1-SQL对数据库进行操作"><a href="#4-1-SQL对数据库进行操作" class="headerlink" title="4.1 SQL对数据库进行操作"></a>4.1 SQL对数据库进行操作</h3><h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><ul>
+<li><p>语法：</p>
+<ul>
+<li>create database 数据库名称 [character set 字符集 collate 字符集校对规则];</li>
+</ul>
+</li>
+</ul>
+<h4 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h4><ul>
+<li><p>语法：</p>
+<ul>
+<li>查看数据库服务器中所有的数据库：show databases;</li>
+</ul>
+</li>
+<li><p>查看某个数据库的定义信息： show create database 数据库名称;</p>
+</li>
+</ul>
+<h4 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h4><ul>
+<li><p>语法：</p>
+<ul>
+<li>alter database 数据库名称 character set 字符集 collate 校对规则;</li>
+</ul>
+</li>
+</ul>
+<h4 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h4><ul>
+<li><p>语法:</p>
+<ul>
+<li>drop database 数据库名称;</li>
+</ul>
+</li>
+</ul>
+<h4 id="其他数据库操作"><a href="#其他数据库操作" class="headerlink" title="其他数据库操作"></a>其他数据库操作</h4><ul>
+<li><p>切换数据库：use 数据库名称;</p>
+</li>
+<li><p>查看当前正在使用的数据库：</p>
+</li>
+</ul>
+<h3 id="4-2-SQL对数据库表进行操作"><a href="#4-2-SQL对数据库表进行操作" class="headerlink" title="4.2 SQL对数据库表进行操作"></a>4.2 SQL对数据库表进行操作</h3><h4 id="SQL创建表"><a href="#SQL创建表" class="headerlink" title="SQL创建表"></a>SQL创建表</h4><ul>
+<li><p>语法：</p>
+<ul>
+<li>create table 表名称(字段名称 字段类型(长度) 约束,字段名称 字段类型(长度) 约束…);</li>
+</ul>
+</li>
+<li><p>字段类型</p>
+<ul>
+<li>一个实体对应一个表，一个实体属性对应表的一个字段。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Java中的类型 MySQL中的类型</p>
+<p>byte/short/int/long tinyint/smallint/int/bigint</p>
+<p>float float</p>
+<p>double double</p>
+<p>boolean bit</p>
+<p>char/String char和varchar类型</p>
+<p><strong>char和varchar的区别：</strong></p>
+<p><strong>* char代表是固定长度的字符或字符串。</strong></p>
+<p><strong>* 定义类型char(8),向这个字段存入字符串hello，那么数据库使用三个空格将其补全。</strong></p>
+<p><strong>* varchar代表的是可变长度的字符串。</strong></p>
+<p><strong>* 定义类型varchar(8), 向这个字段存入字符串hello,那么存入到数据库的就是hello。</strong></p>
+<p>Date date/time/datetime/timestamp</p>
+<p><strong>datetime和timestamp区别</strong></p>
+<p><strong>* datetime就是既有日期又有时间的日期类型，如果没有向这个字段中存值，数据库使用null存入到数据库中</strong></p>
+<p><strong>* timestamp也是既有日期又有时间的日期类型，如果没有向这个字段中存值，数据库使用当前的系统时间存入到数据库中。</strong></p>
+<p>File BLOB/TEXT</p>
+</blockquote>
+<ul>
+<li><p>约束</p>
+<ul>
+<li><p>约束作用：保证数据的完整性</p>
+</li>
+<li><p>单表约束分类：</p>
+<ul>
+<li><p>主键约束：primary key 主键约束默认就是唯一 非空的</p>
+</li>
+<li><p>唯一约束：unique</p>
+</li>
+<li><p>非空约束：not null</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>建表语句：</p>
+</li>
+</ul>
+<p>create database web_test1;</p>
+<p>use web_test1;</p>
+<p>create table user(</p>
+<p>id int primary key auto_increment,</p>
+<p>username varchar(20) unique,</p>
+<p>password varchar(20) not null,</p>
+<p>age int,</p>
+<p>birthday date</p>
+<p>);</p>
+<h4 id="SQL查看表"><a href="#SQL查看表" class="headerlink" title="SQL查看表"></a>SQL查看表</h4><ul>
+<li><p>查看某个数据库下的所有的表</p>
+</li>
+<li><p>语法：show tables;</p>
+</li>
+<li><p>查看某个表的结构信息</p>
+</li>
+<li><p>语法：desc 表名;</p>
+</li>
+</ul>
+<h4 id="SQL删除表"><a href="#SQL删除表" class="headerlink" title="SQL删除表"></a>SQL删除表</h4><ul>
+<li><p>删除表</p>
+<ul>
+<li>语法：drop table 表名;</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><img src="media/image14.png" alt>{width=”4.134722222222222in” height=”0.8847222222222222in”}</p>
+</blockquote>
+<h4 id="SQL修改表"><a href="#SQL修改表" class="headerlink" title="SQL修改表"></a>SQL修改表</h4><ul>
+<li><p>修改表：添加列</p>
+<ul>
+<li>alter table 表名 add 列名 类型(长度) 约束;</li>
+</ul>
+</li>
+<li><p>修改表：修改列类型，长度和约束</p>
+<ul>
+<li>alter table 表名 modify 列名 类型(长度) 约束;</li>
+</ul>
+</li>
+<li><p>修改表：删除列</p>
+<ul>
+<li>alter table 表名 drop 列名;</li>
+</ul>
+</li>
+<li><p>修改表：修改列名称</p>
+<ul>
+<li>alter table 表名 change 旧列名 新列名 类型(长度) 约束;</li>
+</ul>
+</li>
+<li><p>修改表：修改表名</p>
+<ul>
+<li>rename table 表名 to 新的表名;</li>
+</ul>
+</li>
+<li><p>修改表：修改表的字符集</p>
+<ul>
+<li>alter table 表名 character set 字符集;</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-3-SQL对数据库表的记录进行操作（重点）"><a href="#4-3-SQL对数据库表的记录进行操作（重点）" class="headerlink" title="4.3 SQL对数据库表的记录进行操作（重点）"></a>4.3 SQL对数据库表的记录进行操作（重点）</h3><h4 id="SQL添加表的记录"><a href="#SQL添加表的记录" class="headerlink" title="SQL添加表的记录"></a>SQL添加表的记录</h4><ul>
+<li><p>语法：</p>
+<ul>
+<li><p>向表中插入某些列：insert into 表名 (列名1,列名2,列名3…) values (值1,值2,值3…)</p>
+</li>
+<li><p>向表中插入所有列：insert into 表名 values (值1,值2,值3…);</p>
+</li>
+</ul>
+</li>
+<li><p><strong>注意事项</strong></p>
+<ul>
+<li><p><strong>1.值的类型与数据库中表列的类型一致。</strong></p>
+</li>
+<li><p><strong>2.值的顺序与数据库中表列的顺序一致。</strong></p>
+</li>
+<li><p><strong>3.值的最大长度不能超过列设置最大长度。</strong></p>
+</li>
+<li><p><strong>4.值的类型是字符串或者是日期类型，使用单引号引起来。</strong></p>
+</li>
+</ul>
+</li>
+<li><p>添加记录</p>
+<ul>
+<li>添加某几列</li>
+</ul>
+</li>
+</ul>
+<p>insert into user (id,username,password) values (null,&#39;aaa&#39;,&#39;123&#39;);</p>
+<ul>
+<li>添加所有列</li>
+</ul>
+<p>insert into user values (null,&#39;bbb&#39;,&#39;123&#39;,23,&#39;1993-09-01&#39;);</p>
+<ul>
+<li>添加中文记录</li>
+</ul>
+<p>insert into user values (null,&#39;张三&#39;,&#39;123&#39;,23,&#39;1993-09-01&#39;);</p>
+<p><strong>直接向数据库中插入中文记录会出现错误！！！</strong></p>
+<p><strong>解决方法：</strong></p>
+<p><strong>show variables like &#39;%character%&#39;; --查看数据库中与字符集相关参数：</strong></p>
+<p><strong>需要将MySQL数据库服务器中的客户端部分的字符集改为gbk。</strong></p>
+<p><strong>找到MySQL的安装路径：my.ini文件，修改文件中[client]下的字符集</strong></p>
+<p>* 重新启动MySQL的服务器</p>
+<p>services.msc</p>
+<h4 id="SQL修改表的记录"><a href="#SQL修改表的记录" class="headerlink" title="SQL修改表的记录"></a>SQL修改表的记录</h4><ul>
+<li><p>语法:</p>
+<ul>
+<li>update 表名 set 列名=值,列名=值 [where 条件];</li>
+</ul>
+</li>
+<li><p><strong>注意事项</strong></p>
+<ul>
+<li><p><strong>1.值的类型与列的类型一致。</strong></p>
+</li>
+<li><p><strong>2.值的最大长度不能超过列设置的最大长度。</strong></p>
+</li>
+<li><p><strong>3.字符串类型和日期类型添加单引号。</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>修改某一列的所有值</strong></p>
+</li>
+</ul>
+<p>update user set password = &#39;abc&#39;;</p>
+<ul>
+<li><strong>按条件修改数据</strong></li>
+</ul>
+<p>update user set password = &#39;xyz&#39; where username = &#39;bbb&#39;;</p>
+<ul>
+<li><strong>按条件修改多个列</strong></li>
+</ul>
+<p>update user set password=&#39;123&#39;,age=34 where username=&#39;aaa&#39;;</p>
+<h4 id="SQL删除表的记录"><a href="#SQL删除表的记录" class="headerlink" title="SQL删除表的记录"></a>SQL删除表的记录</h4><ul>
+<li><p>语法：</p>
+<ul>
+<li>delete from 表名 [where 条件];</li>
+</ul>
+</li>
+<li><p><strong>注意事项</strong></p>
+<ul>
+<li><p><strong>1.删除表的记录，指的是删除表中的一行记录。</strong></p>
+</li>
+<li><p><strong>2.删除如果没有条件，默认是删除表中的所有记录。</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>删除某一条记录</strong></p>
+</li>
+</ul>
+<p>delete from user where id = 2;</p>
+<ul>
+<li><strong>删除表中的所有记录</strong></li>
+</ul>
+<p>delete from user;</p>
+<ul>
+<li><p><strong>删除表中的记录有两种做法:</strong></p>
+<ul>
+<li><p><strong>delete from user;</strong></p>
+<ul>
+<li><strong>删除所有记录，属于DML语句，一条记录一条记录删除。事务可以作用在DML语句上的</strong></li>
+</ul>
+</li>
+<li><p><strong>truncate table user;</strong></p>
+<ul>
+<li><strong>删除所有记录，属于DDL语句，将表删除，然后重新创建一个结构一样的表。事务不能控制DDL的</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="SQL查看表的记录（重点）"><a href="#SQL查看表的记录（重点）" class="headerlink" title="SQL查看表的记录（重点）"></a>SQL查看表的记录（重点）</h4><ul>
+<li><p><strong>基本查询</strong></p>
+<ul>
+<li><p><strong>语法:select [distinct] *|列名 from 表 [条件];</strong></p>
+</li>
+<li><p>环境的准备：</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>create table exam(</p>
+<p>id int primary key auto_increment,</p>
+<p>name varchar(20),</p>
+<p>english int,</p>
+<p>chinese int,</p>
+<p>math int</p>
+<p>);</p>
+<p>insert into exam values (null,&#39;张三&#39;,85,74,91);</p>
+<p>insert into exam values (null,&#39;李四&#39;,95,90,83);</p>
+<p>insert into exam values (null,&#39;王五&#39;,85,84,59);</p>
+<p>insert into exam values (null,&#39;赵六&#39;,75,79,76);</p>
+<p>insert into exam values (null,&#39;田七&#39;,69,63,98);</p>
+<p>insert into exam values (null,&#39;李老八&#39;,89,90,83);</p>
+<ul>
+<li>查询所有学生考试成绩信息</li>
+</ul>
+<p>select * from exam;</p>
+<ul>
+<li>查询所有学生的姓名和英语成绩</li>
+</ul>
+<p>select name,english from exam;</p>
+<ul>
+<li>查询英语成绩信息（不显示重复的值）</li>
+</ul>
+<p>select distinct english from exam;</p>
+<ul>
+<li>查看学生姓名和学生的总成绩</li>
+</ul>
+<p>select name,english+chinese+math from exam;</p>
+<p>!</p>
+<ul>
+<li>别名查询</li>
+</ul>
+<p>select name,english+chinese+math as sum from exam;</p>
+<ul>
+<li><p><strong>条件查询</strong></p>
+<ul>
+<li><p><strong>使用where子句</strong></p>
+<ul>
+<li><p><strong>&gt; , &lt; , &gt;= , &lt;= , &lt;&gt; ,=</strong></p>
+</li>
+<li><p><strong>like:模糊查询</strong></p>
+</li>
+<li><p><strong>in:范围查询</strong></p>
+</li>
+<li><p><strong>条件关联:and , or ,not</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>查询李四学生的成绩：</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>select * from exam where name = &#39;李四&#39;;</p>
+<ul>
+<li><strong>查询名称叫李四学生并且英文大于90分</strong></li>
+</ul>
+<p>select * from exam where name = &#39;李四&#39; and english &gt; 90;</p>
+<ul>
+<li><strong>查询姓李的学生的信息</strong></li>
+</ul>
+<p>like可以进行模糊查询,在like子句中可以使用_或者%作为占位符。_只能代表一个字符，而%可以代表任意个字符。</p>
+<p>* like ‘李_‘ ：名字中必须是两个字，而且是姓李的。</p>
+<p>* like ‘李%’ ：名字中姓李的学生，李子后可以是1个或任意个字符。</p>
+<p>* like ‘%四’ ：名字中以四结尾的。</p>
+<p>* like ‘%王%’ ：只要名称中包含这个字就可以。</p>
+<p>select * from exam where name like &#39;李%&#39;;</p>
+<ul>
+<li><strong>查询英语成绩是69,75,89学生的信息</strong></li>
+</ul>
+<p>select * from exam where english in (69,75,89);</p>
+<ul>
+<li><p><strong>排序查询</strong></p>
+<ul>
+<li><p><strong>使用order by 字段名称 asc/desc;</strong></p>
+</li>
+<li><p>查询学生信息，并且按照语文成绩进行排序：</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>select * from exam order by chinese;</p>
+<ul>
+<li>查询学生信息，并且按照语文成绩倒序排序：</li>
+</ul>
+<p>select * from exam order by chinese desc;</p>
+<ul>
+<li>查询学生信息，先按照语文成绩进行倒序排序，如果成绩相同再按照英语成绩升序排序</li>
+</ul>
+<p>select * from exam order by chinese desc,english asc;</p>
+<ul>
+<li>查询姓李的学生的信息，按照英语成绩降序排序</li>
+</ul>
+<p>select * from exam where name like &#39;李%&#39; order by english desc;</p>
+<ul>
+<li><p><strong>分组统计查询</strong></p>
+<ul>
+<li><p><strong>聚合函数使用</strong></p>
+<ul>
+<li><p><strong>sum();</strong></p>
+<ul>
+<li>获取所有学生的英语成绩的总和:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>select sum(english) from exam;</p>
+<ul>
+<li>获取所有学生的英语成绩和数学成绩总和：</li>
+</ul>
+<p>select sum(english),sum(math) from exam;</p>
+<ul>
+<li>查询姓李的学生的英语成绩的总和</li>
+</ul>
+<p>select sum(english) from exam where name like &#39;李%&#39;;</p>
+<ul>
+<li>查询所有学生各科的总成绩：</li>
+</ul>
+<p>select sum(english)+sum(chinese)+sum(math) from exam;</p>
+<p>select sum(english+chinese+math) from exam;</p>
+<p>与上面的语句有什么不同？</p>
+<p>* 上面的语句是按照列的方式统计，英语成绩总和+语文成绩总和+数学成绩总和。</p>
+<p>* 下面的语句先计算英语+数学+语文然后再求和。</p>
+<p>* 使用ifnull的函数</p>
+<ul>
+<li><p><strong>count();</strong></p>
+<ul>
+<li>获得学生的总数</li>
+</ul>
+</li>
+</ul>
+<p>select count(*) from exam;</p>
+<ul>
+<li>获得姓李的学生的个数</li>
+</ul>
+<p>select count(*) from exam where name like &#39;李%&#39;;</p>
+<ul>
+<li><p><strong>max();</strong></p>
+<ul>
+<li>获得数学成绩的最高分：</li>
+</ul>
+</li>
+</ul>
+<p>select max(math) from exam;</p>
+<ul>
+<li><p><strong>min();</strong></p>
+<ul>
+<li>获得语文成绩的最小值</li>
+</ul>
+</li>
+</ul>
+<p>select min(chinese) from exam;</p>
+<ul>
+<li><p><strong>avg();</strong></p>
+<ul>
+<li><strong>获取语文成绩的平均值</strong></li>
+</ul>
+</li>
+</ul>
+<p>select avg(chinese) from exam;</p>
+<ul>
+<li><p><strong>分组查询</strong></p>
+<ul>
+<li><p><strong>语法：使用group by 字段名称;</strong></p>
+</li>
+<li><p><strong>环境准备</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>create table orderitem(</p>
+<p>id int primary key auto_increment,</p>
+<p>product varchar(20),</p>
+<p>price double</p>
+<p>);</p>
+<p>insert into orderitem values (null,&#39;电视机&#39;,2999);</p>
+<p>insert into orderitem values (null,&#39;电视机&#39;,2999);</p>
+<p>insert into orderitem values (null,&#39;洗衣机&#39;,1000);</p>
+<p>insert into orderitem values (null,&#39;洗衣机&#39;,1000);</p>
+<p>insert into orderitem values (null,&#39;洗衣机&#39;,1000);</p>
+<p>insert into orderitem values (null,&#39;冰箱&#39;,3999);</p>
+<p>insert into orderitem values (null,&#39;冰箱&#39;,3999);</p>
+<p>insert into orderitem values (null,&#39;空调&#39;,1999);</p>
+<ul>
+<li>按商品名称统计，每类商品所购买的个数：</li>
+</ul>
+<p>select product,count(*) from orderitem group by product;</p>
+<ul>
+<li>按商品名称统计，每类商品所花费的总金额：</li>
+</ul>
+<p>select product,sum(price) from orderitem group by product;</p>
+<ul>
+<li>按商品名称统计，统计每类商品花费的总金额在5000元以上的商品</li>
+</ul>
+<p><strong>***** where的子句后面不能跟着聚合函数。如果现在使用带有聚合函数的条件过滤（分组后条件过滤）需要使用一个关键字having</strong></p>
+<p><strong>select product,sum(price) from orderitem group by product having sum(price) &gt; 5000;</strong></p>
+<ul>
+<li>按商品名称统计，统计每类商品花费的总金额在5000元以上的商品，并且按照总金额升序排序</li>
+</ul>
+<p>select product,sum(price) from orderitem group by product having sum(price) &gt; 5000 order by sum(price) asc;</p>
+<ul>
+<li><p><strong>总结</strong></p>
+<ul>
+<li><strong>S(select)… F(from)…W(where)…G(group by)…H(having)…O(order by);</strong></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/MySQL-单表查询笔记/" data-id="cjycoezoz0002l47k3isj7dzx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/mybatis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MyBatis学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Redis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Redis</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Hexo</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/cyannote" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 inverse<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

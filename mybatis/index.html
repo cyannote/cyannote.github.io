@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>MyBatis学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="mybatis1.mybatis概述1. 1 什么是mybatis1：Hibernate就是一个持久层的的框架。对JDBC做了轻量级封装2：Mybatis是一款优秀的持久层框架，它支持定制化SQL、存储过程以及高级映射 1.2 mybatis概述1：它是基于Java编写的持久层框架，使开发者不必关心传统jdbc的api，只关心sql语句本身 2：mybatis 通过 xml或注解的方式将要执行的各">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis学习笔记">
+<meta property="og:url" content="http://cyannote.github.io.git/mybatis/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="mybatis1.mybatis概述1. 1 什么是mybatis1：Hibernate就是一个持久层的的框架。对JDBC做了轻量级封装2：Mybatis是一款优秀的持久层框架，它支持定制化SQL、存储过程以及高级映射 1.2 mybatis概述1：它是基于Java编写的持久层框架，使开发者不必关心传统jdbc的api，只关心sql语句本身 2：mybatis 通过 xml或注解的方式将要执行的各">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1561621604792.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1561621676615.jpg">
+<meta property="og:updated_time" content="2019-07-21T07:47:43.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MyBatis学习笔记">
+<meta name="twitter:description" content="mybatis1.mybatis概述1. 1 什么是mybatis1：Hibernate就是一个持久层的的框架。对JDBC做了轻量级封装2：Mybatis是一款优秀的持久层框架，它支持定制化SQL、存储过程以及高级映射 1.2 mybatis概述1：它是基于Java编写的持久层框架，使开发者不必关心传统jdbc的api，只关心sql语句本身 2：mybatis 通过 xml或注解的方式将要执行的各">
+<meta name="twitter:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1561621604792.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-mybatis" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/mybatis/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:05:15.011Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MyBatis学习笔记
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h1><h2 id="1-mybatis概述"><a href="#1-mybatis概述" class="headerlink" title="1.mybatis概述"></a>1.mybatis概述</h2><h3 id="1-1-什么是mybatis"><a href="#1-1-什么是mybatis" class="headerlink" title="1. 1 什么是mybatis"></a>1. 1 什么是mybatis</h3><p>1：Hibernate就是一个持久层的的框架。对JDBC做了轻量级封装<br>2：Mybatis是一款优秀的持久层框架，它支持定制化SQL、存储过程以及高级映射</p>
+<h3 id="1-2-mybatis概述"><a href="#1-2-mybatis概述" class="headerlink" title="1.2 mybatis概述"></a>1.2 mybatis概述</h3><p>1：它是基于Java编写的持久层框架，使开发者不必关心传统jdbc的api，只关心sql语句本身</p>
+<p>2：mybatis 通过 xml或注解的方式将要执行的各种 statement 配置起来</p>
+<p>3：采用 ORM 思想解决了实体和数据库映射的问题，对 jdbc 进行了封装，屏蔽了 jdbc api 底层访问细节，使我们不用与 jdbc api 打交道，就可以完成对数据库的持久化操作</p>
+<h2 id="2-mybatis的CRUD操作"><a href="#2-mybatis的CRUD操作" class="headerlink" title="2.mybatis的CRUD操作"></a>2.mybatis的CRUD操作</h2><h3 id="2-1-mybatis查询所有的步骤"><a href="#2-1-mybatis查询所有的步骤" class="headerlink" title="2.1 mybatis查询所有的步骤"></a>2.1 mybatis查询所有的步骤</h3><p>1.创建工程</p>
+<p>2.导入maven坐标</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3.创建实体类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.导入log4j.properties文件</p>
+<p><strong>查询所有</strong></p>
+<p>5.创建SqlMapConfig.xml（省略）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span>用于指定别名</span><br><span class="line"><span class="tag">&lt;<span class="name">environments</span>&gt;</span>配置环境</span><br><span class="line">	<span class="tag">&lt;<span class="name">environment</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">"JDBC"</span>&gt;</span>配置事务管理策略</span><br><span class="line">		<span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span>配置数据区连接方式</span><br><span class="line">			<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span>配置数据库连接参数</span><br><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"com.cyannote.dao"</span>/&gt;</span>用于指定dao接口所在的包</span><br></pre></td></tr></table></figure>
+
+<p>6.创建UserDao.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询所有用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">findAll</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>7.创建UserDao.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.cyannote.dao.UserDao"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--查询所有--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findAll"</span> <span class="attr">resultType</span>=<span class="string">"com.cyannotea.domain.User"</span>&gt;</span></span><br><span class="line">        select * from user</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>8.创建测试类MybatisTest .java（省略）</p>
+<h3 id="2-2-与-的区别"><a href="#2-2-与-的区别" class="headerlink" title="2.2 #{}与${}的区别"></a>2.2 #{}与${}的区别</h3><p>#{}表示一个占位符号<br>通过#{}可以实现preparedStatement向占位符中设置值，自动进行java类型和jdbc类型转换，#{}可以有效防止sql注入。 #{}可以接收简单类型值或pojo属性值。 如果parameterType传输单个简单类型值，#{}括号中可以是value或其它名称。<br>${}表示拼接sql串<br>通过${}可以将parameterType 传入的内容拼接在sql中且不进行jdbc类型转换， ${}可以接收简单类型值或pojo属性值，如果parameterType传输单个简单类型值，${}括号中只能是value。</p>
+<h3 id="2-3-SqlMapConfig-xml配置文件"><a href="#2-3-SqlMapConfig-xml配置文件" class="headerlink" title="2.3  SqlMapConfig.xml配置文件"></a>2.3  SqlMapConfig.xml配置文件</h3><p>SqlMapConfig.xml中配置的内容和顺序如下：<br>properties（属性） </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SqlMapConfig.xml配置文件</span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">"jdbcConfig.properties"</span>&gt;</span><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>settings（全局配置参数）<br>typeAliases（类型别名）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 用于指定要配置别名的包，当指定之后，该包下的实体类都会注册别名，并且类名就是别名，不再区分大小写--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;package name="com.cyannote.domain"&gt;&lt;/package&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>typeHandlers（类型处理器）<br>objectFactory（对象工厂）<br>plugins（插件）<br>environments（环境集合属性对象）<br>environment（环境子属性对象）<br>transactionManager（事务管理）<br>dataSource（数据源）<br>mappers（映射器） </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">""</span>/&gt;</span> </span><br><span class="line">注册指定包下的所有mapper接口 </span><br><span class="line">如：<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"com.caynnote.dao"</span>/&gt;</span> </span><br><span class="line">注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。 </span><br><span class="line">应用场景：即可以使用XML配置文件，也可以使用注解。</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-Mybatis映射文件的SQL深入"><a href="#2-4-Mybatis映射文件的SQL深入" class="headerlink" title="2.4 Mybatis映射文件的SQL深入"></a>2.4 Mybatis映射文件的SQL深入</h3><p>动态SQL的<if>标签</if></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--根据条件查询--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findByCondition"</span> <span class="attr">parameterType</span>=<span class="string">"user"</span> <span class="attr">resultMap</span>=<span class="string">"userMap"</span>&gt;</span></span><br><span class="line">    select * from user where 1=1</span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"userName != null"</span>&gt;</span></span><br><span class="line">        and username = #&#123;userName&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"userSex != null"</span>&gt;</span></span><br><span class="line">        and sex = #&#123;userSex&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>动态SQL之<where>标签</where></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--where标签的使用--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findByCondition"</span> <span class="attr">parameterType</span>=<span class="string">"user"</span> <span class="attr">resultMap</span>=<span class="string">"userMap"</span>&gt;</span></span><br><span class="line">    select * from user</span><br><span class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"userName != null"</span>&gt;</span></span><br><span class="line">            and username = #&#123;userName&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"userSex != null"</span>&gt;</span></span><br><span class="line">            and sex = #&#123;userSex&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>动态标签之<foreach>标签</foreach></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--foreach标签的使用--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findInIds"</span> <span class="attr">parameterType</span>=<span class="string">"queryVo"</span> <span class="attr">resultMap</span>=<span class="string">"userMap"</span>&gt;</span></span><br><span class="line">    select * from user</span><br><span class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"ids != null and ids.size()&gt;0"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"ids"</span> <span class="attr">open</span>=<span class="string">" and id in ("</span> <span class="attr">close</span>=<span class="string">")"</span> <span class="attr">item</span>=<span class="string">"uid"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></span><br><span class="line">                #&#123;uid&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-mybatis的多表查询"><a href="#3-mybatis的多表查询" class="headerlink" title="3.mybatis的多表查询"></a>3.mybatis的多表查询</h2><h3 id="3-1-多对一-一对一"><a href="#3-1-多对一-一对一" class="headerlink" title="3.1 多对一(一对一):"></a>3.1 多对一(一对一):</h3><p><strong>方案一:创建新的javabean(包含两张表的字段)</strong></p>
+<p>第一步：sql语句<br>                SELECT a.*,u.username,u.address FROM account a,USER u WHERE u.id = a.uid<br>第二步：在com.cyanote.domain中创建AccountUser.java<br>            创建一个新的javabean    </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountUser</span> <span class="keyword">extends</span> <span class="title">Account</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String username;</span><br><span class="line">	<span class="keyword">private</span> String address;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第三步：AccountDao.java<br>    /**</p>
+<p>​      *查询账号和客户的信息<br>​       */<br>​        List<accountuser> findByAccountUser();<br>第四步：AccountDao.xml</accountuser></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 查询所有 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findByAccountUser"</span> <span class="attr">resultType</span>=<span class="string">"com.cyannote.domain.AccountUser"</span>&gt;</span></span><br><span class="line">    SELECT a.*,u.username,u.address FROM account a,user u WHERE u.id = a.uid</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第五步：MybatisTest.java</p>
+<p><strong>方案二:直接用用Account对象封装</strong></p>
+<p>第一步：sql语句<br>select u.*,a.id as aid,a.uid,a.money from account a,user u where u.id = a.uid<br>第二步：修改Account.java<br>    在Account中封装User</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Account</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> Integer uid;</span><br><span class="line">    <span class="keyword">private</span> Double money;</span><br><span class="line">    <span class="keyword">private</span> User user;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">getUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   	 	<span class="keyword">return</span> user;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUser</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.user = user;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第三步：AccountDao.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*查询账号和客户的信息（方案二：直接用Account对象封装）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">List&lt;Account&gt; <span class="title">findByAccountUser2</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>第四步：AccountDao.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--定义resultMap对象，用来封装账号信息--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">"accountMap"</span> <span class="attr">type</span>=<span class="string">"account"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">"id"</span> <span class="attr">column</span>=<span class="string">"aid"</span>&gt;</span><span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"uid"</span> <span class="attr">column</span>=<span class="string">"uid"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"money"</span> <span class="attr">column</span>=<span class="string">"money"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--association用来关联对象(用于多对一,或一对一)，property代表加载对象，javaType代表加载对象的数据类型，可以写成com.cyannote.domain.User--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"user"</span> <span class="attr">javaType</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">"id"</span> <span class="attr">column</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"username"</span> <span class="attr">column</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"address"</span> <span class="attr">column</span>=<span class="string">"address"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 查询所有（方案二：直接用Account对象封装） --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findByAccountUser2"</span> <span class="attr">resultMap</span>=<span class="string">"accountMap"</span>&gt;</span></span><br><span class="line">    select u.*,a.id as aid,a.uid,a.money from account a,user u where u.id = a.uid</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第五步：MybatisTest.java</p>
+<h2 id="4-mybatis的延迟加载策略"><a href="#4-mybatis的延迟加载策略" class="headerlink" title="4.mybatis的延迟加载策略"></a>4.mybatis的延迟加载策略</h2><h3 id="4-1-什么是延迟加载"><a href="#4-1-什么是延迟加载" class="headerlink" title="4.1 什么是延迟加载"></a>4.1 什么是延迟加载</h3><p>什么是延迟加载<br>        在真正使用数据时才发起查询，不用的时候不查询。按需加载（懒加载）<br>什么是立即加载<br>        不管用不用，只要一调用方法，马上发起查询。<br>应用场景：<br>在对应的四种表关系中：一对多，多对一，一对一，多对多<br>        一对多，多对多：通常情况下我们都是采用延迟加载。（建议）<br>        多对一，一对一：通常情况下我们都是采用立即加载。（建议）</p>
+<h3 id="4-2-配置延迟加载"><a href="#4-2-配置延迟加载" class="headerlink" title="4.2 配置延迟加载"></a>4.2 配置延迟加载</h3><p><strong>配置SqlMapConfig.xml:**</strong>(全局配置)**</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">"jdbcConfig.properties"</span>&gt;</span><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--需要配置延迟加载策略--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--打开延迟加载的开关--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"lazyLoadingEnabled"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--将积极加载改为消息加载，即按需加载--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"aggressiveLazyLoading"</span> <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>配置AccountDao.xml</strong>:<strong>(局部配置)</strong></p>
+<p>AccountDao.xml中使用fethcType属性用来控制延迟检索和立即检索：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--fetchType:</span></span><br><span class="line"><span class="comment">    eager：立即检索</span></span><br><span class="line"><span class="comment">    lazy：延迟检索</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"user"</span> <span class="attr">javaType</span>=<span class="string">"user"</span> <span class="attr">select</span>=<span class="string">"com.cyannote.dao.UserDao.findById"</span> <span class="attr">column</span>=<span class="string">"uid"</span> <span class="attr">fetchType</span>=<span class="string">"eager"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>只配置一处就可实现延迟加载,若两处都配置,局部配置优先级别更高.</p>
+<h2 id="5-mybatis缓存"><a href="#5-mybatis缓存" class="headerlink" title="5.mybatis缓存"></a>5.mybatis缓存</h2><p>Mybatis中缓存分为一级缓存，二级缓存<br>一级缓存：是SqlSession级别的缓存（线程级别的缓存）<br>二级缓存：是SqlSessionFactory级别的缓存（进程级别的缓存）<br>一个SqlSessionFactory存在多个SqlSession。</p>
+<h3 id="5-1-一级缓存-SqlSession"><a href="#5-1-一级缓存-SqlSession" class="headerlink" title="5.1 一级缓存(SqlSession)"></a>5.1 一级缓存(SqlSession)</h3><p>​        它指的是Mybatis中SqlSession对象的缓存。默认是开启SQLSession缓存的.</p>
+<p>​        当我们执行查询之后，查询的结果会同时存入到SqlSession为我们提供一块区域中。一级缓存中存放的是一个对象.</p>
+<p>​        该区域的结构是一个Map。当我们再次查询同样的数据，mybatis会先去sqlsession中查询是否有，有的话直接拿出来用，如果没有再查询数据库。</p>
+<p>​        一级缓存是SqlSession 范围的缓存，当调用SqlSession 的修改，添加，删除，commit()，close()等方法时，就会清空一级缓存。</p>
+<p>​        当SqlSession对象消失时，mybatis的一级缓存也就消失了。</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1561621604792.jpg" alt="img"></p>
+<p>​        第一次发起查询用户id 为1 的用户信息，先去找缓存中是否有id 为1 的用户信息，如果没有，从数据库查询用户信息。 得到用户信息，将用户信息存储到一级缓存中。 如果sqlSession 去执行commit 操作（执行插入、更新、删除），清空SqlSession 中的一级缓存，这样做的目的为了让缓存中存储的是最新的信息，避免脏读。 </p>
+<p>​        第二次发起查询用户id 1 id 1 </p>
+<h3 id="5-2-二级缓存-SqlSessionFactory"><a href="#5-2-二级缓存-SqlSessionFactory" class="headerlink" title="5.2 二级缓存(SqlSessionFactory)"></a>5.2 二级缓存(SqlSessionFactory)</h3><p>​        它指的是Mybatis中SqlSessionFactory对象的级别缓存。由同一个SqlSessionFactory对象创建的SqlSession共享其缓存。</p>
+<p>​        二级缓存的使用步骤：</p>
+<p>​               第一步：让Mybatis框架支持二级缓存（在SqlMapConfig.xml中配置）</p>
+<p>​            因为cacheEnabled 的取值默认就为true，所以这一步可以省略不配置。为true 代表开启二级缓存； 为false 代表不开启二级缓存。  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--需要配置延迟加载策略--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--开启二级缓存--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"cacheEnabled"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​                第二步：让当前的映射文件支持二级缓存（在UserDao.xml中配置）</p>
+<p>​            <cache>标签表示当前这个mapper 映射将使用二级缓存，区分的标准就看mapper 的namespace 值。</cache></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.cyannote.dao.UserDao"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cache</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​               第三步：让当前的操作支持二级缓存（在select标签中配置）</p>
+<p>​            将UserDao.xml 映射文件中的<select>标签中设置useCache=”true”代表当前这个statement 要使用二级缓存，如果不使用二级缓存可以设置为false。 </select></p>
+<p>注意：针对每次查询都需要最新的数据sql，要设置成useCache=false，禁用二级缓存。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 根据id查询用户 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findById"</span> <span class="attr">parameterType</span>=<span class="string">"INT"</span> <span class="attr">resultType</span>=<span class="string">"com.cyannote.domain.User"</span> <span class="attr">useCache</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    select * from user where id = #&#123;uid&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​        二级缓存结构图 </p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1561621676615.jpg" alt="img"></p>
+<p>​            经过测试，我们发现执行了两次查询，并且在执行第一次查询后，我们关闭了一级缓存，再去执行第二次查询时，我们发现并没有对数据库发出sql 语句，所以此时的数据就只能是来自于我们所说的二级缓存。 </p>
+<p>​            但是查询到的2个对象不一致,原理是二级缓存中存放的是对象的散装数据，每次查询的时候需要重新封装实体对象。</p>
+<p><strong>考虑二级缓存的应用场景：</strong></p>
+<p>​            适应放置到二级缓存的数据：经常不会发生变化的数据，例如地区编码</p>
+<p>​            不适合放置到二级缓存的数据：经常变化的数据, 财务数据</p>
+<h2 id="6-mybatis注解开发"><a href="#6-mybatis注解开发" class="headerlink" title="6.mybatis注解开发"></a>6.mybatis注解开发</h2><p><strong>加载注解依赖</strong>(pom.xml)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>配置映射</strong>(SqlMapConfig.xml)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 指定带有注解的dao接口所在位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">class</span>=<span class="string">"com.cyannote.dao.UserDao"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-1-mybatis的注解说明"><a href="#6-1-mybatis的注解说明" class="headerlink" title="6.1 mybatis的注解说明"></a>6.1 mybatis的注解说明</h3><p>​            @Insert:实现新增 </p>
+<p>​            @Update:实现更新 </p>
+<p>​            @Delete:实现删除 </p>
+<p>​            @Select:实现查询 </p>
+<p>​            @Result:实现结果集封装 </p>
+<p>​            @Results:可以与@Result一起使用，封装多个结果集 </p>
+<p>​            @One:实现一对一结果集封装 </p>
+<p>​            @Many:实现一对多结果集封装 </p>
+<p>​            @SelectProvider: 实现动态SQL映射 </p>
+<h3 id="6-2-使用注解开发"><a href="#6-2-使用注解开发" class="headerlink" title="6.2 使用注解开发"></a><strong>6.2 使用注解开发</strong></h3><p><strong>使用注解进行CRUD操作</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//    查询所有</span></span><br><span class="line">  <span class="meta">@Select</span>(value = <span class="string">"select * from account"</span>)</span><br><span class="line">  <span class="function">List&lt;Account&gt; <span class="title">findAll</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//    增加一条记录</span></span><br><span class="line">  <span class="meta">@Insert</span>(value = <span class="string">"insert into account (uid,money) values (#&#123;uid&#125;,#&#123;money&#125;)"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">save</span><span class="params">(Account account)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//    删除一条记录</span></span><br><span class="line">  <span class="meta">@Delete</span>(value = <span class="string">"delete from account where id = #&#123;id&#125;"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">delete</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//    修改一条记录</span></span><br><span class="line">  <span class="meta">@Update</span>(value = <span class="string">"update account set uid = #&#123;uid&#125;,money = #&#123;money&#125; where id= #&#123;id&#125;"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(Account account)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用注解实现复杂关系映射开发</strong></p>
+<p>@one:多对一和一对一</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Select</span>(value = <span class="string">"SELECT * from account"</span>)</span><br><span class="line"><span class="meta">@Results</span>(id = <span class="string">"AccountUser"</span>, value = &#123;</span><br><span class="line">           <span class="meta">@Result</span>(id = <span class="keyword">true</span>, property = <span class="string">"id"</span>, column = <span class="string">"id"</span>),</span><br><span class="line">           <span class="meta">@Result</span>(property = <span class="string">"uid"</span>, column = <span class="string">"uid"</span>),</span><br><span class="line">           <span class="meta">@Result</span>(property = <span class="string">"money"</span>, column = <span class="string">"money"</span>),</span><br><span class="line">           <span class="meta">@Result</span>(property = <span class="string">"user"</span>, column = <span class="string">"uid"</span>, one = <span class="meta">@One</span>(select = <span class="string">"com.cyannote.dao.UserDao.findByUId"</span>))</span><br><span class="line">   &#125;)</span><br><span class="line">   <span class="function">List&lt;Account&gt; <span class="title">findAccountUser</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>@many:一对多和多对多</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Select</span>(value = <span class="string">"select * from user"</span>)</span><br><span class="line"><span class="meta">@Results</span>(id = <span class="string">"UserAccount"</span>,value = &#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span> , property = <span class="string">"id"</span> , column = <span class="string">"id"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"username"</span>,column = <span class="string">"username"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"sex"</span> , column = <span class="string">"sex"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"birthday"</span> , column = <span class="string">"birthday"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"address"</span> , column = <span class="string">"address"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"accounts"</span>,column = <span class="string">"id"</span>,many = <span class="meta">@Many</span>(select = <span class="string">"com.cyannote.dao.AccountDao.findById"</span>))</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">findUserAccount</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用联合查询的SQL语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Select</span>(value = <span class="string">"SELECT u.*,a.id aid,a.UID,a.MONEY FROM USER u,account a WHERE a.uid = u.id"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(id = <span class="string">"AccountUser2"</span>,value = &#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span>,property = <span class="string">"id"</span>,column = <span class="string">"aid"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"uid"</span>,column = <span class="string">"uid"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"money"</span>,column = <span class="string">"money"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"user.id"</span>,column = <span class="string">"id"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"user.username"</span>,column = <span class="string">"username"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"user.sex"</span>,column = <span class="string">"sex"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"user.birthday"</span>,column = <span class="string">"birthday"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"user.address"</span>,column = <span class="string">"address"</span>),</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function">List&lt;Account&gt; <span class="title">findAccountUser2</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用注解配置二级缓存</strong></p>
+<p>第一步：配置SqlMapConfig.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--开启二级缓存--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"cacheEnabled"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第二步：配置UserDao.xml</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@CacheNamespace</span>(blocking = <span class="keyword">true</span>) <span class="comment">// 使用二级缓存</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/mybatis/" data-id="cjycoezpb0003l47kbsksybio" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/MySQL-单表查询笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MySql单表查询</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Hexo</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/cyannote" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 inverse<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
