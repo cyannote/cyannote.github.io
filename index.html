@@ -38,7 +38,7 @@
     <h2 class="author">inverse</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>17</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>19</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
       <a href="/tags"><div><strong>0</strong><br>标签</div></a>
     </div>
@@ -65,6 +65,736 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-JavaScript学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/JavaScript学习笔记/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:06:34.057Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/JavaScript学习笔记/">JavaScript学习笔记</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h1><p>内容:</p>
+<p>​    1.JavaScript概述</p>
+<p>​    2.JavaScript语法及规则</p>
+<p>​    3.BOM对象</p>
+<p>​    4.DOM对象</p>
+<hr>
+<h2 id="1-JavaScript概述"><a href="#1-JavaScript概述" class="headerlink" title="1.JavaScript概述"></a>1.JavaScript概述</h2><h3 id="1-1-JavaScript是什么？有什么作用？"><a href="#1-1-JavaScript是什么？有什么作用？" class="headerlink" title="1.1 JavaScript是什么？有什么作用？"></a>1.1 JavaScript是什么？有什么作用？</h3><p>​    HTML：就是用来写网页的。   人的身体</p>
+<p>​    CSS：  就是用来美化页面的。 人的衣服</p>
+<p>​    JavaScript：前端大脑、灵魂。  人的大脑、灵魂</p>
+<p>​    JavaScript是WEB上强大的<strong>脚本语言</strong>。</p>
+<p>​    脚本语言：</p>
+<p>​                  无法独立执行。必须嵌入到其他语言中，结合使用。</p>
+<p>​                  直接被浏览器解析执行。</p>
+<p>​    Java编程语言：</p>
+<p>​    独立写程序，独立运行。 编译—执行</p>
+<p>​    作用：控制页面特效展示。</p>
+<p>​      例如： </p>
+<p>​     JS可以对HTML元素进行动态控制</p>
+<p>​     JS可以对表单项进行校验</p>
+<p>​     JS可以控制CSS的样式；</p>
+<h3 id="1-2-JavaScript的语言特征及编程注意事项"><a href="#1-2-JavaScript的语言特征及编程注意事项" class="headerlink" title="1.2 JavaScript的语言特征及编程注意事项"></a>1.2 JavaScript的语言特征及编程注意事项</h3><p>特征：<br>    JavaScript无需编译，直接被浏览器解释并执行<br>    JavaScript无法单独运行，必须嵌入到HTML代码中运行<br>    JavaScript的执行过程由上到下依次执行</p>
+<p>注意：<br>    JavaScript没有访问系统文件的权限（安全）<br>    由于JavaScript无需编译，是由上到下依次解释执行，所以在保证可读性的情况下，允许使用链式编程<br>    JavaScript和java没有任何直接关系</p>
+<h3 id="1-3-JavaScript的组成"><a href="#1-3-JavaScript的组成" class="headerlink" title="1.3  JavaScript的组成"></a>1.3  JavaScript的组成</h3><p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559007509660.png" alt="1559007509660"></p>
+<p>​    ECMAScript     (核心)：规定了JS的<strong>语法和基本对象</strong>。</p>
+<p>​    DOM        文档对象模型：<strong>处理网页内容</strong>的方法和接口</p>
+<p>标记型文档。HTML</p>
+<p>​    BOM        浏览器对象模型：<strong>与浏览器交互</strong>的方法和接口</p>
+<h3 id="1-4-JavaScript的引入方式"><a href="#1-4-JavaScript的引入方式" class="headerlink" title="1.4 JavaScript的引入方式"></a>1.4 JavaScript的引入方式</h3><ul>
+<li><p><strong>内部脚本</strong></p>
+<p>在当前页面内部写script标签，script内部即可书写JavaScript代码</p>
+<p>格式：</p>
+<script type="”text/javascript”">
+
+JavaScript的代码
+
+</script>
+
+<p>示例：</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559007643093.png" alt="1559007643093"></p>
+<p>注：script标签理论上可以书写在HTML文件的任意位置</p>
+</li>
+<li><p><strong>外部引入</strong></p>
+<p>在HTML文档中，通过<script src="””">标签引入.js文件</p>
+</li>
+</ul>
+<p>  格式：</p>
+  <script 
+  type=”text/javascript”  src=”javascript文件路径”
+  ></script>
+
+</p><p>   注：外部引用时script标签内不能有script代码，即使写了也不会执行。</p>
+<ul>
+<li><p><strong>script标签规范化的放置位置</strong></p>
+<p>开发规范规定，script标签的放置位置为：  Body结束标签前。</p>
+<p>优点：</p>
+<p>​    保证html展示内容优先加载，最后加载脚本。 增强用户体验性</p>
+</li>
+</ul>
+<p>## </p>
+<h2 id="2-JavaScript语法及规则"><a href="#2-JavaScript语法及规则" class="headerlink" title="2. JavaScript语法及规则"></a>2. JavaScript语法及规则</h2><h3 id="2-1-注释"><a href="#2-1-注释" class="headerlink" title="2.1 注释"></a>2.1 注释</h3><ul>
+<li><p>单行注释</p>
+<p> //      Hbuilder快捷键 ctrl+/</p>
+</li>
+</ul>
+<p>​                  </p>
+<ul>
+<li>多行注释</li>
+</ul>
+<p>​         /* */   Hbuilder快捷键 ctrl+shift+/</p>
+<h3 id="2-2-变量"><a href="#2-2-变量" class="headerlink" title="2.2 变量"></a>2.2 变量</h3><ul>
+<li><p><strong>变量简述</strong></p>
+<p>变量：标示内存中的一块空间，用于存储数据，且数据是可变的。 </p>
+<p>变量的声明：</p>
+<p>​         var 变量名;    //变量赋予默认值，默认值为undefined   （未定义的） </p>
+<p>变量的声明和赋值：</p>
+<p>​         var 变量名=值;   //变量赋予对应的值</p>
+<p>在声明JavaScript变量时，需要遵循以下命名规范：</p>
+<ul>
+<li><p>必须以字母或下划线开头，中间可以是数字、字符或下划线</p>
+</li>
+<li><p>变量名不能包含空格等符号</p>
+</li>
+<li><p>不能使用JavaScript关键字作为变量名，如：function、this、class</p>
+</li>
+<li><p>JavaScript严格区分大小写。</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>基本数据类型</strong></p>
+<p>类似于java中的基本数据类型</p>
+<p>string                字符串类型。””和’’都是字符串。 JavaScript中没有单个字符</p>
+<p>boolean            布尔类型。  固定值为true和false</p>
+<p>number            数字类型。  任意数字</p>
+<p>null                    空，一个占位符。</p>
+<p>undefined        未定义类型，该类型只有一个固定值，即undefined，表示变量声明却未               定义具体的值。</p>
+</li>
+</ul>
+<p>  注：因为undefined是从null中派生出来的，所以undefined==null</p>
+<p>  JavaScript区别于java，是弱类型语言，变量的使用不用严格遵循规范，所以一个变量声明好之后，是可以赋予任意类型的值。</p>
+<p>  通过typeof运算符可以分辨变量值属于哪种基本数据类型</p>
+<p>  <img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559008192175.png" alt="1559008192175"></p>
+<p>  ECMAScript实现之初的一个bug，null属于基本数据类型，typeof(null)-->object</p>
+<ul>
+<li><p><strong>引用数据类型</strong></p>
+<p>引用类型通常叫做类（class），但在JavaScript中，因为不存在编译过程，所以没有类的概念，所处理的引用数据类型都是<strong>对象</strong>。</p>
+</li>
+</ul>
+<p>  标准创建方式：</p>
+<p>  ​         var str = new String();//和java相同</p>
+<p>  ​         var str = new String;  //js独有的方式</p>
+<h3 id="2-3-运算符"><a href="#2-3-运算符" class="headerlink" title="2.3 运算符"></a>2.3 运算符</h3><ul>
+<li><p><strong>比较运算符</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559008319029.png" alt="1559008319029"></p>
+<p>​         ==            逻辑等。仅仅对比 值</p>
+<p>​         <strong>===</strong>           <strong>全等</strong>。  对比值并且对比类型。</p>
+<p>如果值和类型都相同，则为true；值和类型有一个不同，则为false</p>
+</li>
+<li><p><strong>逻辑运算符</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559008369708.png" alt="1559008369708"></p>
+<p>​         注：JavaScript逻辑运算符没有 &  |</p>
+</li>
+</ul>
+<h3 id="2-4-正则对象"><a href="#2-4-正则对象" class="headerlink" title="2.4 正则对象"></a>2.4 正则对象</h3><ul>
+<li><p><strong>RegExp对象的创建方式</strong></p>
+<p>var reg = new RegExp("表达式");            （开发中基本不用）</p>
+<p><strong>var reg = /^**</strong>表达式$/;                    <strong>直接量（开发中常用）</strong></p>
+<p>直接量中存在边界，即^代表开始，$代表结束</p>
+<p>直接量方式的正则是对象，不是字符串，<strong>别用引号</strong></p>
+</li>
+</ul>
+<ul>
+<li><p><strong>test方法</strong></p>
+<p>正则对象.test(string);             用来校验字符串是否匹配正则。</p>
+<p>全部字符匹配返回true；有字符不匹配返回false</p>
+</li>
+<li><p><strong>正则对象使用注意事项</strong></p>
+<p>/^表达式$/         只要有无法成立正则的字符存在，即为false。</p>
+<p><strong>全部符合为true</strong></p>
+<p>（检查严格，眼睛不揉沙子）适用于表单校验</p>
+</li>
+</ul>
+<p>  /表达式/       只要有成立正则的字符存在，即为true。</p>
+<p>  <strong>全部不符合为false</strong></p>
+<p>  （检查不严格，懒人思想）适用于字符串查找、替换</p>
+<h3 id="2-5-JS数组对象"><a href="#2-5-JS数组对象" class="headerlink" title="2.5 JS数组对象"></a>2.5 JS数组对象</h3><ul>
+<li><p><strong>JS数组的特性</strong></p>
+<p>JS数组可以看做 Java中的ArrayList 集合。</p>
+<ul>
+<li><p>数组中的每一个成员没有类型限制，及可以存放任意类型</p>
+</li>
+<li><p>数组的长度可以自动修改 </p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>JS数组的四种创建方式</strong></p>
+<ul>
+<li><p>var arr = [1,2,3,”a”,true]; //常用的JS数组。 长度5</p>
+</li>
+<li><p>var arr = new Array();创建一个数组对象，数组长度默认为0</p>
+<p> //数组长度是4，相当于开辟了长度为4的空间，每个元素是undefined。（仅在显示数组时进行处理，undefined为了方便显示变成了空字符串形式，其值本质仍然是undefined）</p>
+</li>
+<li><p>var arr = new Array(4);</p>
+</li>
+<li><p>var arr = new Array(“a”,”b”,true);  //创建了一个数组，长度3,       数组元素是”a”,”b”,true</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>JS数组的常用属性/方法</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559008760061.png" alt="1559008760061"></p>
+</li>
+</ul>
+<h3 id="2-6-全局函数（global）"><a href="#2-6-全局函数（global）" class="headerlink" title="2.6 全局函数（global）"></a>2.6 全局函数（global）</h3><ul>
+<li><p><strong>执行</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559197075599.png" alt="1559197075599"></p>
+<p>作用：用于增强程序的扩展性。</p>
+<p>注：只可以传递原始数据类型string，传递String对象无作用。</p>
+</li>
+<li><p><strong>编码和解码</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559197121787.png" alt="1559197121787"></p>
+<p>URL/URI编码：中文及特殊符号   %16进制</p>
+<p>作用：保证数据传递的完整性。</p>
+</li>
+<li><p><strong>URI和URL的区别</strong></p>
+<p>URI是统一资源标识符。  标识资源详细名称。<br>URL是统一资源定位器。 定位资源的网络位置。</p>
+</li>
+</ul>
+<p>  资源：可以通过浏览器访问的信息统统称为资源。（图片、文本、HTML、CSS等等。。。。）</p>
+<p>  URI标识资源的详细名称，包含资源名。<br>  URL定位资源的网络位置。包含http://</p>
+<ul>
+<li><p><strong>字符串转数字</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559197206138.png" alt="1559197206138"></p>
+<p>parseInt(string);        string按照字面值转换为整数类型，小数点后面部分不关注。</p>
+<p>parseFloat(string);        string按照字面值转换为小数类型。</p>
+<p><strong>注：</strong><br>    如果字符串的某个字符从字面值上无法转为数字，那么从该字符开始停止转换，仅返回前面正确的转换值。（例如：11.5a55，parseInt结果11，parseFloat结果11.5）</p>
+<p>    如果字符串的第一个字符就无法从字面值上转为数字，那么停止转换，返回NaN<br>NaN（Not A Number，一个数字类型的标识，表示不是一个正确的数字）</p>
+</li>
+</ul>
+<h3 id="2-7-自定义函数-自定义方法"><a href="#2-7-自定义函数-自定义方法" class="headerlink" title="2.7 自定义函数/自定义方法"></a>2.7 自定义函数/自定义方法</h3><ul>
+<li><p><strong>函数简述及作用</strong></p>
+<p>如果一段代码需要被重复编写使用，那么我们为了方便统一编写使用，可以将其封装进一个函数（方法）中。</p>
+</li>
+</ul>
+<p>​       作用：增强代码的复用性</p>
+<ul>
+<li><p><strong>函数格式</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559197330842.png" alt="1559197330842"></p>
+<p>    JavaScript函数定义必须用小写的function；<br>    JavaScript函数无需定义返回值类型，直接在function后面书写 方法名；<br>    <strong>参数的定义无需使用var关键字，否则报错；</strong><br>    JavaScript函数体中，return可以不写，也可以return 具体值，或者仅仅写return；</p>
+</li>
+<li><p><strong>函数使用的注意事项</strong></p>
+<ul>
+<li><p>JavaScript函数调用执行完毕一定有返回值，值及类型根据return决定，如果未return具体值，返回值为undefined；</p>
+</li>
+<li><p>JavaScript函数若同名，则不存在方法重载，只有方法相互覆盖，最后定义的函数覆盖之前的定义；</p>
+</li>
+<li><p>因为JavaScript不存在函数重载，所以JavaScript仅根据方法名来调用函数，即使实参与函数的形参不匹配，也不会影响正常调用；</p>
+</li>
+<li><p>如果形参未赋值，就使用默认值undefined</p>
+<hr>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-8-自定义对象"><a href="#2-8-自定义对象" class="headerlink" title="2.8 自定义对象"></a>2.8 自定义对象</h3><ul>
+<li><p><strong>function构造函数</strong></p>
+<p>我们知道，JavaScript中的引用数据类型都是对象，而对象在JavaScript中可以用函数来表示。</p>
+<p>相当于java中创建某个class类</p>
+</li>
+</ul>
+<p>​    <strong>无形参格式：</strong></p>
+<p>​         function 对象名(){</p>
+<p>​         函数体</p>
+<p>}</p>
+<p>​    <strong>带参数格式：</strong></p>
+<p>​         function 对象名(参数列表){</p>
+<p>​         函数体</p>
+<p>}</p>
+<p>​    <strong>带参数格式：</strong></p>
+<p>​         function 对象名(参数列表){</p>
+<p>​         函数体</p>
+<p>}</p>
+<ul>
+<li><p><strong>对象直接量</strong></p>
+<p>开发中可以用一种简单的方式直接创建自定义的JavaScript对象，这种方式称为“对象直接量”。</p>
+<p>格式：</p>
+<p>​         var 对象名 = {属性名1:”属性值1”, 属性名2:”属性值2”, 属性名3:”属性值3”……};</p>
+<p>注：该方式直接创建出实例对象，无需构建函数，无需再new创建实例对象，直接使用即可</p>
+<ul>
+<li>应用场景：适用于快速创建实例对象及数据封装。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-BOM对象"><a href="#3-BOM对象" class="headerlink" title="3.BOM对象"></a>3.BOM对象</h2><h3 id="3-1-BOM对象是什么"><a href="#3-1-BOM对象是什么" class="headerlink" title="3.1 BOM对象是什么?"></a>3.1 BOM对象是什么?</h3><p>BOM（Browser Object Model）浏览器对象模型<br>浏览器：IE、火狐、谷歌等<br>作用：用来执行浏览器的相关操作。（例如：浏览器的地址、弹出消息等）</p>
+<p>  一般情况下，window代表了BOM对象。<br>  window对象是JavaScript的内置对象，使用window对象调用方法时可以省略window不写。</p>
+<h3 id="3-2-消息框"><a href="#3-2-消息框" class="headerlink" title="3.2 消息框"></a>3.2 消息框</h3><ul>
+<li><p><strong>alert()</strong></p>
+<p>警告框，用来弹出警告消息。</p>
+<p>示例：<img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559197942636.png" alt="1559197942636"></p>
+</li>
+<li><p><strong>confirm()</strong></p>
+<p>确认框，用于告知用户信息并收集用户的选择</p>
+<p>示例1：<img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559197995756.png" alt="1559197995756"></p>
+<p>该方法有返回值，用户通过选择“确定”或者“取消”，方法结束会返回boolean类型的值。<br>    “确定”返回ture；<br>    “取消”返回false；</p>
+</li>
+</ul>
+<h3 id="3-3-定时器"><a href="#3-3-定时器" class="headerlink" title="3.3 定时器"></a>3.3 定时器</h3><ul>
+<li><p>循环定时器的设置和取消</p>
+<p>循环定时器，调用一次就会创建并循环执行一个定时器。</p>
+<p>格式：</p>
+<pre><code>setInterval(调用方法,毫秒值);
+//毫秒值：  循环周期</code></pre><p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559219537070.png" alt="1559219537070"></p>
+</li>
+<li><h5 id="停止循环定时器-clearInterval"><a href="#停止循环定时器-clearInterval" class="headerlink" title="停止循环定时器-clearInterval()"></a>停止循环定时器-clearInterval()</h5><p>setInterval方法在创建一个定时器的同时，还会返回一个的定时器的ID，该ID就代表这个定时器。<br>此定时器ID在当前页面是不重复的。</p>
+<p>我们可以通过clearInterval方法，指定某个循环定时器 停止</p>
+<p>格式：</p>
+<pre><code>clearInterval(定时器ID);</code></pre><p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559219577272.png" alt="1559219577272"></p>
+</li>
+<li><p><strong>启动一次性定时器-setTimeout()</strong></p>
+<p>一次性定时器，调用一次就会创建并执行一个定时器一次。</p>
+<p>格式：</p>
+<pre><code>setTimeout(调用方法,毫秒值);</code></pre></li>
+</ul>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559219613582.png" alt="1559219613582"></p>
+<ul>
+<li><p><strong>停止一次性定时器clearTimeout()</strong></p>
+<p>setTimeout方法在创建一个定时器的同时，还会返回一个的定时器的ID，该ID就代表这个定时器。<br>此定时器ID在当前页面是不重复的。</p>
+<p>我们可以通过clearTimeout方法，指定某个一次性定时器 停止</p>
+<p>格式：</p>
+<pre><code>clearTimeout (定时器ID);</code></pre></li>
+</ul>
+<h3 id="3-4-location对象"><a href="#3-4-location对象" class="headerlink" title="3.4 location对象"></a>3.4 location对象</h3><p>location 对象包含浏览器 地址栏 的信息。</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559219686484.png" alt="1559219686484"></p>
+<p>设置href属性，浏览器就会跳转到对应的路径</p>
+<h2 id="4-DOM对象"><a href="#4-DOM对象" class="headerlink" title="4.DOM对象"></a>4.DOM对象</h2><h3 id="4-1-DOM对象是什么？"><a href="#4-1-DOM对象是什么？" class="headerlink" title="4.1 DOM对象是什么？"></a>4.1 DOM对象是什么？</h3><p>DOM（Document Object Model） 文档对象模型<br> 文档：标记型文档（HTML等）</p>
+<p>DOM是将标记型文档中所有内容（标签、文本、属性）都封装成对象，</p>
+<p>通过操作对象的属性或者方法，来达到操作或者改变HTML展示效果的目的</p>
+<h3 id="4-2-DOM树介绍"><a href="#4-2-DOM树介绍" class="headerlink" title="4.2 DOM树介绍"></a>4.2 DOM树介绍</h3><p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559219755135.png" alt="1559219755135"></p>
+<p>上述HTML文档会被浏览器 由上到下依次 加载并解析。</p>
+<p>加载到浏览器的内存,加载并解析到内存中，会生成一张DOM树</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559219777852.png" alt="1559219777852"></p>
+<p>其中：</p>
+<p>l  每个标签会被加载成 DOM树上的一个元素节点对象。</p>
+<p>l  每个标签的属性会被加载成DOM树上的一个属性节点对象</p>
+<p>l  每个标签的内容体会被加载成DOM树上的一个文本节点对象</p>
+<p>l  整个DOM树，是一个文档节点对象，即DOM对象。</p>
+<p>l  一个HTML文档加载到内存中就会形成一个DOM对象</p>
+<p>DOM树的特点：</p>
+<p>l  必定会有一个根节点</p>
+<p>l  每个节点都是节点对象</p>
+<p>l  常见的节点关系：<strong>父子节点关系</strong></p>
+<p>l  文本节点对象没有子节点---叶子节点</p>
+<p>l  每个节点都有<strong>一个父节点，零到多个子节点</strong></p>
+<p>l  <strong>只有根节点没有父节点</strong></p>
+<h3 id="4-3-获取元素对象的四种方式"><a href="#4-3-获取元素对象的四种方式" class="headerlink" title="4.3 获取元素对象的四种方式"></a>4.3 获取元素对象的四种方式</h3><p>在JavaScript中，我们可以通过DOM对象的4种方式获取对应的元素对象：<br>    getElementById();   ---通过元素ID获取对应元素对象<br>可以通过ID获取对应的元素对象，如果找不到，返回null</p>
+<p>    getElementsByName();   ---通过元素的name属性获取符合要求的所有元素<br>    getElementsByTagName();   ---通过元素的元素名属性获取符合要求的所有元素<br>    getElementsByClassName();   ---通过元素的class属性获取符合要求的所有元素<br>可以获取到元素节点对象 数组；如果找不到，返回 空数组</p>
+<p>注：获取某个/某些元素节点对象，必须保证元素节点对象被先加载到内存中</p>
+<h3 id="4-4-元素对象常见属性"><a href="#4-4-元素对象常见属性" class="headerlink" title="4.4 元素对象常见属性"></a>4.4 元素对象常见属性</h3><ul>
+<li><p>value</p>
+<p>元素对象.value， 获取元素对象的value属性值。<br>元素对象.value=属性值     设置元素对象的value属性值。</p>
+<p>修改元素的值</p>
+</li>
+<li><p>className</p>
+<p>元素对象.className， 获取元素对象的class属性值。<br>元素对象. className =属性值     设置元素对象的class属性值。</p>
+<p>修改元素样式</p>
+</li>
+<li><p>checked</p>
+<p>元素对象.checked， 获取元素对象的checked属性值。<br>元素对象. checked =属性值     设置元素对象的checked属性值。</p>
+<p>注：HTML中checked=”checked”，JavaScript中返回true，false</p>
+<p>修改单选/复选的 选中与否</p>
+</li>
+<li><p>innerHTM元素对象.innerHTML，  获取元素对象的内容体<br>元素对象.innerHTML=值     设置元素对象的内容体</p>
+<p>操作元素的内容体L</p>
+</li>
+</ul>
+<h2 id="5-JS事件"><a href="#5-JS事件" class="headerlink" title="5. JS事件"></a>5. JS事件</h2><h3 id="5-1-JS事件是什么"><a href="#5-1-JS事件是什么" class="headerlink" title="5.1 JS事件是什么"></a>5.1 JS事件是什么</h3><p>通常鼠标或热键的动作我们称之为事件(Event) </p>
+<p>事件包括：点击、表单提交、值发生改变、鼠标移入、鼠标移出等等</p>
+<p>通过JS事件，我们可以完成页面的指定特效。</p>
+<h3 id="5-2-JS事件驱动机制简述"><a href="#5-2-JS事件驱动机制简述" class="headerlink" title="5.2 JS事件驱动机制简述"></a>5.2 JS事件驱动机制简述</h3><p>页面上的特效，我们可以理解在JS事件驱动机制下进行。<br>    JS事件驱动机制：</p>
+<p>​                警察抓小偷</p>
+<p>    事件源        小偷<br>    事件        偷东西<br>    监听器        警察<br>    注册/绑定监听器        让警察时刻盯着小偷</p>
+<p>事件源：专门产生事件的组件。</p>
+<p>事件：由事件源所产生的动作或者事情。</p>
+<p>监听器：专门处理 事件源 所产生的事件。</p>
+<p>注册/绑定监听器：让监听器时刻监听事件源是否有指定事件产生，如果事件源产生指定事件，则调用监听器处理。</p>
+<h3 id="5-3-常见的JS事件"><a href="#5-3-常见的JS事件" class="headerlink" title="5.3 常见的JS事件"></a>5.3 常见的JS事件</h3><ul>
+<li><p><strong>点击事件（onclick）</strong></p>
+<p>点击事件：由鼠标或热键点击元素组件时触发</p>
+<p>示例：</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220084943.png" alt="1559220084943"></p>
+</li>
+<li><p><strong>焦点事件（onblur、onfoucs）</strong></p>
+<ul>
+<li><p><strong>失去焦点事件（onblur）</strong></p>
+<p>焦点：即整个页面的注意力。</p>
+<p>默认一个正常页面最多仅有一个焦点。</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>例如：文本框中闪烁的小竖线。
+
+​    ![1559220128716](D:\typora笔记\Typora图片\1559220128716.png)                                              
+
+通常焦点也能反映出用户目前的关注点，或者正在操作的组件。
+
+获取焦点事件：当元素组件获取焦点时触发
+
+示例:![1559220154392](D:\typora笔记\Typora图片\1559220154392.png)</code></pre><ul>
+<li><p><strong>失去焦点事件（onblur）</strong></p>
+<p>失去焦点事件：元素组件失去焦点时触发</p>
+<p>示例：</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220188706.png" alt="1559220188706"></p>
+</li>
+</ul>
+<ul>
+<li><p><strong>域内容改变事件（onchange）</strong></p>
+<p>域内容改变事件： 元素组件的值发生改变时触发</p>
+<p>示例：</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220216926.png" alt="1559220216926"></p>
+</li>
+<li><p><strong>加载完毕事件（onload）</strong></p>
+<p>加载完毕事件：元素组件加载完毕时触发。</p>
+<p>示例：</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220255837.png" alt="1559220255837"></p>
+</li>
+<li><p><strong>表单提交事件（onsubmit）</strong></p>
+<p><strong>(必须绑定form标签 而不是submit标签)</strong></p>
+<p>表单提交事件：<strong>表单的提交按钮被点击时</strong>触发</p>
+</li>
+</ul>
+<p>  注意：该事件需要返回boolean类型的值来执行 提交/阻止 表单数据的操作。</p>
+<p>  l  事件得到true，提交表单数据</p>
+<p>  l  事件得到false，阻止表单数据提交</p>
+<p>  示例:</p>
+<p>  <img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220336272.png" alt="1559220336272"></p>
+<ul>
+<li><p><strong>键位弹起事件（onkeyup）</strong></p>
+<p>键位弹起事件：在组件中输入某些内容时，键盘键位弹起时触发该事件</p>
+<p>示例：</p>
+</li>
+</ul>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220372534.png" alt="1559220372534"></p>
+<ul>
+<li><p><strong>常用鼠标事件</strong></p>
+<ul>
+<li><p><strong>鼠</strong>鼠标移入事件：鼠标移入某个元素组件时触发</p>
+<p>示例：</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220425424.png" alt="1559220425424"></p>
+</li>
+<li><p><strong>鼠标移出事件（onmouseout）</strong></p>
+<p>鼠标移出事件：鼠标移出某元素时触发</p>
+<p>示例：</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220452288.png" alt="1559220452288"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-4-JS事件的两种绑定方式"><a href="#5-4-JS事件的两种绑定方式" class="headerlink" title="5.4 JS事件的两种绑定方式"></a>5.4 JS事件的两种绑定方式</h3><ul>
+<li><p><strong>元素事件句柄绑定</strong></p>
+<p>将事件以元素属性的方式写到标签内部，进而绑定对应函数。</p>
+<p>示例1：【为事件绑定一个无参函数】</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220500712.png" alt="1559220500712"></p>
+<p>示例2：【为事件绑定一个有参函数】</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220524481.png" alt="1559220524481"></p>
+<p>示例3：【为事件绑定一个有参函数-this】</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220538031.png" alt="1559220538031"></p>
+<p>示例4：【为事件绑定多个函数】</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220550332.png" alt="1559220550332"></p>
+<p>事件句柄绑定方式-</p>
+<p>​                  优点：①开发快捷</p>
+<p>​                            ②传参方便</p>
+<p>​                            ③可以绑定多个函数</p>
+<p>​                  缺点：JS和HTML代码高度糅合在一起，不利于多部门的项目开发维护</p>
+</li>
+<li><p><strong>DOM绑定方式</strong></p>
+<p>使用DOM的属性方式绑定事件。</p>
+<p>示例1：【将下述绑定转为DOM方式绑定】</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220609168.png" alt="1559220609168"></p>
+<p>示例2：【使用DOM绑定方式，为文本框onclick事件绑定run1方法】</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559220628475.png" alt="1559220628475"></p>
+<p>DOM绑定方式-</p>
+<p>​              优点：使得HTML代码和JS代码完全分离</p>
+<p>​              缺点：①不能传递参数。    解决：匿名函数是可以的</p>
+<p>​                         ②一个事件只能绑定一个函数    解决：匿名函数内部是可以绑定多个函数。</p>
+</li>
+</ul>
+</li></ul>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/JavaScript学习笔记/" data-id="cjycogqie0001vo7ksup5b7ti" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-JavaWeb学习笔记01" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/JavaWeb学习笔记01/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:06:31.923Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/JavaWeb学习笔记01/">JavaWEB学习笔记</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaWeb"><a href="#JavaWeb" class="headerlink" title="JavaWeb"></a>JavaWeb</h1><h2 id="1-Servlet"><a href="#1-Servlet" class="headerlink" title="1. Servlet"></a>1. Servlet</h2><h3 id="1-1-Servlet的生命周期"><a href="#1-1-Servlet的生命周期" class="headerlink" title="1.1  Servlet的生命周期"></a>1.1  Servlet的生命周期</h3><ul>
+<li><p><strong>什么是生命周期??</strong></p>
+<p>生命周期:一个对象从创建到销毁的全过程.</p>
+</li>
+<li><p><strong>Servlet的生命周期</strong></p>
+<p>Servlet是在第一次被访问的时候会被实例化。只要Servlet一被实例化那么Servlet中的init方法就会执行(<strong>init只会执行一次</strong>)。任何一次从客户端发送来的请求，那么Servlet中的service方法就会执行（在service方法的内部根据请求的方式不同调用不同的doxxx方法）。当Servlet从服务器中移除或服务器关闭时Servlet对象被销毁，里面的destroy方法就会执行，然后垃圾回收器就会将其回收掉。</p>
+</li>
+</ul>
+<h3 id="1-2-Servlet启动时加载"><a href="#1-2-Servlet启动时加载" class="headerlink" title="1.2  Servlet启动时加载"></a>1.2  Servlet启动时加载</h3><ul>
+<li><p><strong>为什么使用启动时加载</strong></p>
+<p>Servlet对象是第一次被访问的时候会被创建的，init方法就会执行。假设在init方法中做了一些比较耗时的操作（比如：加载了一些配置文件并且解析可能需要花费3秒钟）。第一个用户第一次访问这个Servlet的时候，需要等待3秒钟。<strong>如何使第一个用户在第一次访问的时候不需要花费这么长时间？</strong></p>
+<p>配置启动时加载： 在web.html中Servlet配置下设置<load-on-startup>2(数字越小优先级别越高)</load-on-startup></p>
+<p>service.xml中有设置一个默认的servlet，它的启动时加载的优先级别为1.因此我们在设置启动时加载的优先级别从2开始。</p>
+</li>
+</ul>
+<h3 id="1-3-Servlet路径配置"><a href="#1-3-Servlet路径配置" class="headerlink" title="1.3 Servlet路径配置"></a>1.3 Servlet路径配置</h3><ul>
+<li><p>全路径匹配</p>
+<p>以/开始      比如：/ServletDemo1   /aaa/ServletDemo2</p>
+</li>
+<li><p>目录匹配</p>
+<p>以 / 开始，以 /<em>结束        比如：/</em>        /aaa/*    /aaa/bbb/*</p>
+</li>
+<li><p>扩展名匹配</p>
+<p>不能以 / 开始，以<em>开始             比如：</em>.action       *.do          *.jsp</p>
+</li>
+</ul>
+<p><strong>访问的优先级别：完全路径匹配  &gt;  目录匹配  &gt;  扩展名匹配</strong></p>
+<h3 id="1-4-ServletConfig对象"><a href="#1-4-ServletConfig对象" class="headerlink" title="1.4 ServletConfig对象"></a>1.4 ServletConfig对象</h3><p>​    ServletConfig用来获得Servlet的相关的配置的对象。</p>
+<ul>
+<li><p>获得ServletConfig对象</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478153850.jpg" alt="img"></p>
+</li>
+<li><p>ServletConfig对象的API</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478193250.jpg" alt="img"></p>
+<p>    获得Servlet的初始化参数 getInitParameter（String name）</p>
+<p>​                                                    getInitParameterNames()</p>
+<p>    获得ServletContext对象    getServletContext()</p>
+<p>    获得Servlet的名称                getServletName()</p>
+</li>
+<li><p>配置初始化参数</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559478471685.png" alt="1559478471685"></p>
+</li>
+</ul>
+<h3 id="1-5-ServletContext对象"><a href="#1-5-ServletContext对象" class="headerlink" title="1.5 ServletContext对象"></a>1.5 ServletContext对象</h3><ul>
+<li><h4 id="什么是ServletContext"><a href="#什么是ServletContext" class="headerlink" title="什么是ServletContext"></a>什么是ServletContext</h4><p>ServletContext：Servlet的上下文对象。ServletContext对象对Servlet之前和之后的内容都知道。这个对象一个web项目只有一个。在服务器启动的时候为每个web项目创建一个单独的ServletContext对象。</p>
+</li>
+<li><p><strong>ServletContext获取工程信息</strong></p>
+<p>因为一个web项目只有一个ServletContext对象，所以这个对象对整个项目的相关内容都是了解的。</p>
+<ul>
+<li><p>获取文件的MIME类型：getMimeType(String File)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478587809.jpg" alt="img"></p>
+</li>
+<li><p>获取web项目请求工程名：getContextPath()</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478963129.jpg" alt="img"></p>
+</li>
+<li><p>获取web项目的初始化参数：getInitParameter(String name)</p>
+<p>​                                                 getInitParameterNames()</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559479022812.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>配置全局初始化参数</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559479154836.png" alt="1559479154836"></p>
+</li>
+<li><p><strong>Servlet对象读取web项目下的文件</strong></p>
+<p>之前使用IO流就可以读取文件（java项目中）。现在是一个web项目，web项目需要发布到tomcat下才能访问的。获取web项目下的文件如果使用传统的IO就会出现问题（原因：路径中使用的是相对路径，相对的是JRE环境）。</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559479472885.png" alt="1559479472885"></p>
+<p>getServletContext()   –&gt; 获取ServletContext对象</p>
+<p>方法一：通过ServletContext的getResourceAsStream（“路径”）方法获取输出流</p>
+<p>方法二： 通过ServletContext的getRealPath（“路径”）方法获得文件的真正路径</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>ServletContext作为域对象</strong></p>
+<p>域对象:指的是将数据存入到域对象中，这个数据就会有一定的作用范围。域指的是一定的作用范围。</p>
+<ul>
+<li><p>ServletContext是在服务器启动的时候为每个web项目单独创建一个ServletContext对象。当web项目从服务器中移除，或者是关闭服务器的时候ServletContext对象会被销毁。向ServletContext中保存的数据一直存在（当服务器关闭的时候ServletContext对象被销毁，然后里面数据才会失效）。<strong>范围：整个web应用。</strong></p>
+</li>
+<li><p>ServletContext作为域对象的API</p>
+<p>存入数据的方法：setAttribute(String name, Object value)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559479924151.jpg" alt="img"></p>
+</li>
+<li><p>获取数据的方法： getAttribute(String name)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559479965085.jpg" alt="img"></p>
+</li>
+<li><p>移除数据的方法: removeAttribute(Steing name)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480008166.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-Response对象"><a href="#2-Response对象" class="headerlink" title="2.Response对象"></a>2.Response对象</h2><h3 id="2-1-什么是Response"><a href="#2-1-什么是Response" class="headerlink" title="2.1 什么是Response"></a>2.1 什么是Response</h3><p>​        开发的软件是B/S结构的软件，可以通过浏览器访问服务器的软件。从浏览器输入一个地址访问服务器（将这个过程称为是请求）。服务器接收到请求，需要进行处理，处理以后需要将处理结果显示回浏览器端（将这个过程称为是响应）。</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480138009.jpg" alt="img"></p>
+<h3 id="2-2-Response对象的API"><a href="#2-2-Response对象的API" class="headerlink" title="2.2 Response对象的API"></a>2.2 Response对象的API</h3><ul>
+<li><p><strong>Response关于相应行的方法</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480209583.jpg" alt="img"></p>
+<p>setStatus（int sc）</p>
+<p>响应码：</p>
+<p>    200 正确<br>    302 重定向<br>    304 查找本地缓存<br>    404 请求资源不存在<br>    500 服务器内部错误</p>
+</li>
+<li><p><strong>Response关于响应头的方法</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480659441.jpg" alt="img"></p>
+<p>set开头的方法:针对一个key对应一个value的情况.</p>
+<p>    举例：比如有一个头 content-Type:text/html  setHeader(“content-Type”,”text/plain”);<br>    最终得到头的结果：content-Type:text/plain</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480745878.jpg" alt="img"></p>
+<p>add开头的方法:针对一个key对应多个value的情况。</p>
+</li>
+</ul>
+<p>    举例：比如有一个content-Type:text/html      addHeader(“content-Type”,”text/plain”);<br>    最终得到头的结果：content-Type:text/html,text/plain</p>
+<ul>
+<li><p><strong>Response关于响应体的方法</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481072416.jpg" alt="img"></p>
+<p>获得输出流</p>
+</li>
+<li><p><strong>Response其他的API</strong></p>
+<ul>
+<li><p>重定向的方法  sendRedirect(String Location)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481179748.jpg" alt="img"></p>
+</li>
+<li><p>设置浏览器打开页面时候采用的字符集  setContentType(String type)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481254972.jpg" alt="img"></p>
+</li>
+<li><p>设置响应字符流的缓冲区字符集 setCharacterEncoding(String charset)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481357432.jpg" alt="img"></p>
+</li>
+<li><p>服务器向浏览器回写Cookie的方法 addCookies(Cookies cookies)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481400089.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3-Response对象API的代码实现"><a href="#2-3-Response对象API的代码实现" class="headerlink" title="2.3 Response对象API的代码实现"></a>2.3 Response对象API的代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResponseDemo02</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		System.out.println(<span class="number">1</span>);</span><br><span class="line">		<span class="comment">//重定向</span></span><br><span class="line">		<span class="comment">//设置状态码</span></span><br><span class="line">		response.setStatus(<span class="number">302</span>);</span><br><span class="line">		<span class="comment">//设置重定向地址</span></span><br><span class="line">		response.setHeader(<span class="string">"Location"</span>, <span class="string">"/web01/HelloServlet"</span>);</span><br><span class="line">		<span class="comment">//重定向的常用方法</span></span><br><span class="line">		response.sendRedirect(<span class="string">"/web01/HelloServlet02"</span>);</span><br><span class="line">		<span class="comment">//定时刷新</span></span><br><span class="line">		response.setHeader(<span class="string">"Refresh"</span>, <span class="string">"5;url=/web01/HelloServlet03"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-Response对象响应的中文乱码处理"><a href="#2-4-Response对象响应的中文乱码处理" class="headerlink" title="2.4 Response对象响应的中文乱码处理"></a>2.4 Response对象响应的中文乱码处理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字节流输出中文(乱码是由于字节流bytes数组编码格式和浏览器默认的编码格式不一致)</span></span><br><span class="line">		<span class="comment">// 设置浏览器的默认编码格式</span></span><br><span class="line">		response.setHeader(<span class="string">"Content-Type"</span>, <span class="string">"text/html;charset=UTF-8"</span>);</span><br><span class="line">		<span class="comment">// 设置bytes数组的编码格式</span></span><br><span class="line">		<span class="keyword">byte</span>[] bytes = <span class="string">"中文"</span>.getBytes(<span class="string">"UTF-8"</span>);</span><br><span class="line">		response.getOutputStream().write(bytes);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符流输出中文(乱码是由于浏览器的缓冲区的默认编码格式为"ISO-8859-1",该编码不支持中文)</span></span><br><span class="line">		<span class="comment">// 修改缓冲区编码格式</span></span><br><span class="line">		<span class="comment">// response.setCharacterEncoding("UTF-8");</span></span><br><span class="line">		<span class="comment">// // 修改浏览器默认编码格式</span></span><br><span class="line">		<span class="comment">// response.setHeader("Content-Type", "text/html;charset=UTF-8");</span></span><br><span class="line">		<span class="comment">//简便方法</span></span><br><span class="line">		response.setContentType(<span class="string">"text/html;charset=UTF-8"</span>);</span><br><span class="line">		response.getWriter().println(<span class="string">"中文"</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Request对象"><a href="#3-Request对象" class="headerlink" title="3. Request对象"></a>3. Request对象</h2><h3 id="3-1-什么是Request对象"><a href="#3-1-什么是Request对象" class="headerlink" title="3.1 什么是Request对象"></a>3.1 什么是Request对象</h3><p>​    开发的软件都是B/S结构软件，从浏览器向服务器提交一些数据，将这些内容进行封装就封装成了一个请求对象（Request对象）。</p>
+<h3 id="3-2-Request对象的API"><a href="#3-2-Request对象的API" class="headerlink" title="3.2  Request对象的API"></a>3.2  Request对象的API</h3><p><strong>获得客户机信息</strong></p>
+<ul>
+<li>获取请求方式   getMethod()</li>
+<li>获取请求路径后的提交参数的字符串   getQueryString()</li>
+<li>获得请求路径的URL和URI<ul>
+<li>getRequestURI</li>
+<li>getRequestURL</li>
+</ul>
+</li>
+<li>获得客户机的IP的方法      getRemoteAddr()</li>
+</ul>
+<p><strong>获得请求头的方法</strong></p>
+<ul>
+<li>获得一个key对应一个value的请求头    getHeader(String name)</li>
+<li>获得一个key对应多个value的请求头     getHeaders(String name)</li>
+</ul>
+<p><strong>获得请求参数的方法</strong></p>
+<ul>
+<li><p>获得提交的参数(一个name对应一个key)             getParameter(String name)</p>
+</li>
+<li><p>获得提交的参数(一个name对应多个key)             getParameterValues(String name)</p>
+</li>
+<li><p>获得提交的参数,将提交的参数的名称和对应的值存进一个Map集合中</p>
+<p>getParameterMap()</p>
+</li>
+</ul>
+<p><strong>Resquest作为域对象存取数据的方法</strong>(域作用)范围为本次请求响应)</p>
+<ul>
+<li>从request域中存数据        addAtrribute(String name, Object o)</li>
+<li>从request域中获取数据      getAttribute(String name)</li>
+<li>从request域中移除数据       removeAtrribute(String name)</li>
+</ul>
+<p><strong>request作为域对象的作用范围:</strong></p>
+<p>Request对象其实就是从客户端浏览器向服务器发送的一次请求信息的封装。那么实质上向Request中所保存的数据有效期也是<strong>一次请求范围</strong>。</p>
+<p><strong>一次请求范围</strong>：从客户端浏览器向服务器发送一次请求，服务器针对这次请求对浏览器作出响应。当服务器作出响应之后，请求对象就销毁了，保存在其中的数据就无效了。</p>
+<h3 id="3-3-Request对象API的代码实现"><a href="#3-3-Request对象API的代码实现" class="headerlink" title="3.3 Request对象API的代码实现"></a>3.3 Request对象API的代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取请求方法</span></span><br><span class="line">		String method = request.getMethod();</span><br><span class="line">		System.out.println(method);</span><br><span class="line">		<span class="comment">//获取客户机ip</span></span><br><span class="line">		String ip = request.getRemoteAddr();</span><br><span class="line">		System.out.println(ip);</span><br><span class="line">		<span class="comment">//获取请求参数的字符串</span></span><br><span class="line">		String queryString = request.getQueryString();</span><br><span class="line">		System.out.println(queryString);</span><br><span class="line">		<span class="comment">//获取请求路径的URL和URI</span></span><br><span class="line">		StringBuffer url = request.getRequestURL();</span><br><span class="line">		System.out.println(<span class="string">"URL---"</span> + url);</span><br><span class="line">		String uri = request.getRequestURI();</span><br><span class="line">		<span class="comment">//获取用户浏览器信息</span></span><br><span class="line">		System.out.println(<span class="string">"URI---"</span> + uri);</span><br><span class="line">		System.out.println(request.getHeader(<span class="string">"User-Agent"</span>));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Array;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Enumeration;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RequestDemo01</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">			HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// 通过request.getParameter(name)获取request请求中的参数</span></span><br><span class="line">		<span class="comment">// String username = request.getParameter("username");</span></span><br><span class="line">		<span class="comment">// String password = request.getParameter("password");</span></span><br><span class="line">		<span class="comment">// String sex = request.getParameter("sex");</span></span><br><span class="line">		<span class="comment">// String city = request.getParameter("city");</span></span><br><span class="line">		<span class="comment">// String[] hobby = request.getParameterValues("hobby");</span></span><br><span class="line">		<span class="comment">// String info = request.getParameter("info");</span></span><br><span class="line">		<span class="comment">// System.out.println(username);</span></span><br><span class="line">		<span class="comment">// System.out.println(password);</span></span><br><span class="line">		<span class="comment">// System.out.println(sex);</span></span><br><span class="line">		<span class="comment">// System.out.println(city);</span></span><br><span class="line">		<span class="comment">// System.out.println(Arrays.toString(hobby));</span></span><br><span class="line">		<span class="comment">// System.out.println(info);</span></span><br><span class="line">		<span class="comment">// 通过request.getParameterNames()方法获取request中的参数</span></span><br><span class="line">		<span class="comment">// 此方法适用于一个key对应一个value的情况</span></span><br><span class="line">		<span class="comment">// Enumeration&lt;String&gt; names = request.getParameterNames();</span></span><br><span class="line">		<span class="comment">// while (names.hasMoreElements()) &#123;</span></span><br><span class="line">		<span class="comment">// String name = names.nextElement();</span></span><br><span class="line">		<span class="comment">// String value = request.getParameter(name);</span></span><br><span class="line">		<span class="comment">// System.out.println(name + "---" + value);</span></span><br><span class="line">		<span class="comment">// &#125;</span></span><br><span class="line">		<span class="comment">// 通过request.getParameterMap()来获取request的参数</span></span><br><span class="line">		Map&lt;String, String[]&gt; map = request.getParameterMap();</span><br><span class="line">		<span class="keyword">for</span> (String key : map.keySet()) &#123;</span><br><span class="line">			String[] value = map.get(key);</span><br><span class="line">			<span class="keyword">if</span> (value.length == <span class="number">1</span>) &#123;</span><br><span class="line">				System.out.println(key + <span class="string">"---"</span> + value[<span class="number">0</span>]);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				System.out.println(key + <span class="string">"---"</span> + Arrays.toString(value));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">			HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-Request对象接收表单请求参数的中文乱码处理"><a href="#3-4-Request对象接收表单请求参数的中文乱码处理" class="headerlink" title="3.4 Request对象接收表单请求参数的中文乱码处理"></a>3.4 Request对象接收表单请求参数的中文乱码处理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//post提交方式,请求参数中文乱码是由于post的请求参数是从请求体中拿到缓冲区中,而缓冲区的默认编码格式为ISO-8859-1,需设置缓冲区的编码格式</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">			HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">		System.out.println(username);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>//get提交方式,请求参数中文乱码是由于get的请求数据是先通过UTF-8的Url编码变成%十六进制的形式拼接在请求行,再存储在缓冲区,缓冲区的默认编码格式为ISO-8859-1.为了将参数转换成中文提取出,需要先以ISO-8859-1的编码格式从缓存区中取出数据,再把数据进行UTF-8的解码,解析成中文</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">String name = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// String encode = URLEncoder.encode(name, "ISO-8859-1");</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// String decode = URLDecoder.decode(encode, "UTF-8");</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// System.out.println(decode);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//常用方法</span></span><br><span class="line"></span><br><span class="line">String username = <span class="keyword">new</span> String(name.getBytes(<span class="string">"ISO-8859-1"</span>), <span class="string">"UTF-8"</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(username);</span><br><span class="line">           </span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/JavaWeb学习笔记01/" data-id="cjycogqhv0000vo7k75o9l853" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-JDBC高级" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -1427,761 +2157,6 @@ url=jdbc:mysql://locahost:3306/test?rewriteBatchedStatements=true</code></pre>
 
 
   
-    <article id="post-mybatis" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/mybatis/" class="article-date">
-  <time class="post-time" datetime="2019-07-21T08:05:15.011Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br>
-    <span class="post-day">21</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/mybatis/">MyBatis学习笔记</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h1><h2 id="1-mybatis概述"><a href="#1-mybatis概述" class="headerlink" title="1.mybatis概述"></a>1.mybatis概述</h2><h3 id="1-1-什么是mybatis"><a href="#1-1-什么是mybatis" class="headerlink" title="1. 1 什么是mybatis"></a>1. 1 什么是mybatis</h3><p>1：Hibernate就是一个持久层的的框架。对JDBC做了轻量级封装<br>2：Mybatis是一款优秀的持久层框架，它支持定制化SQL、存储过程以及高级映射</p>
-<h3 id="1-2-mybatis概述"><a href="#1-2-mybatis概述" class="headerlink" title="1.2 mybatis概述"></a>1.2 mybatis概述</h3><p>1：它是基于Java编写的持久层框架，使开发者不必关心传统jdbc的api，只关心sql语句本身</p>
-<p>2：mybatis 通过 xml或注解的方式将要执行的各种 statement 配置起来</p>
-<p>3：采用 ORM 思想解决了实体和数据库映射的问题，对 jdbc 进行了封装，屏蔽了 jdbc api 底层访问细节，使我们不用与 jdbc api 打交道，就可以完成对数据库的持久化操作</p>
-<h2 id="2-mybatis的CRUD操作"><a href="#2-mybatis的CRUD操作" class="headerlink" title="2.mybatis的CRUD操作"></a>2.mybatis的CRUD操作</h2><h3 id="2-1-mybatis查询所有的步骤"><a href="#2-1-mybatis查询所有的步骤" class="headerlink" title="2.1 mybatis查询所有的步骤"></a>2.1 mybatis查询所有的步骤</h3><p>1.创建工程</p>
-<p>2.导入maven坐标</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>3.创建实体类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>4.导入log4j.properties文件</p>
-<p><strong>查询所有</strong></p>
-<p>5.创建SqlMapConfig.xml（省略）</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span>用于指定别名</span><br><span class="line"><span class="tag">&lt;<span class="name">environments</span>&gt;</span>配置环境</span><br><span class="line">	<span class="tag">&lt;<span class="name">environment</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">"JDBC"</span>&gt;</span>配置事务管理策略</span><br><span class="line">		<span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span>配置数据区连接方式</span><br><span class="line">			<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span>配置数据库连接参数</span><br><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"com.cyannote.dao"</span>/&gt;</span>用于指定dao接口所在的包</span><br></pre></td></tr></table></figure>
-
-<p>6.创建UserDao.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询所有用户</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">findAll</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>7.创建UserDao.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.cyannote.dao.UserDao"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--查询所有--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findAll"</span> <span class="attr">resultType</span>=<span class="string">"com.cyannotea.domain.User"</span>&gt;</span></span><br><span class="line">        select * from user</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>8.创建测试类MybatisTest .java（省略）</p>
-<h3 id="2-2-与-的区别"><a href="#2-2-与-的区别" class="headerlink" title="2.2 #{}与${}的区别"></a>2.2 #{}与${}的区别</h3><p>#{}表示一个占位符号<br>通过#{}可以实现preparedStatement向占位符中设置值，自动进行java类型和jdbc类型转换，#{}可以有效防止sql注入。 #{}可以接收简单类型值或pojo属性值。 如果parameterType传输单个简单类型值，#{}括号中可以是value或其它名称。<br>${}表示拼接sql串<br>通过${}可以将parameterType 传入的内容拼接在sql中且不进行jdbc类型转换， ${}可以接收简单类型值或pojo属性值，如果parameterType传输单个简单类型值，${}括号中只能是value。</p>
-<h3 id="2-3-SqlMapConfig-xml配置文件"><a href="#2-3-SqlMapConfig-xml配置文件" class="headerlink" title="2.3  SqlMapConfig.xml配置文件"></a>2.3  SqlMapConfig.xml配置文件</h3><p>SqlMapConfig.xml中配置的内容和顺序如下：<br>properties（属性） </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SqlMapConfig.xml配置文件</span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">"jdbcConfig.properties"</span>&gt;</span><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>settings（全局配置参数）<br>typeAliases（类型别名）</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 用于指定要配置别名的包，当指定之后，该包下的实体类都会注册别名，并且类名就是别名，不再区分大小写--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;package name="com.cyannote.domain"&gt;&lt;/package&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>typeHandlers（类型处理器）<br>objectFactory（对象工厂）<br>plugins（插件）<br>environments（环境集合属性对象）<br>environment（环境子属性对象）<br>transactionManager（事务管理）<br>dataSource（数据源）<br>mappers（映射器） </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">""</span>/&gt;</span> </span><br><span class="line">注册指定包下的所有mapper接口 </span><br><span class="line">如：<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"com.caynnote.dao"</span>/&gt;</span> </span><br><span class="line">注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。 </span><br><span class="line">应用场景：即可以使用XML配置文件，也可以使用注解。</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-4-Mybatis映射文件的SQL深入"><a href="#2-4-Mybatis映射文件的SQL深入" class="headerlink" title="2.4 Mybatis映射文件的SQL深入"></a>2.4 Mybatis映射文件的SQL深入</h3><p>动态SQL的<if>标签</if></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--根据条件查询--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findByCondition"</span> <span class="attr">parameterType</span>=<span class="string">"user"</span> <span class="attr">resultMap</span>=<span class="string">"userMap"</span>&gt;</span></span><br><span class="line">    select * from user where 1=1</span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"userName != null"</span>&gt;</span></span><br><span class="line">        and username = #&#123;userName&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"userSex != null"</span>&gt;</span></span><br><span class="line">        and sex = #&#123;userSex&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>动态SQL之<where>标签</where></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--where标签的使用--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findByCondition"</span> <span class="attr">parameterType</span>=<span class="string">"user"</span> <span class="attr">resultMap</span>=<span class="string">"userMap"</span>&gt;</span></span><br><span class="line">    select * from user</span><br><span class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"userName != null"</span>&gt;</span></span><br><span class="line">            and username = #&#123;userName&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"userSex != null"</span>&gt;</span></span><br><span class="line">            and sex = #&#123;userSex&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>动态标签之<foreach>标签</foreach></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--foreach标签的使用--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findInIds"</span> <span class="attr">parameterType</span>=<span class="string">"queryVo"</span> <span class="attr">resultMap</span>=<span class="string">"userMap"</span>&gt;</span></span><br><span class="line">    select * from user</span><br><span class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"ids != null and ids.size()&gt;0"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"ids"</span> <span class="attr">open</span>=<span class="string">" and id in ("</span> <span class="attr">close</span>=<span class="string">")"</span> <span class="attr">item</span>=<span class="string">"uid"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></span><br><span class="line">                #&#123;uid&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-mybatis的多表查询"><a href="#3-mybatis的多表查询" class="headerlink" title="3.mybatis的多表查询"></a>3.mybatis的多表查询</h2><h3 id="3-1-多对一-一对一"><a href="#3-1-多对一-一对一" class="headerlink" title="3.1 多对一(一对一):"></a>3.1 多对一(一对一):</h3><p><strong>方案一:创建新的javabean(包含两张表的字段)</strong></p>
-<p>第一步：sql语句<br>                SELECT a.*,u.username,u.address FROM account a,USER u WHERE u.id = a.uid<br>第二步：在com.cyanote.domain中创建AccountUser.java<br>            创建一个新的javabean    </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountUser</span> <span class="keyword">extends</span> <span class="title">Account</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String username;</span><br><span class="line">	<span class="keyword">private</span> String address;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>第三步：AccountDao.java<br>    /**</p>
-<p>​      *查询账号和客户的信息<br>​       */<br>​        List<accountuser> findByAccountUser();<br>第四步：AccountDao.xml</accountuser></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 查询所有 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findByAccountUser"</span> <span class="attr">resultType</span>=<span class="string">"com.cyannote.domain.AccountUser"</span>&gt;</span></span><br><span class="line">    SELECT a.*,u.username,u.address FROM account a,user u WHERE u.id = a.uid</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>第五步：MybatisTest.java</p>
-<p><strong>方案二:直接用用Account对象封装</strong></p>
-<p>第一步：sql语句<br>select u.*,a.id as aid,a.uid,a.money from account a,user u where u.id = a.uid<br>第二步：修改Account.java<br>    在Account中封装User</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Account</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> Integer uid;</span><br><span class="line">    <span class="keyword">private</span> Double money;</span><br><span class="line">    <span class="keyword">private</span> User user;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">getUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   	 	<span class="keyword">return</span> user;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUser</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.user = user;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>第三步：AccountDao.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*查询账号和客户的信息（方案二：直接用Account对象封装）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">List&lt;Account&gt; <span class="title">findByAccountUser2</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>第四步：AccountDao.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--定义resultMap对象，用来封装账号信息--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">"accountMap"</span> <span class="attr">type</span>=<span class="string">"account"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">"id"</span> <span class="attr">column</span>=<span class="string">"aid"</span>&gt;</span><span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"uid"</span> <span class="attr">column</span>=<span class="string">"uid"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"money"</span> <span class="attr">column</span>=<span class="string">"money"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--association用来关联对象(用于多对一,或一对一)，property代表加载对象，javaType代表加载对象的数据类型，可以写成com.cyannote.domain.User--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"user"</span> <span class="attr">javaType</span>=<span class="string">"user"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">"id"</span> <span class="attr">column</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"username"</span> <span class="attr">column</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">"address"</span> <span class="attr">column</span>=<span class="string">"address"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 查询所有（方案二：直接用Account对象封装） --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findByAccountUser2"</span> <span class="attr">resultMap</span>=<span class="string">"accountMap"</span>&gt;</span></span><br><span class="line">    select u.*,a.id as aid,a.uid,a.money from account a,user u where u.id = a.uid</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>第五步：MybatisTest.java</p>
-<h2 id="4-mybatis的延迟加载策略"><a href="#4-mybatis的延迟加载策略" class="headerlink" title="4.mybatis的延迟加载策略"></a>4.mybatis的延迟加载策略</h2><h3 id="4-1-什么是延迟加载"><a href="#4-1-什么是延迟加载" class="headerlink" title="4.1 什么是延迟加载"></a>4.1 什么是延迟加载</h3><p>什么是延迟加载<br>        在真正使用数据时才发起查询，不用的时候不查询。按需加载（懒加载）<br>什么是立即加载<br>        不管用不用，只要一调用方法，马上发起查询。<br>应用场景：<br>在对应的四种表关系中：一对多，多对一，一对一，多对多<br>        一对多，多对多：通常情况下我们都是采用延迟加载。（建议）<br>        多对一，一对一：通常情况下我们都是采用立即加载。（建议）</p>
-<h3 id="4-2-配置延迟加载"><a href="#4-2-配置延迟加载" class="headerlink" title="4.2 配置延迟加载"></a>4.2 配置延迟加载</h3><p><strong>配置SqlMapConfig.xml:**</strong>(全局配置)**</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">"jdbcConfig.properties"</span>&gt;</span><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--需要配置延迟加载策略--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--打开延迟加载的开关--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"lazyLoadingEnabled"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--将积极加载改为消息加载，即按需加载--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"aggressiveLazyLoading"</span> <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>配置AccountDao.xml</strong>:<strong>(局部配置)</strong></p>
-<p>AccountDao.xml中使用fethcType属性用来控制延迟检索和立即检索：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--fetchType:</span></span><br><span class="line"><span class="comment">    eager：立即检索</span></span><br><span class="line"><span class="comment">    lazy：延迟检索</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"user"</span> <span class="attr">javaType</span>=<span class="string">"user"</span> <span class="attr">select</span>=<span class="string">"com.cyannote.dao.UserDao.findById"</span> <span class="attr">column</span>=<span class="string">"uid"</span> <span class="attr">fetchType</span>=<span class="string">"eager"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>只配置一处就可实现延迟加载,若两处都配置,局部配置优先级别更高.</p>
-<h2 id="5-mybatis缓存"><a href="#5-mybatis缓存" class="headerlink" title="5.mybatis缓存"></a>5.mybatis缓存</h2><p>Mybatis中缓存分为一级缓存，二级缓存<br>一级缓存：是SqlSession级别的缓存（线程级别的缓存）<br>二级缓存：是SqlSessionFactory级别的缓存（进程级别的缓存）<br>一个SqlSessionFactory存在多个SqlSession。</p>
-<h3 id="5-1-一级缓存-SqlSession"><a href="#5-1-一级缓存-SqlSession" class="headerlink" title="5.1 一级缓存(SqlSession)"></a>5.1 一级缓存(SqlSession)</h3><p>​        它指的是Mybatis中SqlSession对象的缓存。默认是开启SQLSession缓存的.</p>
-<p>​        当我们执行查询之后，查询的结果会同时存入到SqlSession为我们提供一块区域中。一级缓存中存放的是一个对象.</p>
-<p>​        该区域的结构是一个Map。当我们再次查询同样的数据，mybatis会先去sqlsession中查询是否有，有的话直接拿出来用，如果没有再查询数据库。</p>
-<p>​        一级缓存是SqlSession 范围的缓存，当调用SqlSession 的修改，添加，删除，commit()，close()等方法时，就会清空一级缓存。</p>
-<p>​        当SqlSession对象消失时，mybatis的一级缓存也就消失了。</p>
-<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1561621604792.jpg" alt="img"></p>
-<p>​        第一次发起查询用户id 为1 的用户信息，先去找缓存中是否有id 为1 的用户信息，如果没有，从数据库查询用户信息。 得到用户信息，将用户信息存储到一级缓存中。 如果sqlSession 去执行commit 操作（执行插入、更新、删除），清空SqlSession 中的一级缓存，这样做的目的为了让缓存中存储的是最新的信息，避免脏读。 </p>
-<p>​        第二次发起查询用户id 1 id 1 </p>
-<h3 id="5-2-二级缓存-SqlSessionFactory"><a href="#5-2-二级缓存-SqlSessionFactory" class="headerlink" title="5.2 二级缓存(SqlSessionFactory)"></a>5.2 二级缓存(SqlSessionFactory)</h3><p>​        它指的是Mybatis中SqlSessionFactory对象的级别缓存。由同一个SqlSessionFactory对象创建的SqlSession共享其缓存。</p>
-<p>​        二级缓存的使用步骤：</p>
-<p>​               第一步：让Mybatis框架支持二级缓存（在SqlMapConfig.xml中配置）</p>
-<p>​            因为cacheEnabled 的取值默认就为true，所以这一步可以省略不配置。为true 代表开启二级缓存； 为false 代表不开启二级缓存。  </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--需要配置延迟加载策略--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--开启二级缓存--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"cacheEnabled"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>​                第二步：让当前的映射文件支持二级缓存（在UserDao.xml中配置）</p>
-<p>​            <cache>标签表示当前这个mapper 映射将使用二级缓存，区分的标准就看mapper 的namespace 值。</cache></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.cyannote.dao.UserDao"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cache</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>​               第三步：让当前的操作支持二级缓存（在select标签中配置）</p>
-<p>​            将UserDao.xml 映射文件中的<select>标签中设置useCache=”true”代表当前这个statement 要使用二级缓存，如果不使用二级缓存可以设置为false。 </select></p>
-<p>注意：针对每次查询都需要最新的数据sql，要设置成useCache=false，禁用二级缓存。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 根据id查询用户 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findById"</span> <span class="attr">parameterType</span>=<span class="string">"INT"</span> <span class="attr">resultType</span>=<span class="string">"com.cyannote.domain.User"</span> <span class="attr">useCache</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">    select * from user where id = #&#123;uid&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>​        二级缓存结构图 </p>
-<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1561621676615.jpg" alt="img"></p>
-<p>​            经过测试，我们发现执行了两次查询，并且在执行第一次查询后，我们关闭了一级缓存，再去执行第二次查询时，我们发现并没有对数据库发出sql 语句，所以此时的数据就只能是来自于我们所说的二级缓存。 </p>
-<p>​            但是查询到的2个对象不一致,原理是二级缓存中存放的是对象的散装数据，每次查询的时候需要重新封装实体对象。</p>
-<p><strong>考虑二级缓存的应用场景：</strong></p>
-<p>​            适应放置到二级缓存的数据：经常不会发生变化的数据，例如地区编码</p>
-<p>​            不适合放置到二级缓存的数据：经常变化的数据, 财务数据</p>
-<h2 id="6-mybatis注解开发"><a href="#6-mybatis注解开发" class="headerlink" title="6.mybatis注解开发"></a>6.mybatis注解开发</h2><p><strong>加载注解依赖</strong>(pom.xml)</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>配置映射</strong>(SqlMapConfig.xml)</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 指定带有注解的dao接口所在位置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">class</span>=<span class="string">"com.cyannote.dao.UserDao"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="6-1-mybatis的注解说明"><a href="#6-1-mybatis的注解说明" class="headerlink" title="6.1 mybatis的注解说明"></a>6.1 mybatis的注解说明</h3><p>​            @Insert:实现新增 </p>
-<p>​            @Update:实现更新 </p>
-<p>​            @Delete:实现删除 </p>
-<p>​            @Select:实现查询 </p>
-<p>​            @Result:实现结果集封装 </p>
-<p>​            @Results:可以与@Result一起使用，封装多个结果集 </p>
-<p>​            @One:实现一对一结果集封装 </p>
-<p>​            @Many:实现一对多结果集封装 </p>
-<p>​            @SelectProvider: 实现动态SQL映射 </p>
-<h3 id="6-2-使用注解开发"><a href="#6-2-使用注解开发" class="headerlink" title="6.2 使用注解开发"></a><strong>6.2 使用注解开发</strong></h3><p><strong>使用注解进行CRUD操作</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//    查询所有</span></span><br><span class="line">  <span class="meta">@Select</span>(value = <span class="string">"select * from account"</span>)</span><br><span class="line">  <span class="function">List&lt;Account&gt; <span class="title">findAll</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//    增加一条记录</span></span><br><span class="line">  <span class="meta">@Insert</span>(value = <span class="string">"insert into account (uid,money) values (#&#123;uid&#125;,#&#123;money&#125;)"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">save</span><span class="params">(Account account)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//    删除一条记录</span></span><br><span class="line">  <span class="meta">@Delete</span>(value = <span class="string">"delete from account where id = #&#123;id&#125;"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">delete</span><span class="params">(<span class="keyword">int</span> id)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//    修改一条记录</span></span><br><span class="line">  <span class="meta">@Update</span>(value = <span class="string">"update account set uid = #&#123;uid&#125;,money = #&#123;money&#125; where id= #&#123;id&#125;"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(Account account)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>使用注解实现复杂关系映射开发</strong></p>
-<p>@one:多对一和一对一</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Select</span>(value = <span class="string">"SELECT * from account"</span>)</span><br><span class="line"><span class="meta">@Results</span>(id = <span class="string">"AccountUser"</span>, value = &#123;</span><br><span class="line">           <span class="meta">@Result</span>(id = <span class="keyword">true</span>, property = <span class="string">"id"</span>, column = <span class="string">"id"</span>),</span><br><span class="line">           <span class="meta">@Result</span>(property = <span class="string">"uid"</span>, column = <span class="string">"uid"</span>),</span><br><span class="line">           <span class="meta">@Result</span>(property = <span class="string">"money"</span>, column = <span class="string">"money"</span>),</span><br><span class="line">           <span class="meta">@Result</span>(property = <span class="string">"user"</span>, column = <span class="string">"uid"</span>, one = <span class="meta">@One</span>(select = <span class="string">"com.cyannote.dao.UserDao.findByUId"</span>))</span><br><span class="line">   &#125;)</span><br><span class="line">   <span class="function">List&lt;Account&gt; <span class="title">findAccountUser</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>@many:一对多和多对多</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Select</span>(value = <span class="string">"select * from user"</span>)</span><br><span class="line"><span class="meta">@Results</span>(id = <span class="string">"UserAccount"</span>,value = &#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span> , property = <span class="string">"id"</span> , column = <span class="string">"id"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"username"</span>,column = <span class="string">"username"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"sex"</span> , column = <span class="string">"sex"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"birthday"</span> , column = <span class="string">"birthday"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"address"</span> , column = <span class="string">"address"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"accounts"</span>,column = <span class="string">"id"</span>,many = <span class="meta">@Many</span>(select = <span class="string">"com.cyannote.dao.AccountDao.findById"</span>))</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">findUserAccount</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>使用联合查询的SQL语句</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Select</span>(value = <span class="string">"SELECT u.*,a.id aid,a.UID,a.MONEY FROM USER u,account a WHERE a.uid = u.id"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(id = <span class="string">"AccountUser2"</span>,value = &#123;</span><br><span class="line">            <span class="meta">@Result</span>(id = <span class="keyword">true</span>,property = <span class="string">"id"</span>,column = <span class="string">"aid"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"uid"</span>,column = <span class="string">"uid"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"money"</span>,column = <span class="string">"money"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"user.id"</span>,column = <span class="string">"id"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"user.username"</span>,column = <span class="string">"username"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"user.sex"</span>,column = <span class="string">"sex"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"user.birthday"</span>,column = <span class="string">"birthday"</span>),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"user.address"</span>,column = <span class="string">"address"</span>),</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function">List&lt;Account&gt; <span class="title">findAccountUser2</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>使用注解配置二级缓存</strong></p>
-<p>第一步：配置SqlMapConfig.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--开启二级缓存--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"cacheEnabled"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>第二步：配置UserDao.xml</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@CacheNamespace</span>(blocking = <span class="keyword">true</span>) <span class="comment">// 使用二级缓存</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://cyannote.github.io.git/mybatis/" data-id="cjycoezpb0003l47kbsksybio" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-MySQL-单表查询笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/MySQL-单表查询笔记/" class="article-date">
-  <time class="post-time" datetime="2019-07-21T08:05:12.051Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br>
-    <span class="post-day">21</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/MySQL-单表查询笔记/">MySql单表查询</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="MySQL单表查询"><a href="#MySQL单表查询" class="headerlink" title="MySQL单表查询"></a>MySQL单表查询</h1><p><strong>学习目标</strong></p>
-<ul>
-<li><p>理解数据库和关系型数据库的概念</p>
-</li>
-<li><p>独立完成数据库的安装</p>
-</li>
-<li><p>理解关系型数据库的存储结构</p>
-</li>
-<li><p>独立完成对数据库的添加，修改，删除，查询操作</p>
-</li>
-<li><p>独立完成对数据库表的添加，修改，删除，查询操作</p>
-</li>
-<li><p>独立完成对数据库表记录的添加，修改，删除，查询操作</p>
-</li>
-</ul>
-<h2 id="1-MySQL的概述"><a href="#1-MySQL的概述" class="headerlink" title="1 MySQL的概述"></a>1 MySQL的概述</h2><h3 id="1-1-数据库的概述"><a href="#1-1-数据库的概述" class="headerlink" title="1.1 数据库的概述"></a>1.1 数据库的概述</h3><h4 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h4><p>数据库就是一个文件系统，通过标准的SQL语句获取数据</p>
-<h3 id="1-2-MySQL的概述"><a href="#1-2-MySQL的概述" class="headerlink" title="1.2 MySQL的概述"></a>1.2 MySQL的概述</h3><h4 id="什么是MySQL数据库"><a href="#什么是MySQL数据库" class="headerlink" title="什么是MySQL数据库"></a>什么是MySQL数据库</h4><p><img src="D:%5Ctypora%E5%9B%BE%E7%89%87%5C1558492939657-1558493290446.png" alt="1558492939657"></p>
-<h3 id="1-3关系型数据库概述"><a href="#1-3关系型数据库概述" class="headerlink" title="1.3关系型数据库概述"></a>1.3关系型数据库概述</h3><h4 id="什么是关系型数据库"><a href="#什么是关系型数据库" class="headerlink" title="什么是关系型数据库"></a>什么是关系型数据库</h4><p>关系型数据库存放的是实体之间的关系</p>
-<p><img src="D:%5Ctypora%E5%9B%BE%E7%89%87%5C1558493010920.png" alt="1558493010920"></p>
-<h4 id="常见的关系型数据库"><a href="#常见的关系型数据库" class="headerlink" title="常见的关系型数据库"></a>常见的关系型数据库</h4><ul>
-<li><p>MySQL</p>
-</li>
-<li><p>Oracle</p>
-</li>
-<li><p>SQLServer</p>
-</li>
-<li><p>DB2</p>
-</li>
-<li><p>SyBase</p>
-</li>
-</ul>
-<h2 id="2-MySQL的数据存储方式的概述"><a href="#2-MySQL的数据存储方式的概述" class="headerlink" title="2 MySQL的数据存储方式的概述"></a>2 MySQL的数据存储方式的概述</h2><h3 id="2-1-服务器的概念"><a href="#2-1-服务器的概念" class="headerlink" title="2.1 服务器的概念"></a>2.1 服务器的概念</h3><h4 id="什么是服务器"><a href="#什么是服务器" class="headerlink" title="什么是服务器"></a>什么是服务器</h4><p>服务器要从硬件和软件两个方面来说：</p>
-<ul>
-<li><p>硬件：指的就是一台计算机。</p>
-</li>
-<li><p>软件：需要在这台电脑上安装数据库服务器。</p>
-</li>
-</ul>
-<h3 id="2-2-MySQL数据库存储的方式"><a href="#2-2-MySQL数据库存储的方式" class="headerlink" title="2.2 MySQL数据库存储的方式"></a>2.2 MySQL数据库存储的方式</h3><h4 id="存储方式的描述"><a href="#存储方式的描述" class="headerlink" title="存储方式的描述"></a>存储方式的描述</h4><p><img src="D:%5Ctypora%E5%9B%BE%E7%89%87%5C1558493046345.png" alt="1558493046345"></p>
-<p>一台数据库服务器中会创建很多数据库（一个项目，会创建一个数据库）。在数据库中会创建很多张表（一个实体会创建一个表）。在表中会有很多记录（一个对象的实例会添加一条新的记录）。</p>
-<h2 id="3-SQL的概述"><a href="#3-SQL的概述" class="headerlink" title="3 SQL的概述"></a>3 SQL的概述</h2><h3 id="3-1-SQL的概念"><a href="#3-1-SQL的概念" class="headerlink" title="3.1 SQL的概念"></a>3.1 SQL的概念</h3><h4 id="什么是SQL"><a href="#什么是SQL" class="headerlink" title="什么是SQL"></a>什么是SQL</h4><p><img src="D:%5Ctypora%E5%9B%BE%E7%89%87%5C1558493065295-1558493411567.png" alt="1558493065295"></p>
-<h3 id="3-2-SQL的分类"><a href="#3-2-SQL的分类" class="headerlink" title="3.2 SQL的分类"></a>3.2 SQL的分类</h3><h4 id="DDL：数据定义语言"><a href="#DDL：数据定义语言" class="headerlink" title="DDL：数据定义语言"></a>DDL：数据定义语言</h4><p>create，drop，alter..</p>
-<h4 id="DCL：数据控制语言"><a href="#DCL：数据控制语言" class="headerlink" title="DCL：数据控制语言"></a>DCL：数据控制语言</h4><p>grant，if…</p>
-<h4 id="DML：数据操纵语言"><a href="#DML：数据操纵语言" class="headerlink" title="DML：数据操纵语言"></a>DML：数据操纵语言</h4><p>insert，update，delete…</p>
-<h4 id="DQL：数据查询语言"><a href="#DQL：数据查询语言" class="headerlink" title="DQL：数据查询语言"></a>DQL：数据查询语言</h4><p>select</p>
-<h2 id="4-使用SQL"><a href="#4-使用SQL" class="headerlink" title="4 使用SQL"></a>4 使用SQL</h2><h3 id="4-1-SQL对数据库进行操作"><a href="#4-1-SQL对数据库进行操作" class="headerlink" title="4.1 SQL对数据库进行操作"></a>4.1 SQL对数据库进行操作</h3><h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><ul>
-<li><p>语法：</p>
-<ul>
-<li>create database 数据库名称 [character set 字符集 collate 字符集校对规则];</li>
-</ul>
-</li>
-</ul>
-<h4 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h4><ul>
-<li><p>语法：</p>
-<ul>
-<li>查看数据库服务器中所有的数据库：show databases;</li>
-</ul>
-</li>
-<li><p>查看某个数据库的定义信息： show create database 数据库名称;</p>
-</li>
-</ul>
-<h4 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h4><ul>
-<li><p>语法：</p>
-<ul>
-<li>alter database 数据库名称 character set 字符集 collate 校对规则;</li>
-</ul>
-</li>
-</ul>
-<h4 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h4><ul>
-<li><p>语法:</p>
-<ul>
-<li>drop database 数据库名称;</li>
-</ul>
-</li>
-</ul>
-<h4 id="其他数据库操作"><a href="#其他数据库操作" class="headerlink" title="其他数据库操作"></a>其他数据库操作</h4><ul>
-<li><p>切换数据库：use 数据库名称;</p>
-</li>
-<li><p>查看当前正在使用的数据库：</p>
-</li>
-</ul>
-<h3 id="4-2-SQL对数据库表进行操作"><a href="#4-2-SQL对数据库表进行操作" class="headerlink" title="4.2 SQL对数据库表进行操作"></a>4.2 SQL对数据库表进行操作</h3><h4 id="SQL创建表"><a href="#SQL创建表" class="headerlink" title="SQL创建表"></a>SQL创建表</h4><ul>
-<li><p>语法：</p>
-<ul>
-<li>create table 表名称(字段名称 字段类型(长度) 约束,字段名称 字段类型(长度) 约束…);</li>
-</ul>
-</li>
-<li><p>字段类型</p>
-<ul>
-<li>一个实体对应一个表，一个实体属性对应表的一个字段。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>Java中的类型 MySQL中的类型</p>
-<p>byte/short/int/long tinyint/smallint/int/bigint</p>
-<p>float float</p>
-<p>double double</p>
-<p>boolean bit</p>
-<p>char/String char和varchar类型</p>
-<p><strong>char和varchar的区别：</strong></p>
-<p><strong>* char代表是固定长度的字符或字符串。</strong></p>
-<p><strong>* 定义类型char(8),向这个字段存入字符串hello，那么数据库使用三个空格将其补全。</strong></p>
-<p><strong>* varchar代表的是可变长度的字符串。</strong></p>
-<p><strong>* 定义类型varchar(8), 向这个字段存入字符串hello,那么存入到数据库的就是hello。</strong></p>
-<p>Date date/time/datetime/timestamp</p>
-<p><strong>datetime和timestamp区别</strong></p>
-<p><strong>* datetime就是既有日期又有时间的日期类型，如果没有向这个字段中存值，数据库使用null存入到数据库中</strong></p>
-<p><strong>* timestamp也是既有日期又有时间的日期类型，如果没有向这个字段中存值，数据库使用当前的系统时间存入到数据库中。</strong></p>
-<p>File BLOB/TEXT</p>
-</blockquote>
-<ul>
-<li><p>约束</p>
-<ul>
-<li><p>约束作用：保证数据的完整性</p>
-</li>
-<li><p>单表约束分类：</p>
-<ul>
-<li><p>主键约束：primary key 主键约束默认就是唯一 非空的</p>
-</li>
-<li><p>唯一约束：unique</p>
-</li>
-<li><p>非空约束：not null</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>建表语句：</p>
-</li>
-</ul>
-<p>create database web_test1;</p>
-<p>use web_test1;</p>
-<p>create table user(</p>
-<p>id int primary key auto_increment,</p>
-<p>username varchar(20) unique,</p>
-<p>password varchar(20) not null,</p>
-<p>age int,</p>
-<p>birthday date</p>
-<p>);</p>
-<h4 id="SQL查看表"><a href="#SQL查看表" class="headerlink" title="SQL查看表"></a>SQL查看表</h4><ul>
-<li><p>查看某个数据库下的所有的表</p>
-</li>
-<li><p>语法：show tables;</p>
-</li>
-<li><p>查看某个表的结构信息</p>
-</li>
-<li><p>语法：desc 表名;</p>
-</li>
-</ul>
-<h4 id="SQL删除表"><a href="#SQL删除表" class="headerlink" title="SQL删除表"></a>SQL删除表</h4><ul>
-<li><p>删除表</p>
-<ul>
-<li>语法：drop table 表名;</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p><img src="media/image14.png" alt>{width=”4.134722222222222in” height=”0.8847222222222222in”}</p>
-</blockquote>
-<h4 id="SQL修改表"><a href="#SQL修改表" class="headerlink" title="SQL修改表"></a>SQL修改表</h4><ul>
-<li><p>修改表：添加列</p>
-<ul>
-<li>alter table 表名 add 列名 类型(长度) 约束;</li>
-</ul>
-</li>
-<li><p>修改表：修改列类型，长度和约束</p>
-<ul>
-<li>alter table 表名 modify 列名 类型(长度) 约束;</li>
-</ul>
-</li>
-<li><p>修改表：删除列</p>
-<ul>
-<li>alter table 表名 drop 列名;</li>
-</ul>
-</li>
-<li><p>修改表：修改列名称</p>
-<ul>
-<li>alter table 表名 change 旧列名 新列名 类型(长度) 约束;</li>
-</ul>
-</li>
-<li><p>修改表：修改表名</p>
-<ul>
-<li>rename table 表名 to 新的表名;</li>
-</ul>
-</li>
-<li><p>修改表：修改表的字符集</p>
-<ul>
-<li>alter table 表名 character set 字符集;</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-3-SQL对数据库表的记录进行操作（重点）"><a href="#4-3-SQL对数据库表的记录进行操作（重点）" class="headerlink" title="4.3 SQL对数据库表的记录进行操作（重点）"></a>4.3 SQL对数据库表的记录进行操作（重点）</h3><h4 id="SQL添加表的记录"><a href="#SQL添加表的记录" class="headerlink" title="SQL添加表的记录"></a>SQL添加表的记录</h4><ul>
-<li><p>语法：</p>
-<ul>
-<li><p>向表中插入某些列：insert into 表名 (列名1,列名2,列名3…) values (值1,值2,值3…)</p>
-</li>
-<li><p>向表中插入所有列：insert into 表名 values (值1,值2,值3…);</p>
-</li>
-</ul>
-</li>
-<li><p><strong>注意事项</strong></p>
-<ul>
-<li><p><strong>1.值的类型与数据库中表列的类型一致。</strong></p>
-</li>
-<li><p><strong>2.值的顺序与数据库中表列的顺序一致。</strong></p>
-</li>
-<li><p><strong>3.值的最大长度不能超过列设置最大长度。</strong></p>
-</li>
-<li><p><strong>4.值的类型是字符串或者是日期类型，使用单引号引起来。</strong></p>
-</li>
-</ul>
-</li>
-<li><p>添加记录</p>
-<ul>
-<li>添加某几列</li>
-</ul>
-</li>
-</ul>
-<p>insert into user (id,username,password) values (null,&#39;aaa&#39;,&#39;123&#39;);</p>
-<ul>
-<li>添加所有列</li>
-</ul>
-<p>insert into user values (null,&#39;bbb&#39;,&#39;123&#39;,23,&#39;1993-09-01&#39;);</p>
-<ul>
-<li>添加中文记录</li>
-</ul>
-<p>insert into user values (null,&#39;张三&#39;,&#39;123&#39;,23,&#39;1993-09-01&#39;);</p>
-<p><strong>直接向数据库中插入中文记录会出现错误！！！</strong></p>
-<p><strong>解决方法：</strong></p>
-<p><strong>show variables like &#39;%character%&#39;; --查看数据库中与字符集相关参数：</strong></p>
-<p><strong>需要将MySQL数据库服务器中的客户端部分的字符集改为gbk。</strong></p>
-<p><strong>找到MySQL的安装路径：my.ini文件，修改文件中[client]下的字符集</strong></p>
-<p>* 重新启动MySQL的服务器</p>
-<p>services.msc</p>
-<h4 id="SQL修改表的记录"><a href="#SQL修改表的记录" class="headerlink" title="SQL修改表的记录"></a>SQL修改表的记录</h4><ul>
-<li><p>语法:</p>
-<ul>
-<li>update 表名 set 列名=值,列名=值 [where 条件];</li>
-</ul>
-</li>
-<li><p><strong>注意事项</strong></p>
-<ul>
-<li><p><strong>1.值的类型与列的类型一致。</strong></p>
-</li>
-<li><p><strong>2.值的最大长度不能超过列设置的最大长度。</strong></p>
-</li>
-<li><p><strong>3.字符串类型和日期类型添加单引号。</strong></p>
-</li>
-</ul>
-</li>
-<li><p><strong>修改某一列的所有值</strong></p>
-</li>
-</ul>
-<p>update user set password = &#39;abc&#39;;</p>
-<ul>
-<li><strong>按条件修改数据</strong></li>
-</ul>
-<p>update user set password = &#39;xyz&#39; where username = &#39;bbb&#39;;</p>
-<ul>
-<li><strong>按条件修改多个列</strong></li>
-</ul>
-<p>update user set password=&#39;123&#39;,age=34 where username=&#39;aaa&#39;;</p>
-<h4 id="SQL删除表的记录"><a href="#SQL删除表的记录" class="headerlink" title="SQL删除表的记录"></a>SQL删除表的记录</h4><ul>
-<li><p>语法：</p>
-<ul>
-<li>delete from 表名 [where 条件];</li>
-</ul>
-</li>
-<li><p><strong>注意事项</strong></p>
-<ul>
-<li><p><strong>1.删除表的记录，指的是删除表中的一行记录。</strong></p>
-</li>
-<li><p><strong>2.删除如果没有条件，默认是删除表中的所有记录。</strong></p>
-</li>
-</ul>
-</li>
-<li><p><strong>删除某一条记录</strong></p>
-</li>
-</ul>
-<p>delete from user where id = 2;</p>
-<ul>
-<li><strong>删除表中的所有记录</strong></li>
-</ul>
-<p>delete from user;</p>
-<ul>
-<li><p><strong>删除表中的记录有两种做法:</strong></p>
-<ul>
-<li><p><strong>delete from user;</strong></p>
-<ul>
-<li><strong>删除所有记录，属于DML语句，一条记录一条记录删除。事务可以作用在DML语句上的</strong></li>
-</ul>
-</li>
-<li><p><strong>truncate table user;</strong></p>
-<ul>
-<li><strong>删除所有记录，属于DDL语句，将表删除，然后重新创建一个结构一样的表。事务不能控制DDL的</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="SQL查看表的记录（重点）"><a href="#SQL查看表的记录（重点）" class="headerlink" title="SQL查看表的记录（重点）"></a>SQL查看表的记录（重点）</h4><ul>
-<li><p><strong>基本查询</strong></p>
-<ul>
-<li><p><strong>语法:select [distinct] *|列名 from 表 [条件];</strong></p>
-</li>
-<li><p>环境的准备：</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>create table exam(</p>
-<p>id int primary key auto_increment,</p>
-<p>name varchar(20),</p>
-<p>english int,</p>
-<p>chinese int,</p>
-<p>math int</p>
-<p>);</p>
-<p>insert into exam values (null,&#39;张三&#39;,85,74,91);</p>
-<p>insert into exam values (null,&#39;李四&#39;,95,90,83);</p>
-<p>insert into exam values (null,&#39;王五&#39;,85,84,59);</p>
-<p>insert into exam values (null,&#39;赵六&#39;,75,79,76);</p>
-<p>insert into exam values (null,&#39;田七&#39;,69,63,98);</p>
-<p>insert into exam values (null,&#39;李老八&#39;,89,90,83);</p>
-<ul>
-<li>查询所有学生考试成绩信息</li>
-</ul>
-<p>select * from exam;</p>
-<ul>
-<li>查询所有学生的姓名和英语成绩</li>
-</ul>
-<p>select name,english from exam;</p>
-<ul>
-<li>查询英语成绩信息（不显示重复的值）</li>
-</ul>
-<p>select distinct english from exam;</p>
-<ul>
-<li>查看学生姓名和学生的总成绩</li>
-</ul>
-<p>select name,english+chinese+math from exam;</p>
-<p>!</p>
-<ul>
-<li>别名查询</li>
-</ul>
-<p>select name,english+chinese+math as sum from exam;</p>
-<ul>
-<li><p><strong>条件查询</strong></p>
-<ul>
-<li><p><strong>使用where子句</strong></p>
-<ul>
-<li><p><strong>&gt; , &lt; , &gt;= , &lt;= , &lt;&gt; ,=</strong></p>
-</li>
-<li><p><strong>like:模糊查询</strong></p>
-</li>
-<li><p><strong>in:范围查询</strong></p>
-</li>
-<li><p><strong>条件关联:and , or ,not</strong></p>
-</li>
-</ul>
-</li>
-<li><p><strong>查询李四学生的成绩：</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<p>select * from exam where name = &#39;李四&#39;;</p>
-<ul>
-<li><strong>查询名称叫李四学生并且英文大于90分</strong></li>
-</ul>
-<p>select * from exam where name = &#39;李四&#39; and english &gt; 90;</p>
-<ul>
-<li><strong>查询姓李的学生的信息</strong></li>
-</ul>
-<p>like可以进行模糊查询,在like子句中可以使用_或者%作为占位符。_只能代表一个字符，而%可以代表任意个字符。</p>
-<p>* like ‘李_‘ ：名字中必须是两个字，而且是姓李的。</p>
-<p>* like ‘李%’ ：名字中姓李的学生，李子后可以是1个或任意个字符。</p>
-<p>* like ‘%四’ ：名字中以四结尾的。</p>
-<p>* like ‘%王%’ ：只要名称中包含这个字就可以。</p>
-<p>select * from exam where name like &#39;李%&#39;;</p>
-<ul>
-<li><strong>查询英语成绩是69,75,89学生的信息</strong></li>
-</ul>
-<p>select * from exam where english in (69,75,89);</p>
-<ul>
-<li><p><strong>排序查询</strong></p>
-<ul>
-<li><p><strong>使用order by 字段名称 asc/desc;</strong></p>
-</li>
-<li><p>查询学生信息，并且按照语文成绩进行排序：</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>select * from exam order by chinese;</p>
-<ul>
-<li>查询学生信息，并且按照语文成绩倒序排序：</li>
-</ul>
-<p>select * from exam order by chinese desc;</p>
-<ul>
-<li>查询学生信息，先按照语文成绩进行倒序排序，如果成绩相同再按照英语成绩升序排序</li>
-</ul>
-<p>select * from exam order by chinese desc,english asc;</p>
-<ul>
-<li>查询姓李的学生的信息，按照英语成绩降序排序</li>
-</ul>
-<p>select * from exam where name like &#39;李%&#39; order by english desc;</p>
-<ul>
-<li><p><strong>分组统计查询</strong></p>
-<ul>
-<li><p><strong>聚合函数使用</strong></p>
-<ul>
-<li><p><strong>sum();</strong></p>
-<ul>
-<li>获取所有学生的英语成绩的总和:</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>select sum(english) from exam;</p>
-<ul>
-<li>获取所有学生的英语成绩和数学成绩总和：</li>
-</ul>
-<p>select sum(english),sum(math) from exam;</p>
-<ul>
-<li>查询姓李的学生的英语成绩的总和</li>
-</ul>
-<p>select sum(english) from exam where name like &#39;李%&#39;;</p>
-<ul>
-<li>查询所有学生各科的总成绩：</li>
-</ul>
-<p>select sum(english)+sum(chinese)+sum(math) from exam;</p>
-<p>select sum(english+chinese+math) from exam;</p>
-<p>与上面的语句有什么不同？</p>
-<p>* 上面的语句是按照列的方式统计，英语成绩总和+语文成绩总和+数学成绩总和。</p>
-<p>* 下面的语句先计算英语+数学+语文然后再求和。</p>
-<p>* 使用ifnull的函数</p>
-<ul>
-<li><p><strong>count();</strong></p>
-<ul>
-<li>获得学生的总数</li>
-</ul>
-</li>
-</ul>
-<p>select count(*) from exam;</p>
-<ul>
-<li>获得姓李的学生的个数</li>
-</ul>
-<p>select count(*) from exam where name like &#39;李%&#39;;</p>
-<ul>
-<li><p><strong>max();</strong></p>
-<ul>
-<li>获得数学成绩的最高分：</li>
-</ul>
-</li>
-</ul>
-<p>select max(math) from exam;</p>
-<ul>
-<li><p><strong>min();</strong></p>
-<ul>
-<li>获得语文成绩的最小值</li>
-</ul>
-</li>
-</ul>
-<p>select min(chinese) from exam;</p>
-<ul>
-<li><p><strong>avg();</strong></p>
-<ul>
-<li><strong>获取语文成绩的平均值</strong></li>
-</ul>
-</li>
-</ul>
-<p>select avg(chinese) from exam;</p>
-<ul>
-<li><p><strong>分组查询</strong></p>
-<ul>
-<li><p><strong>语法：使用group by 字段名称;</strong></p>
-</li>
-<li><p><strong>环境准备</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<p>create table orderitem(</p>
-<p>id int primary key auto_increment,</p>
-<p>product varchar(20),</p>
-<p>price double</p>
-<p>);</p>
-<p>insert into orderitem values (null,&#39;电视机&#39;,2999);</p>
-<p>insert into orderitem values (null,&#39;电视机&#39;,2999);</p>
-<p>insert into orderitem values (null,&#39;洗衣机&#39;,1000);</p>
-<p>insert into orderitem values (null,&#39;洗衣机&#39;,1000);</p>
-<p>insert into orderitem values (null,&#39;洗衣机&#39;,1000);</p>
-<p>insert into orderitem values (null,&#39;冰箱&#39;,3999);</p>
-<p>insert into orderitem values (null,&#39;冰箱&#39;,3999);</p>
-<p>insert into orderitem values (null,&#39;空调&#39;,1999);</p>
-<ul>
-<li>按商品名称统计，每类商品所购买的个数：</li>
-</ul>
-<p>select product,count(*) from orderitem group by product;</p>
-<ul>
-<li>按商品名称统计，每类商品所花费的总金额：</li>
-</ul>
-<p>select product,sum(price) from orderitem group by product;</p>
-<ul>
-<li>按商品名称统计，统计每类商品花费的总金额在5000元以上的商品</li>
-</ul>
-<p><strong>***** where的子句后面不能跟着聚合函数。如果现在使用带有聚合函数的条件过滤（分组后条件过滤）需要使用一个关键字having</strong></p>
-<p><strong>select product,sum(price) from orderitem group by product having sum(price) &gt; 5000;</strong></p>
-<ul>
-<li>按商品名称统计，统计每类商品花费的总金额在5000元以上的商品，并且按照总金额升序排序</li>
-</ul>
-<p>select product,sum(price) from orderitem group by product having sum(price) &gt; 5000 order by sum(price) asc;</p>
-<ul>
-<li><p><strong>总结</strong></p>
-<ul>
-<li><strong>S(select)… F(from)…W(where)…G(group by)…H(having)…O(order by);</strong></li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://cyannote.github.io.git/MySQL-单表查询笔记/" data-id="cjycoezoz0002l47k3isj7dzx" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -2226,7 +2201,7 @@ url=jdbc:mysql://locahost:3306/test?rewriteBatchedStatements=true</code></pre>
     <h2 class="author">inverse</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>17</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>19</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
       <a href="/tags"><div><strong>0</strong><br>标签</div></a>
     </div>

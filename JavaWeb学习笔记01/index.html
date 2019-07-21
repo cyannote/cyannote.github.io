@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>JavaWEB学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JavaWeb1. Servlet1.1  Servlet的生命周期 什么是生命周期?? 生命周期:一个对象从创建到销毁的全过程.  Servlet的生命周期 Servlet是在第一次被访问的时候会被实例化。只要Servlet一被实例化那么Servlet中的init方法就会执行(init只会执行一次)。任何一次从客户端发送来的请求，那么Servlet中的service方法就会执行（在service">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWEB学习笔记">
+<meta property="og:url" content="http://cyannote.github.io.git/JavaWeb学习笔记01/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JavaWeb1. Servlet1.1  Servlet的生命周期 什么是生命周期?? 生命周期:一个对象从创建到销毁的全过程.  Servlet的生命周期 Servlet是在第一次被访问的时候会被实例化。只要Servlet一被实例化那么Servlet中的init方法就会执行(init只会执行一次)。任何一次从客户端发送来的请求，那么Servlet中的service方法就会执行（在service">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478153850.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478193250.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559478471685.png">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478587809.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478963129.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559479022812.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559479154836.png">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559479472885.png">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559479924151.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559479965085.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480008166.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480138009.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480209583.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480659441.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480745878.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481072416.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481179748.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481254972.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481357432.jpg">
+<meta property="og:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481400089.jpg">
+<meta property="og:updated_time" content="2019-07-21T07:44:25.605Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaWEB学习笔记">
+<meta name="twitter:description" content="JavaWeb1. Servlet1.1  Servlet的生命周期 什么是生命周期?? 生命周期:一个对象从创建到销毁的全过程.  Servlet的生命周期 Servlet是在第一次被访问的时候会被实例化。只要Servlet一被实例化那么Servlet中的init方法就会执行(init只会执行一次)。任何一次从客户端发送来的请求，那么Servlet中的service方法就会执行（在service">
+<meta name="twitter:image" content="d:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478153850.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>19</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-JavaWeb学习笔记01" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/JavaWeb学习笔记01/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T08:06:31.923Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaWEB学习笔记
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaWeb"><a href="#JavaWeb" class="headerlink" title="JavaWeb"></a>JavaWeb</h1><h2 id="1-Servlet"><a href="#1-Servlet" class="headerlink" title="1. Servlet"></a>1. Servlet</h2><h3 id="1-1-Servlet的生命周期"><a href="#1-1-Servlet的生命周期" class="headerlink" title="1.1  Servlet的生命周期"></a>1.1  Servlet的生命周期</h3><ul>
+<li><p><strong>什么是生命周期??</strong></p>
+<p>生命周期:一个对象从创建到销毁的全过程.</p>
+</li>
+<li><p><strong>Servlet的生命周期</strong></p>
+<p>Servlet是在第一次被访问的时候会被实例化。只要Servlet一被实例化那么Servlet中的init方法就会执行(<strong>init只会执行一次</strong>)。任何一次从客户端发送来的请求，那么Servlet中的service方法就会执行（在service方法的内部根据请求的方式不同调用不同的doxxx方法）。当Servlet从服务器中移除或服务器关闭时Servlet对象被销毁，里面的destroy方法就会执行，然后垃圾回收器就会将其回收掉。</p>
+</li>
+</ul>
+<h3 id="1-2-Servlet启动时加载"><a href="#1-2-Servlet启动时加载" class="headerlink" title="1.2  Servlet启动时加载"></a>1.2  Servlet启动时加载</h3><ul>
+<li><p><strong>为什么使用启动时加载</strong></p>
+<p>Servlet对象是第一次被访问的时候会被创建的，init方法就会执行。假设在init方法中做了一些比较耗时的操作（比如：加载了一些配置文件并且解析可能需要花费3秒钟）。第一个用户第一次访问这个Servlet的时候，需要等待3秒钟。<strong>如何使第一个用户在第一次访问的时候不需要花费这么长时间？</strong></p>
+<p>配置启动时加载： 在web.html中Servlet配置下设置<load-on-startup>2(数字越小优先级别越高)</load-on-startup></p>
+<p>service.xml中有设置一个默认的servlet，它的启动时加载的优先级别为1.因此我们在设置启动时加载的优先级别从2开始。</p>
+</li>
+</ul>
+<h3 id="1-3-Servlet路径配置"><a href="#1-3-Servlet路径配置" class="headerlink" title="1.3 Servlet路径配置"></a>1.3 Servlet路径配置</h3><ul>
+<li><p>全路径匹配</p>
+<p>以/开始      比如：/ServletDemo1   /aaa/ServletDemo2</p>
+</li>
+<li><p>目录匹配</p>
+<p>以 / 开始，以 /<em>结束        比如：/</em>        /aaa/*    /aaa/bbb/*</p>
+</li>
+<li><p>扩展名匹配</p>
+<p>不能以 / 开始，以<em>开始             比如：</em>.action       *.do          *.jsp</p>
+</li>
+</ul>
+<p><strong>访问的优先级别：完全路径匹配  &gt;  目录匹配  &gt;  扩展名匹配</strong></p>
+<h3 id="1-4-ServletConfig对象"><a href="#1-4-ServletConfig对象" class="headerlink" title="1.4 ServletConfig对象"></a>1.4 ServletConfig对象</h3><p>​    ServletConfig用来获得Servlet的相关的配置的对象。</p>
+<ul>
+<li><p>获得ServletConfig对象</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478153850.jpg" alt="img"></p>
+</li>
+<li><p>ServletConfig对象的API</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478193250.jpg" alt="img"></p>
+<p>    获得Servlet的初始化参数 getInitParameter（String name）</p>
+<p>​                                                    getInitParameterNames()</p>
+<p>    获得ServletContext对象    getServletContext()</p>
+<p>    获得Servlet的名称                getServletName()</p>
+</li>
+<li><p>配置初始化参数</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559478471685.png" alt="1559478471685"></p>
+</li>
+</ul>
+<h3 id="1-5-ServletContext对象"><a href="#1-5-ServletContext对象" class="headerlink" title="1.5 ServletContext对象"></a>1.5 ServletContext对象</h3><ul>
+<li><h4 id="什么是ServletContext"><a href="#什么是ServletContext" class="headerlink" title="什么是ServletContext"></a>什么是ServletContext</h4><p>ServletContext：Servlet的上下文对象。ServletContext对象对Servlet之前和之后的内容都知道。这个对象一个web项目只有一个。在服务器启动的时候为每个web项目创建一个单独的ServletContext对象。</p>
+</li>
+<li><p><strong>ServletContext获取工程信息</strong></p>
+<p>因为一个web项目只有一个ServletContext对象，所以这个对象对整个项目的相关内容都是了解的。</p>
+<ul>
+<li><p>获取文件的MIME类型：getMimeType(String File)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478587809.jpg" alt="img"></p>
+</li>
+<li><p>获取web项目请求工程名：getContextPath()</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559478963129.jpg" alt="img"></p>
+</li>
+<li><p>获取web项目的初始化参数：getInitParameter(String name)</p>
+<p>​                                                 getInitParameterNames()</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559479022812.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>配置全局初始化参数</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559479154836.png" alt="1559479154836"></p>
+</li>
+<li><p><strong>Servlet对象读取web项目下的文件</strong></p>
+<p>之前使用IO流就可以读取文件（java项目中）。现在是一个web项目，web项目需要发布到tomcat下才能访问的。获取web项目下的文件如果使用传统的IO就会出现问题（原因：路径中使用的是相对路径，相对的是JRE环境）。</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5C1559479472885.png" alt="1559479472885"></p>
+<p>getServletContext()   –&gt; 获取ServletContext对象</p>
+<p>方法一：通过ServletContext的getResourceAsStream（“路径”）方法获取输出流</p>
+<p>方法二： 通过ServletContext的getRealPath（“路径”）方法获得文件的真正路径</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>ServletContext作为域对象</strong></p>
+<p>域对象:指的是将数据存入到域对象中，这个数据就会有一定的作用范围。域指的是一定的作用范围。</p>
+<ul>
+<li><p>ServletContext是在服务器启动的时候为每个web项目单独创建一个ServletContext对象。当web项目从服务器中移除，或者是关闭服务器的时候ServletContext对象会被销毁。向ServletContext中保存的数据一直存在（当服务器关闭的时候ServletContext对象被销毁，然后里面数据才会失效）。<strong>范围：整个web应用。</strong></p>
+</li>
+<li><p>ServletContext作为域对象的API</p>
+<p>存入数据的方法：setAttribute(String name, Object value)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559479924151.jpg" alt="img"></p>
+</li>
+<li><p>获取数据的方法： getAttribute(String name)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559479965085.jpg" alt="img"></p>
+</li>
+<li><p>移除数据的方法: removeAttribute(Steing name)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480008166.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-Response对象"><a href="#2-Response对象" class="headerlink" title="2.Response对象"></a>2.Response对象</h2><h3 id="2-1-什么是Response"><a href="#2-1-什么是Response" class="headerlink" title="2.1 什么是Response"></a>2.1 什么是Response</h3><p>​        开发的软件是B/S结构的软件，可以通过浏览器访问服务器的软件。从浏览器输入一个地址访问服务器（将这个过程称为是请求）。服务器接收到请求，需要进行处理，处理以后需要将处理结果显示回浏览器端（将这个过程称为是响应）。</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480138009.jpg" alt="img"></p>
+<h3 id="2-2-Response对象的API"><a href="#2-2-Response对象的API" class="headerlink" title="2.2 Response对象的API"></a>2.2 Response对象的API</h3><ul>
+<li><p><strong>Response关于相应行的方法</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480209583.jpg" alt="img"></p>
+<p>setStatus（int sc）</p>
+<p>响应码：</p>
+<p>    200 正确<br>    302 重定向<br>    304 查找本地缓存<br>    404 请求资源不存在<br>    500 服务器内部错误</p>
+</li>
+<li><p><strong>Response关于响应头的方法</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480659441.jpg" alt="img"></p>
+<p>set开头的方法:针对一个key对应一个value的情况.</p>
+<p>    举例：比如有一个头 content-Type:text/html  setHeader(“content-Type”,”text/plain”);<br>    最终得到头的结果：content-Type:text/plain</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559480745878.jpg" alt="img"></p>
+<p>add开头的方法:针对一个key对应多个value的情况。</p>
+</li>
+</ul>
+<p>    举例：比如有一个content-Type:text/html      addHeader(“content-Type”,”text/plain”);<br>    最终得到头的结果：content-Type:text/html,text/plain</p>
+<ul>
+<li><p><strong>Response关于响应体的方法</strong></p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481072416.jpg" alt="img"></p>
+<p>获得输出流</p>
+</li>
+<li><p><strong>Response其他的API</strong></p>
+<ul>
+<li><p>重定向的方法  sendRedirect(String Location)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481179748.jpg" alt="img"></p>
+</li>
+<li><p>设置浏览器打开页面时候采用的字符集  setContentType(String type)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481254972.jpg" alt="img"></p>
+</li>
+<li><p>设置响应字符流的缓冲区字符集 setCharacterEncoding(String charset)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481357432.jpg" alt="img"></p>
+</li>
+<li><p>服务器向浏览器回写Cookie的方法 addCookies(Cookies cookies)</p>
+<p><img src="D:%5Ctypora%E7%AC%94%E8%AE%B0%5CTypora%E5%9B%BE%E7%89%87%5Cclip_image002-1559481400089.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3-Response对象API的代码实现"><a href="#2-3-Response对象API的代码实现" class="headerlink" title="2.3 Response对象API的代码实现"></a>2.3 Response对象API的代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResponseDemo02</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		System.out.println(<span class="number">1</span>);</span><br><span class="line">		<span class="comment">//重定向</span></span><br><span class="line">		<span class="comment">//设置状态码</span></span><br><span class="line">		response.setStatus(<span class="number">302</span>);</span><br><span class="line">		<span class="comment">//设置重定向地址</span></span><br><span class="line">		response.setHeader(<span class="string">"Location"</span>, <span class="string">"/web01/HelloServlet"</span>);</span><br><span class="line">		<span class="comment">//重定向的常用方法</span></span><br><span class="line">		response.sendRedirect(<span class="string">"/web01/HelloServlet02"</span>);</span><br><span class="line">		<span class="comment">//定时刷新</span></span><br><span class="line">		response.setHeader(<span class="string">"Refresh"</span>, <span class="string">"5;url=/web01/HelloServlet03"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-Response对象响应的中文乱码处理"><a href="#2-4-Response对象响应的中文乱码处理" class="headerlink" title="2.4 Response对象响应的中文乱码处理"></a>2.4 Response对象响应的中文乱码处理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字节流输出中文(乱码是由于字节流bytes数组编码格式和浏览器默认的编码格式不一致)</span></span><br><span class="line">		<span class="comment">// 设置浏览器的默认编码格式</span></span><br><span class="line">		response.setHeader(<span class="string">"Content-Type"</span>, <span class="string">"text/html;charset=UTF-8"</span>);</span><br><span class="line">		<span class="comment">// 设置bytes数组的编码格式</span></span><br><span class="line">		<span class="keyword">byte</span>[] bytes = <span class="string">"中文"</span>.getBytes(<span class="string">"UTF-8"</span>);</span><br><span class="line">		response.getOutputStream().write(bytes);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符流输出中文(乱码是由于浏览器的缓冲区的默认编码格式为"ISO-8859-1",该编码不支持中文)</span></span><br><span class="line">		<span class="comment">// 修改缓冲区编码格式</span></span><br><span class="line">		<span class="comment">// response.setCharacterEncoding("UTF-8");</span></span><br><span class="line">		<span class="comment">// // 修改浏览器默认编码格式</span></span><br><span class="line">		<span class="comment">// response.setHeader("Content-Type", "text/html;charset=UTF-8");</span></span><br><span class="line">		<span class="comment">//简便方法</span></span><br><span class="line">		response.setContentType(<span class="string">"text/html;charset=UTF-8"</span>);</span><br><span class="line">		response.getWriter().println(<span class="string">"中文"</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Request对象"><a href="#3-Request对象" class="headerlink" title="3. Request对象"></a>3. Request对象</h2><h3 id="3-1-什么是Request对象"><a href="#3-1-什么是Request对象" class="headerlink" title="3.1 什么是Request对象"></a>3.1 什么是Request对象</h3><p>​    开发的软件都是B/S结构软件，从浏览器向服务器提交一些数据，将这些内容进行封装就封装成了一个请求对象（Request对象）。</p>
+<h3 id="3-2-Request对象的API"><a href="#3-2-Request对象的API" class="headerlink" title="3.2  Request对象的API"></a>3.2  Request对象的API</h3><p><strong>获得客户机信息</strong></p>
+<ul>
+<li>获取请求方式   getMethod()</li>
+<li>获取请求路径后的提交参数的字符串   getQueryString()</li>
+<li>获得请求路径的URL和URI<ul>
+<li>getRequestURI</li>
+<li>getRequestURL</li>
+</ul>
+</li>
+<li>获得客户机的IP的方法      getRemoteAddr()</li>
+</ul>
+<p><strong>获得请求头的方法</strong></p>
+<ul>
+<li>获得一个key对应一个value的请求头    getHeader(String name)</li>
+<li>获得一个key对应多个value的请求头     getHeaders(String name)</li>
+</ul>
+<p><strong>获得请求参数的方法</strong></p>
+<ul>
+<li><p>获得提交的参数(一个name对应一个key)             getParameter(String name)</p>
+</li>
+<li><p>获得提交的参数(一个name对应多个key)             getParameterValues(String name)</p>
+</li>
+<li><p>获得提交的参数,将提交的参数的名称和对应的值存进一个Map集合中</p>
+<p>getParameterMap()</p>
+</li>
+</ul>
+<p><strong>Resquest作为域对象存取数据的方法</strong>(域作用)范围为本次请求响应)</p>
+<ul>
+<li>从request域中存数据        addAtrribute(String name, Object o)</li>
+<li>从request域中获取数据      getAttribute(String name)</li>
+<li>从request域中移除数据       removeAtrribute(String name)</li>
+</ul>
+<p><strong>request作为域对象的作用范围:</strong></p>
+<p>Request对象其实就是从客户端浏览器向服务器发送的一次请求信息的封装。那么实质上向Request中所保存的数据有效期也是<strong>一次请求范围</strong>。</p>
+<p><strong>一次请求范围</strong>：从客户端浏览器向服务器发送一次请求，服务器针对这次请求对浏览器作出响应。当服务器作出响应之后，请求对象就销毁了，保存在其中的数据就无效了。</p>
+<h3 id="3-3-Request对象API的代码实现"><a href="#3-3-Request对象API的代码实现" class="headerlink" title="3.3 Request对象API的代码实现"></a>3.3 Request对象API的代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取请求方法</span></span><br><span class="line">		String method = request.getMethod();</span><br><span class="line">		System.out.println(method);</span><br><span class="line">		<span class="comment">//获取客户机ip</span></span><br><span class="line">		String ip = request.getRemoteAddr();</span><br><span class="line">		System.out.println(ip);</span><br><span class="line">		<span class="comment">//获取请求参数的字符串</span></span><br><span class="line">		String queryString = request.getQueryString();</span><br><span class="line">		System.out.println(queryString);</span><br><span class="line">		<span class="comment">//获取请求路径的URL和URI</span></span><br><span class="line">		StringBuffer url = request.getRequestURL();</span><br><span class="line">		System.out.println(<span class="string">"URL---"</span> + url);</span><br><span class="line">		String uri = request.getRequestURI();</span><br><span class="line">		<span class="comment">//获取用户浏览器信息</span></span><br><span class="line">		System.out.println(<span class="string">"URI---"</span> + uri);</span><br><span class="line">		System.out.println(request.getHeader(<span class="string">"User-Agent"</span>));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Array;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Enumeration;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RequestDemo01</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">			HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// 通过request.getParameter(name)获取request请求中的参数</span></span><br><span class="line">		<span class="comment">// String username = request.getParameter("username");</span></span><br><span class="line">		<span class="comment">// String password = request.getParameter("password");</span></span><br><span class="line">		<span class="comment">// String sex = request.getParameter("sex");</span></span><br><span class="line">		<span class="comment">// String city = request.getParameter("city");</span></span><br><span class="line">		<span class="comment">// String[] hobby = request.getParameterValues("hobby");</span></span><br><span class="line">		<span class="comment">// String info = request.getParameter("info");</span></span><br><span class="line">		<span class="comment">// System.out.println(username);</span></span><br><span class="line">		<span class="comment">// System.out.println(password);</span></span><br><span class="line">		<span class="comment">// System.out.println(sex);</span></span><br><span class="line">		<span class="comment">// System.out.println(city);</span></span><br><span class="line">		<span class="comment">// System.out.println(Arrays.toString(hobby));</span></span><br><span class="line">		<span class="comment">// System.out.println(info);</span></span><br><span class="line">		<span class="comment">// 通过request.getParameterNames()方法获取request中的参数</span></span><br><span class="line">		<span class="comment">// 此方法适用于一个key对应一个value的情况</span></span><br><span class="line">		<span class="comment">// Enumeration&lt;String&gt; names = request.getParameterNames();</span></span><br><span class="line">		<span class="comment">// while (names.hasMoreElements()) &#123;</span></span><br><span class="line">		<span class="comment">// String name = names.nextElement();</span></span><br><span class="line">		<span class="comment">// String value = request.getParameter(name);</span></span><br><span class="line">		<span class="comment">// System.out.println(name + "---" + value);</span></span><br><span class="line">		<span class="comment">// &#125;</span></span><br><span class="line">		<span class="comment">// 通过request.getParameterMap()来获取request的参数</span></span><br><span class="line">		Map&lt;String, String[]&gt; map = request.getParameterMap();</span><br><span class="line">		<span class="keyword">for</span> (String key : map.keySet()) &#123;</span><br><span class="line">			String[] value = map.get(key);</span><br><span class="line">			<span class="keyword">if</span> (value.length == <span class="number">1</span>) &#123;</span><br><span class="line">				System.out.println(key + <span class="string">"---"</span> + value[<span class="number">0</span>]);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				System.out.println(key + <span class="string">"---"</span> + Arrays.toString(value));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">			HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doGet(request, response);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-Request对象接收表单请求参数的中文乱码处理"><a href="#3-4-Request对象接收表单请求参数的中文乱码处理" class="headerlink" title="3.4 Request对象接收表单请求参数的中文乱码处理"></a>3.4 Request对象接收表单请求参数的中文乱码处理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//post提交方式,请求参数中文乱码是由于post的请求参数是从请求体中拿到缓冲区中,而缓冲区的默认编码格式为ISO-8859-1,需设置缓冲区的编码格式</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">			HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">		System.out.println(username);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>//get提交方式,请求参数中文乱码是由于get的请求数据是先通过UTF-8的Url编码变成%十六进制的形式拼接在请求行,再存储在缓冲区,缓冲区的默认编码格式为ISO-8859-1.为了将参数转换成中文提取出,需要先以ISO-8859-1的编码格式从缓存区中取出数据,再把数据进行UTF-8的解码,解析成中文</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">String name = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// String encode = URLEncoder.encode(name, "ISO-8859-1");</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// String decode = URLDecoder.decode(encode, "UTF-8");</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// System.out.println(decode);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//常用方法</span></span><br><span class="line"></span><br><span class="line">String username = <span class="keyword">new</span> String(name.getBytes(<span class="string">"ISO-8859-1"</span>), <span class="string">"UTF-8"</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(username);</span><br><span class="line">           </span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://cyannote.github.io.git/JavaWeb学习笔记01/" data-id="cjycogqhv0000vo7k75o9l853" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/JavaScript学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/JDBC高级/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JDBC高级</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">Hexo</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/source/plugin/img/avatar.jpg">
+    <h2 class="author">inverse</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>19</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/cyannote" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 inverse<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
